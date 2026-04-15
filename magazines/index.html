@@ -4,30 +4,129 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Good Morning — Alle Ausgaben</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0a0a0a; color: #fff; font-family: 'Inter', sans-serif; min-height: 100vh; padding: 80px 60px; }
-  h1 { font-family: 'Fraunces', serif; font-size: clamp(56px, 10vw, 120px); font-weight: 900; line-height: 0.9; letter-spacing: -3px; margin-bottom: 16px; }
-  .sub { font-size: 18px; color: #666; margin-bottom: 64px; font-style: italic; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2px; }
-  .card { background: #111; padding: 32px; text-decoration: none; color: #fff; display: block; transition: background 0.15s; border-left: 4px solid #6c63ff; }
-  .card:hover { background: #1a1a1a; }
-  .card-date { font-family: 'Fraunces', serif; font-size: 48px; font-weight: 900; line-height: 1; color: #6c63ff; }
-  .card-label { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #555; margin-top: 8px; }
-  .card-new { display: inline-block; background: #e63946; color: #fff; font-size: 10px; font-weight: 800; letter-spacing: 2px; padding: 4px 10px; margin-top: 12px; text-transform: uppercase; }
-  @media (max-width: 600px) { body { padding: 40px 24px; } }
+  body {
+    background: #070810;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+  }
+  .header {
+    padding: 64px 60px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .header-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 12px;
+  }
+  .header-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(48px, 8vw, 110px);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  .header-title span { color: #6c63ff; }
+  .header-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 20px;
+    letter-spacing: 0.1em;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 48px 60px;
+  }
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 32px;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  }
+  .card:hover {
+    background: rgba(108,99,255,0.12);
+    border-color: rgba(108,99,255,0.4);
+    transform: translateY(-2px);
+  }
+  .card-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #6c63ff;
+    margin-bottom: 16px;
+  }
+  .card-date {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1.0;
+    margin-bottom: 8px;
+  }
+  .card-weekday {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .card-arrow {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+  .footer {
+    padding: 40px 60px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 11px;
+    color: rgba(255,255,255,0.15);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 600px) {
+    .header, .grid, .footer { padding-left: 24px; padding-right: 24px; }
+  }
 </style>
 </head>
 <body>
-<h1>Good<br>Morning</h1>
-<p class="sub">Timo's Daily Briefing — Alle Ausgaben</p>
-<div class="grid" id="editions">
+
+<header class="header">
+  <div class="header-label">Timo Offs tägliches Briefing</div>
+  <div class="header-title">Good <span>Morning</span></div>
+  <div class="header-sub">Alle Ausgaben · offthecloud.github.io/magazines</div>
+</header>
+
+<div class="grid">
+
   <a class="card" href="2026-04-15.html">
-    <div class="card-date">15. Apr</div>
-    <div class="card-label">Mittwoch · 2026 · № 001</div>
-    <span class="card-new">Neu</span>
+    <div class="card-num">Ausgabe · 2026</div>
+    <div class="card-date">15. April<br>2026</div>
+    <div class="card-weekday">Mittwoch</div>
+    <div class="card-arrow">Lesen →</div>
   </a>
+
 </div>
+
+<footer class="footer">
+  Good Morning · Timo Off · offthecloud.github.io
+</footer>
+
 </body>
 </html>

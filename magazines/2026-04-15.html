@@ -10,608 +10,502 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --f: 'Fraunces', Georgia, serif;
-    --i: 'Inter', system-ui, sans-serif;
-  }
-
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: var(--i);
-    background: #0a0a0a;
-    color: #fff;
+    font-family: 'Inter', sans-serif;
     overflow-x: hidden;
   }
 
-  /* ─── MASTHEAD ─── */
+  /* MASTHEAD */
   .masthead {
-    background: #0a0a0a;
-    padding: 60px 80px 40px;
-    border-bottom: 3px solid #fff;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 40px;
+    background: #070810;
+    padding: 40px 60px 28px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
-
-  .masthead-title {
-    font-family: var(--f);
-    font-size: clamp(64px, 10vw, 140px);
-    font-weight: 900;
-    line-height: 0.88;
-    letter-spacing: -4px;
-    color: #fff;
-  }
-
-  .masthead-title span {
-    display: block;
-    font-size: clamp(28px, 4vw, 52px);
-    font-weight: 300;
-    font-style: italic;
-    letter-spacing: 0px;
-    color: #888;
-    margin-top: 8px;
-  }
-
-  .masthead-meta {
-    text-align: right;
-    font-family: var(--i);
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #555;
-    line-height: 2;
-  }
-
-  .masthead-meta strong {
-    display: block;
-    font-size: 28px;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 0;
-    text-transform: none;
-  }
-
-  /* ─── TOC BAR ─── */
-  .toc-bar {
-    background: #fff;
-    color: #0a0a0a;
-    padding: 20px 80px;
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .toc-bar-label {
+  .masthead-label {
+    font-family: 'Inter', sans-serif;
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 0.35em;
+    color: rgba(255,255,255,0.35);
     text-transform: uppercase;
-    color: #888;
-    margin-right: 8px;
-    white-space: nowrap;
+    margin-bottom: 14px;
   }
-
-  .toc-tag {
+  .masthead-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(52px, 9vw, 120px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  .masthead-title span { color: #6c63ff; }
+  .masthead-date {
+    font-family: 'Inter', sans-serif;
     font-size: 13px;
-    font-weight: 600;
-    padding: 6px 14px;
-    border: 2px solid #0a0a0a;
-    border-radius: 2px;
-    text-decoration: none;
-    color: #0a0a0a;
-    white-space: nowrap;
-    transition: background 0.15s;
+    font-weight: 400;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 18px;
   }
 
-  .toc-tag:hover { background: #0a0a0a; color: #fff; }
-  .toc-tag.direct { background: #e63946; color: #fff; border-color: #e63946; }
-  .toc-tag.direct:hover { background: #c1121f; }
-
-  /* ─── RELEVANT BADGE ─── */
-  .badge-relevant {
-    display: inline-flex;
+  /* TOC NAV */
+  .toc-nav {
+    background: #fff;
+    border-bottom: 3px solid #070810;
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: stretch;
+    overflow-x: auto;
+    gap: 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  }
+  .toc-nav a {
+    display: flex;
     align-items: center;
     gap: 8px;
+    padding: 14px 18px;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #070810;
+    white-space: nowrap;
+    border-right: 1px solid rgba(0,0,0,0.08);
+    transition: background 0.15s;
+  }
+  .toc-nav a:hover { background: #f5f5f5; }
+  .toc-nav a:last-child { border-right: none; }
+  .toc-tag {
     background: #e63946;
     color: #fff;
-    font-family: var(--i);
-    font-size: 11px;
+    font-size: 8px;
     font-weight: 800;
-    letter-spacing: 3px;
+    letter-spacing: 0.05em;
+    padding: 2px 5px;
+    border-radius: 2px;
+  }
+
+  /* RELEVANT BADGE */
+  .relevant-badge {
+    display: inline-block;
+    background: #e63946;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(9px, 1vw, 11px);
+    font-weight: 800;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    padding: 8px 18px;
+    padding: 6px 14px;
     margin-bottom: 24px;
   }
 
-  .badge-relevant::before { content: "▲"; font-size: 10px; }
-
-  /* ─── STORY BASE ─── */
-  .story {
+  /* SECTION BASE */
+  section {
     min-height: 100vh;
-    padding: clamp(60px, 8vw, 120px) clamp(40px, 8vw, 120px);
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
     position: relative;
     overflow: hidden;
+    padding: 80px 60px;
+  }
+
+  .story-inner {
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .story-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0.5;
+  }
+
+  .story-headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(42px, 6vw, 96px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+  }
+
+  .story-deck {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 400;
+    line-height: 1.55;
+    max-width: 700px;
   }
 
   .story-source {
+    font-family: 'Inter', sans-serif;
     font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin-bottom: 20px;
-    opacity: 0.6;
+    margin-top: 36px;
+    opacity: 0.45;
   }
 
-  .story-category {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    opacity: 0.8;
-  }
-
-  .story-hed {
-    font-family: var(--f);
-    font-size: clamp(42px, 6vw, 96px);
-    font-weight: 900;
-    line-height: 0.95;
-    letter-spacing: -2px;
-    margin-bottom: 28px;
-    max-width: 900px;
-  }
-
-  .story-dek {
-    font-family: var(--i);
-    font-size: clamp(18px, 2vw, 24px);
-    font-weight: 400;
-    line-height: 1.5;
-    max-width: 700px;
-    margin-bottom: 32px;
-    opacity: 0.85;
-  }
-
-  .story-link {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-bottom: 2px solid currentColor;
-    padding-bottom: 3px;
-    display: inline-block;
-    opacity: 0.7;
-    transition: opacity 0.15s;
-  }
-  .story-link:hover { opacity: 1; }
-
-  /* ─── STORY 1 — HERO DARK ─── */
-  .s1 {
-    background: #070810;
-    color: #f0eee6;
-  }
-
-  .s1 .bg-number {
+  .ghost-number {
     position: absolute;
-    top: -40px;
-    right: -20px;
-    font-family: var(--f);
-    font-size: clamp(300px, 45vw, 600px);
+    font-family: 'Fraunces', serif;
     font-weight: 900;
-    color: rgba(255,255,255,0.04);
-    line-height: 1;
+    font-size: clamp(200px, 35vw, 500px);
+    line-height: 0.85;
     pointer-events: none;
     user-select: none;
+    z-index: 1;
   }
 
-  .s1 .story-hed { color: #fff; }
-  .s1 .story-category { color: #6c63ff; }
-  .s1 .story-link { color: #6c63ff; }
+  /* ═══════════════════════════════════════════
+     STORY 1 — HERO DARK
+  ═══════════════════════════════════════════ */
+  #story-1 {
+    background: #070810;
+    color: #fff;
+  }
+  #story-1 .ghost-number {
+    bottom: -40px;
+    right: -20px;
+    color: rgba(255,255,255,0.04);
+  }
+  #story-1 .story-number { color: #6c63ff; opacity: 1; }
+  #story-1 .story-headline { color: #fff; }
+  #story-1 .story-headline em { color: #6c63ff; font-style: normal; }
+  #story-1 .story-deck { color: rgba(255,255,255,0.72); }
+  #story-1 .story-source { color: #fff; }
 
-  /* ─── STORY 2 — MIDNIGHT STAT ─── */
-  .s2 {
+  /* ═══════════════════════════════════════════
+     STORY 2 — MIDNIGHT STAT
+  ═══════════════════════════════════════════ */
+  #story-2 {
     background: #03045e;
-    color: #caf0f8;
+    color: #fff;
+  }
+  #story-2 .story-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: end;
+    gap: 80px;
+    align-items: center;
   }
-
-  .s2-stat {
-    font-family: var(--f);
+  #story-2 .big-stat {
+    font-family: 'Fraunces', serif;
     font-size: clamp(120px, 20vw, 260px);
     font-weight: 900;
+    color: #90e0ef;
     line-height: 0.85;
-    color: #90e0ef;
-    letter-spacing: -8px;
+    letter-spacing: -0.04em;
   }
-
-  .s2-stat-label {
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: 4px;
+  #story-2 .stat-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #90e0ef;
-    opacity: 0.7;
+    color: rgba(255,255,255,0.4);
     margin-top: 12px;
   }
+  #story-2 .story-headline { color: #fff; font-size: clamp(38px, 4.5vw, 72px); }
+  #story-2 .story-deck { color: rgba(255,255,255,0.72); }
+  #story-2 .story-source { color: #fff; }
 
-  .s2 .story-category { color: #90e0ef; }
-  .s2 .story-link { color: #90e0ef; }
-
-  /* ─── STORY 3 — ROSE ALARM STAMP ─── */
-  .s3 {
+  /* ═══════════════════════════════════════════
+     STORY 3 — ROSE ALARM STAMP
+  ═══════════════════════════════════════════ */
+  #story-3 {
     background: #fff0f3;
-    color: #1a0010;
+    color: #070810;
   }
-
-  .s3-stamp {
+  #story-3 .stamp {
     position: absolute;
-    top: 80px;
-    right: 80px;
-    width: 200px;
-    height: 200px;
+    top: 60px;
+    right: 60px;
+    width: clamp(120px, 14vw, 200px);
+    height: clamp(120px, 14vw, 200px);
     border: 8px solid #e63946;
     border-radius: 50%;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
     transform: rotate(-12deg);
+    z-index: 3;
   }
-
-  .s3-stamp-num {
-    font-family: var(--f);
-    font-size: 72px;
+  #story-3 .stamp-text {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(11px, 1.4vw, 18px);
     font-weight: 900;
     color: #e63946;
-    line-height: 1;
-  }
-
-  .s3-stamp-text {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #e63946;
+    text-align: center;
     line-height: 1.2;
+    padding: 10px;
   }
+  #story-3 .story-headline { color: #070810; }
+  #story-3 .story-headline em { color: #e63946; font-style: normal; }
+  #story-3 .story-deck { color: #333; }
+  #story-3 .relevant-badge { background: #e63946; }
 
-  .s3 .story-category { color: #e63946; }
-  .s3 .story-link { color: #e63946; }
-  .s3 .story-source { color: #888; }
-
-  /* ─── STORY 4 — TERMINAL ─── */
-  .s4 {
+  /* ═══════════════════════════════════════════
+     STORY 4 — TERMINAL
+  ═══════════════════════════════════════════ */
+  #story-4 {
     background: #0d1117;
     color: #39d353;
-    font-family: 'Courier New', monospace;
+    font-family: 'Courier New', Courier, monospace;
   }
-
-  .s4-prompt {
-    font-size: clamp(14px, 2vw, 20px);
+  #story-4 .terminal-prompt {
+    font-size: clamp(13px, 1.5vw, 18px);
     color: #58a6ff;
-    margin-bottom: 40px;
-    opacity: 0.9;
-  }
-
-  .s4-prompt::before { content: "$ "; color: #39d353; }
-
-  .s4 .story-hed {
+    margin-bottom: 16px;
     font-family: 'Courier New', monospace;
-    color: #39d353;
     font-weight: 700;
-    letter-spacing: -1px;
   }
-
-  .s4 .story-dek {
-    font-family: 'Courier New', monospace;
-    color: #adbac7;
-    font-size: clamp(15px, 1.8vw, 20px);
+  #story-4 .story-headline {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: clamp(32px, 4vw, 64px);
+    font-weight: 700;
+    color: #39d353;
+    letter-spacing: -0.01em;
   }
-
-  .s4-cursor {
+  #story-4 .story-deck {
+    color: rgba(57, 211, 83, 0.8);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: clamp(14px, 1.6vw, 20px);
+  }
+  #story-4 .cursor {
     display: inline-block;
-    width: 18px;
-    height: 32px;
+    width: 12px;
+    height: 1.2em;
     background: #39d353;
-    vertical-align: bottom;
+    vertical-align: text-bottom;
     animation: blink 1s step-end infinite;
   }
-
-  @keyframes blink { 50% { opacity: 0; } }
-
-  .s4 .story-category { color: #58a6ff; }
-  .s4 .story-link { color: #39d353; }
-
-  /* ─── STORY 5 — ACADEMIC SMALL CAPS ─── */
-  .s5 {
-    background: #fdf6e3;
-    color: #2d2d2d;
-    position: relative;
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
+  #story-4 .story-source { color: #39d353; }
 
-  .s5-dropcap {
-    font-family: var(--f);
+  /* ═══════════════════════════════════════════
+     STORY 5 — ACADEMIC DROP CAP
+  ═══════════════════════════════════════════ */
+  #story-5 {
+    background: #fdf6e3;
+    color: #2c1810;
+  }
+  #story-5 .drop-cap {
+    float: left;
+    font-family: 'Fraunces', serif;
     font-size: clamp(160px, 25vw, 340px);
     font-weight: 900;
-    float: left;
+    color: #c77b34;
     line-height: 0.75;
-    margin-right: 20px;
-    margin-top: 10px;
-    color: #c77b34;
+    margin-right: 24px;
+    margin-bottom: 0;
   }
-
-  .s5 .story-category {
+  #story-5 .story-headline {
+    font-family: 'Fraunces', serif;
     font-variant: small-caps;
-    font-size: 16px;
-    letter-spacing: 4px;
-    color: #c77b34;
+    color: #2c1810;
+    font-size: clamp(36px, 5vw, 80px);
+    line-height: 1.05;
   }
+  #story-5 .story-deck { color: #4a3728; font-size: clamp(16px, 1.8vw, 22px); }
+  #story-5 .story-source { color: #2c1810; }
+  #story-5 .clear { clear: both; }
 
-  .s5 .story-hed {
-    font-variant: small-caps;
-    color: #2d2d2d;
-    letter-spacing: 2px;
-  }
-
-  .s5 .story-dek { color: #555; }
-  .s5 .story-link { color: #c77b34; }
-  .s5 .story-source { color: #aaa; }
-  .s5 .badge-relevant { background: #c77b34; }
-
-  /* ─── STORY 6 — LARGE STATS FINISH ─── */
-  .s6 {
+  /* ═══════════════════════════════════════════
+     STORY 6 — BIG STATS FINISH
+  ═══════════════════════════════════════════ */
+  #story-6 {
     background: #1a1a2e;
-    color: #eee;
+    color: #fff;
+  }
+  #story-6 .story-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    align-items: end;
+    align-items: center;
   }
-
-  .s6-stats {
+  #story-6 .stats-col {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 40px;
   }
-
-  .s6-stat-item {}
-
-  .s6-stat-num {
-    font-family: var(--f);
-    font-size: clamp(72px, 10vw, 144px);
+  #story-6 .stat-item .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(64px, 10vw, 140px);
     font-weight: 900;
-    line-height: 0.85;
     color: #e94560;
-    letter-spacing: -4px;
+    line-height: 0.85;
+    letter-spacing: -0.03em;
   }
-
-  .s6-stat-desc {
-    font-size: 16px;
-    font-weight: 500;
-    color: #aaa;
-    margin-top: 4px;
-    letter-spacing: 1px;
+  #story-6 .stat-item .stat-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-top: 6px;
   }
+  #story-6 .story-headline { color: #fff; font-size: clamp(36px, 4.5vw, 72px); }
+  #story-6 .story-deck { color: rgba(255,255,255,0.72); }
+  #story-6 .story-source { color: #fff; }
 
-  .s6 .story-category { color: #e94560; }
-  .s6 .story-link { color: #e94560; }
-
-  /* ─── STORY 7 — DARK HERO REVERSE ─── */
-  .s7 {
+  /* ═══════════════════════════════════════════
+     STORY 7 — DARK ACCENT LINE
+  ═══════════════════════════════════════════ */
+  #story-7 {
     background: #0f0e17;
-    color: #fffffe;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .s7-accent-line {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 8px;
-    background: linear-gradient(to bottom, #ff8906, #f25f4c, #e53170);
-  }
-
-  .s7 .story-category { color: #ff8906; }
-  .s7 .story-link { color: #ff8906; }
-
-  .s7-eyebrow {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #ff8906;
-    margin-bottom: 24px;
-  }
-
-  .s7-num {
-    position: absolute;
-    bottom: 60px;
-    right: 80px;
-    font-family: var(--f);
-    font-size: 200px;
-    font-weight: 900;
-    color: rgba(255,137,6,0.12);
-    line-height: 1;
-  }
-
-  /* ─── STORY 8 — BRIGHT SCIENCE ─── */
-  .s8 {
-    background: #e9ff70;
-    color: #0a0a0a;
-    position: relative;
-  }
-
-  .s8-num {
-    font-family: var(--f);
-    font-size: clamp(160px, 22vw, 320px);
-    font-weight: 900;
-    color: rgba(0,0,0,0.08);
-    position: absolute;
-    top: 40px;
-    right: 60px;
-    line-height: 1;
-  }
-
-  .s8 .story-category { color: #2d6a00; }
-  .s8 .story-link { color: #2d6a00; }
-  .s8 .story-source { color: #4a4a4a; }
-
-  /* ─── STORY 9 — BROADSHEET ─── */
-  .s9 {
-    background: #f5f0e8;
-    color: #1a1208;
-    position: relative;
-  }
-
-  .s9-rule-top {
-    position: absolute;
-    top: 40px;
-    left: 80px;
-    right: 80px;
-    height: 6px;
-    background: #1a1208;
-  }
-
-  .s9-rule-bottom {
-    position: absolute;
-    top: 54px;
-    left: 80px;
-    right: 80px;
-    height: 2px;
-    background: #1a1208;
-  }
-
-  .s9 .story-category {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #8b5e00;
-    font-style: italic;
-  }
-
-  .s9 .story-hed {
-    font-family: var(--f);
-    font-weight: 900;
-    font-style: italic;
-    color: #1a1208;
-  }
-
-  .s9 .story-dek { color: #444; }
-  .s9 .story-link { color: #8b5e00; }
-  .s9 .story-source { color: #999; }
-
-  .s9-num {
-    font-family: var(--f);
-    font-size: clamp(220px, 30vw, 420px);
-    font-weight: 900;
-    color: rgba(26,18,8,0.05);
-    position: absolute;
-    bottom: -30px;
-    right: 60px;
-    line-height: 1;
-  }
-
-  /* ─── STORY 10 — WARM GOOD NEWS ─── */
-  .s10 {
-    background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 50%, #081c15 100%);
-    color: #d8f3dc;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .s10-circle {
-    position: absolute;
-    top: -100px;
-    right: -100px;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    border: 80px solid rgba(255,255,255,0.04);
-    pointer-events: none;
-  }
-
-  .s10-circle2 {
-    position: absolute;
-    bottom: -200px;
-    left: -100px;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    border: 40px solid rgba(255,255,255,0.03);
-    pointer-events: none;
-  }
-
-  .s10 .story-category { color: #95d5b2; }
-  .s10 .story-link { color: #95d5b2; }
-  .s10 .story-hed { color: #fff; }
-
-  .s10-num {
-    position: absolute;
-    bottom: 40px;
-    right: 80px;
-    font-family: var(--f);
-    font-size: 200px;
-    font-weight: 900;
-    color: rgba(255,255,255,0.06);
-    line-height: 1;
-  }
-
-  /* ─── DIVIDERS ─── */
-  .story-divider {
-    height: 4px;
-    background: linear-gradient(to right, #6c63ff, #e63946, #39d353, #e9ff70);
-  }
-
-  /* ─── FOOTER ─── */
-  .mag-footer {
-    background: #0a0a0a;
-    border-top: 3px solid #333;
-    padding: 40px 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
-  }
-
-  .mag-footer-brand {
-    font-family: var(--f);
-    font-size: 28px;
-    font-weight: 900;
     color: #fff;
   }
+  #story-7 .story-inner {
+    border-left: 8px solid;
+    border-image: linear-gradient(180deg, #ff6b35, #f7c59f, #e94560) 1;
+    padding-left: 48px;
+  }
+  #story-7 .ghost-number {
+    bottom: -20px;
+    right: -10px;
+    color: rgba(255,255,255,0.03);
+  }
+  #story-7 .story-number { color: rgba(255,255,255,0.4); opacity: 1; }
+  #story-7 .story-headline { color: #fff; }
+  #story-7 .story-deck { color: rgba(255,255,255,0.7); }
+  #story-7 .story-source { color: #fff; }
 
-  .mag-footer-note {
-    font-size: 12px;
-    color: #444;
-    text-align: right;
-    line-height: 1.8;
+  /* ═══════════════════════════════════════════
+     STORY 8 — BRIGHT LIME
+  ═══════════════════════════════════════════ */
+  #story-8 {
+    background: #e9ff70;
+    color: #0a0a0a;
+  }
+  #story-8 .ghost-number {
+    top: -40px;
+    right: -10px;
+    color: rgba(0,0,0,0.08);
+  }
+  #story-8 .story-number { color: rgba(0,0,0,0.4); opacity: 1; }
+  #story-8 .story-headline { color: #0a0a0a; }
+  #story-8 .story-deck { color: rgba(0,0,0,0.72); }
+  #story-8 .story-source { color: #0a0a0a; }
+  #story-8 .relevant-badge { background: #0a0a0a; color: #e9ff70; }
+
+  /* ═══════════════════════════════════════════
+     STORY 9 — BROADSHEET
+  ═══════════════════════════════════════════ */
+  #story-9 {
+    background: #f5f0e8;
+    color: #1a1008;
+  }
+  #story-9 .broadsheet-rules {
+    margin-bottom: 32px;
+  }
+  #story-9 .broadsheet-rules .thick {
+    height: 4px;
+    background: #1a1008;
+    margin-bottom: 3px;
+  }
+  #story-9 .broadsheet-rules .thin {
+    height: 1px;
+    background: #1a1008;
+  }
+  #story-9 .ghost-number {
+    bottom: -30px;
+    right: -10px;
+    color: rgba(0,0,0,0.05);
+  }
+  #story-9 .story-headline {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: #1a1008;
+  }
+  #story-9 .story-deck { color: #3a2c1a; }
+  #story-9 .story-source { color: #1a1008; }
+
+  /* ═══════════════════════════════════════════
+     STORY 10 — WARM FOREST
+  ═══════════════════════════════════════════ */
+  #story-10 {
+    background: linear-gradient(160deg, #2d6a4f 0%, #081c15 100%);
+    color: #f0ede4;
+  }
+  #story-10 .deco-circle-1 {
+    position: absolute;
+    width: clamp(300px, 45vw, 600px);
+    height: clamp(300px, 45vw, 600px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 50%;
+    top: -100px;
+    right: -100px;
+    z-index: 1;
+  }
+  #story-10 .deco-circle-2 {
+    position: absolute;
+    width: clamp(200px, 30vw, 400px);
+    height: clamp(200px, 30vw, 400px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 50%;
+    bottom: -80px;
+    left: -80px;
+    z-index: 1;
+  }
+  #story-10 .story-number { color: rgba(240,237,228,0.4); opacity: 1; }
+  #story-10 .story-headline { color: #f0ede4; }
+  #story-10 .story-deck { color: rgba(240,237,228,0.8); }
+  #story-10 .story-source { color: #f0ede4; }
+
+  /* FOOTER */
+  .magazine-footer {
+    background: #070810;
+    padding: 60px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .magazine-footer .footer-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px, 4vw, 56px);
+    font-weight: 900;
+    color: rgba(255,255,255,0.12);
+    letter-spacing: -0.02em;
+  }
+  .magazine-footer .footer-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    margin-top: 16px;
   }
 
-  /* ─── RESPONSIVE ─── */
+  /* RESPONSIVE */
   @media (max-width: 768px) {
-    .masthead { padding: 40px 28px 28px; flex-direction: column; align-items: flex-start; }
-    .toc-bar { padding: 16px 28px; }
-    .story { padding: 48px 28px; }
-    .s2, .s6 { grid-template-columns: 1fr; }
-    .s3-stamp { display: none; }
-    .mag-footer { padding: 32px 28px; flex-direction: column; align-items: flex-start; }
-  }
-
-  @media print {
-    .story { break-inside: avoid; page-break-inside: avoid; }
+    section { padding: 60px 28px; }
+    .masthead { padding: 32px 28px 22px; }
+    .toc-nav { padding: 0 16px; }
+    #story-2 .story-grid,
+    #story-6 .story-grid { grid-template-columns: 1fr; gap: 40px; }
+    #story-3 .stamp { top: 20px; right: 20px; }
+    #story-5 .drop-cap { font-size: clamp(100px, 28vw, 200px); }
   }
 </style>
 </head>
@@ -619,247 +513,194 @@
 
 <!-- MASTHEAD -->
 <header class="masthead">
-  <div class="masthead-title">
-    Good<br>Morning
-    <span>Timo's Daily Briefing</span>
-  </div>
-  <div class="masthead-meta">
-    <strong>Mittwoch<br>15. April 2026</strong>
-    Ausgabe № 001<br>
-    KI · Bildung · Schule<br>
-    Wissenschaft · Leadership
-  </div>
+  <div class="masthead-label">Timo Offs tägliches Briefing</div>
+  <div class="masthead-title">Good <span>Morning</span></div>
+  <div class="masthead-date">Mittwoch, 15. April 2026 · 10 Geschichten</div>
 </header>
 
-<!-- TOC BAR -->
-<nav class="toc-bar">
-  <span class="toc-bar-label">Heute:</span>
-  <a class="toc-tag direct" href="#s1">telli für alle ★</a>
-  <a class="toc-tag direct" href="#s2">88% unwissend ★</a>
-  <a class="toc-tag direct" href="#s3">AI Act Alarm ★</a>
-  <a class="toc-tag direct" href="#s4">KI-Leadership ★</a>
-  <a class="toc-tag" href="#s5">Neue Insel</a>
-  <a class="toc-tag" href="#s6">Schwarze Löcher</a>
-  <a class="toc-tag" href="#s7">Tiefsee-Monster</a>
-  <a class="toc-tag" href="#s8">Artemis&nbsp;2</a>
-  <a class="toc-tag" href="#s9">Steuer per Klick</a>
-  <a class="toc-tag" href="#s10">Berliner Bühnen</a>
+<!-- TOC NAV -->
+<nav class="toc-nav">
+  <a href="#story-1">01 <span class="toc-tag">●</span> BW KI-Apps</a>
+  <a href="#story-2">02 <span class="toc-tag">●</span> EU AI Act</a>
+  <a href="#story-3">03 <span class="toc-tag">●</span> Hochrisiko</a>
+  <a href="#story-4">04 <span class="toc-tag">●</span> schulKI</a>
+  <a href="#story-5">05 <span class="toc-tag">●</span> Tool-Vergleich</a>
+  <a href="#story-6">06</a>
+  <a href="#story-7">07</a>
+  <a href="#story-8">08</a>
+  <a href="#story-9">09</a>
+  <a href="#story-10">10</a>
 </nav>
 
-<!-- ══════════════════════════════════════════════ -->
-<!-- STORY 1 — HERO DARK -->
-<!-- ══════════════════════════════════════════════ -->
-<article class="story s1" id="s1">
-  <div class="bg-number">1</div>
-  <div class="badge-relevant">Direkt relevant für dich</div>
-  <div class="story-category">KI-Tools · Schule</div>
-  <h2 class="story-hed">
-    telli jetzt<br>für alle —<br>auch Thüringen<br>sagt Ja.
-  </h2>
-  <p class="story-dek">
-    Der KI-Chatbot <em>telli</em> ist ab sofort in fast allen Bundesländern für Schulen kostenlos verfügbar. Thüringen hat im April 2026 als eines der letzten Länder flächendeckend den Zugang freigeschaltet — über die Bildungscloud NBC. Alle Pilotprojekte laufen seit Dezember 2025 bundesweit.
-  </p>
-  <div class="story-source">Quelle: Deutsches Schulportal · April 2026</div>
-  <a class="story-link" href="https://deutsches-schulportal.de/unterricht/fobizz-schulki-und-co-welche-ki-tools-koennen-schulen-nutzen/" target="_blank">Weiterlesen →</a>
-</article>
-
-<div class="story-divider"></div>
-
-<!-- ══════════════════════════════════════════════ -->
-<!-- STORY 2 — MIDNIGHT STAT -->
-<!-- ══════════════════════════════════════════════ -->
-<article class="story s2" id="s2">
-  <div>
-    <div class="badge-relevant">Direkt relevant für dich</div>
-    <div class="story-category">Datenschutz · Bildung</div>
-    <h2 class="story-hed">
-      Lehrkräfte kennen die Regeln nicht.
-    </h2>
-    <p class="story-dek">
-      Eine repräsentative Forsa-Umfrage unter ~1.000 Lehrkräften zeigt das Ausmaß der Ahnungslosigkeit: Die überwiegende Mehrheit hat sich kaum oder gar nicht mit den geltenden KI-Regelungen für den Schulalltag befasst. Handlungsbedarf, Timo.
-    </p>
-    <div class="story-source">Quelle: Forsa/Schulportal NRW · 2026</div>
-    <a class="story-link" href="https://www.schulministerium.nrw/ki-schule-und-bildung" target="_blank">Weiterlesen →</a>
+<!-- ═══════════════════════════════════════════
+     STORY 1 — HERO DARK
+═══════════════════════════════════════════ -->
+<section id="story-1">
+  <div class="ghost-number">1</div>
+  <div class="story-inner">
+    <div class="relevant-badge">▲ Direkt relevant für dich</div>
+    <div class="story-number">01 · KI-Tools · Bildung</div>
+    <h2 class="story-headline">Baden-Württemberg<br>rollt <em>KI-Landes&shy;apps</em><br>für Schulen aus</h2>
+    <p class="story-deck">Ab sofort stehen Lehrkräften in BW offiziell genehmigte KI-Applikationen zur Verfügung — datenschutzkonform, kostenfrei und direkt im Schulalltag einsetzbar. Der Landeselternbeirat bestätigt: Die staatlichen Plattformen sind jetzt in der Breite rollout-fähig.</p>
+    <div class="story-source">Quelle: Landeselternbeirat Baden-Württemberg · April 2026</div>
   </div>
-  <div>
-    <div class="s2-stat">88<br>%</div>
-    <div class="s2-stat-label">haben KI-Regelungen<br>nie studiert</div>
-  </div>
-</article>
+</section>
 
-<div class="story-divider"></div>
-
-<!-- ══════════════════════════════════════════════ -->
-<!-- STORY 3 — ROSE ALARM STAMP -->
-<!-- ══════════════════════════════════════════════ -->
-<article class="story s3" id="s3">
-  <div class="s3-stamp">
-    <div class="s3-stamp-num">3</div>
-    <div class="s3-stamp-text">ALARM<br>STUFE<br>ROT</div>
-  </div>
-  <div class="badge-relevant">Direkt relevant für dich</div>
-  <div class="story-category">Datenschutz · EU AI Act</div>
-  <h2 class="story-hed">
-    Emotionserkennung<br>in Schulen?<br>Verboten.
-  </h2>
-  <p class="story-dek">
-    Der EU AI Act klassifiziert den gesamten Bildungssektor als „hochrisikoreich". KI-Systeme, die Emotionen in Schulen erkennen sollen, sind ab sofort grundsätzlich verboten. Schulen müssen Risikoabschätzungen durchführen und die Kontrolle über alle KI-Entscheidungslogiken behalten.
-  </p>
-  <div class="story-source">Quelle: Deutsches Schulportal / EU AI Act · 2026</div>
-  <a class="story-link" href="https://deutsches-schulportal.de/schule-im-umfeld/eu-regulierung-von-ki-das-besagt-der-ai-act/" target="_blank">Weiterlesen →</a>
-</article>
-
-<div class="story-divider"></div>
-
-<!-- ══════════════════════════════════════════════ -->
-<!-- STORY 4 — TERMINAL -->
-<!-- ══════════════════════════════════════════════ -->
-<article class="story s4" id="s4">
-  <div class="s4-prompt">ki-leadership --schulleitung --kompetenzen --2026</div>
-  <div class="badge-relevant" style="background:#58a6ff; color:#0d1117;">Direkt relevant für dich</div>
-  <div class="story-category">Leadership · KI-Kompetenz</div>
-  <h2 class="story-hed">
-    AI-Leadership:<br>Wer führt, muss<br>die KI kennen.<span class="s4-cursor"></span>
-  </h2>
-  <p class="story-dek">
-    Schulleiterinnen und Schulleiter stehen vor der Frage: Wie entwickle ich KI-Leadership auf allen Ebenen? Übergreifende Kompetenz wird zur Pflicht — KI-Verantwortung gehört in alle Fächer und Jahrgangsstufen, verankert im schulspezifischen KI-Curriculum als Teil des Medienkonzepts.
-  </p>
-  <div class="story-source" style="color:#666;">Quelle: Bildungssprache.net / IQES · 2026</div>
-  <a class="story-link" href="https://bildungssprache.net/ki-deutsche-schulen-regulierung-infrastruktur/" target="_blank">Weiterlesen →</a>
-</article>
-
-<div class="story-divider"></div>
-
-<!-- ══════════════════════════════════════════════ -->
-<!-- STORY 5 — ACADEMIC SMALL CAPS -->
-<!-- ══════════════════════════════════════════════ -->
-<article class="story s5" id="s5">
-  <div class="story-source">Quelle: Wissenschaft-Aktuell · April 2026</div>
-  <div class="story-category">Seltsame Wissenschaft · Geographie</div>
-  <h2 class="story-hed">
-    <span class="s5-dropcap">N</span>eue Insel<br>in der Antarktis<br>entdeckt.
-  </h2>
-  <p class="story-dek" style="clear:both;">
-    Polarforscher haben im Weddellmeer eine bislang völlig unbekannte Insel entdeckt, die auf keiner Seekarte verzeichnet war. Das ist die Art von Nachricht, die daran erinnert: Die Erde hat noch Geheimnisse. Die Insel taucht weder in historischen noch in modernen Kartierungen auf.
-  </p>
-  <a class="story-link" href="https://www.wissenschaft-aktuell.de/" target="_blank">Weiterlesen →</a>
-</article>
-
-<div class="story-divider"></div>
-
-<!-- ══════════════════════════════════════════════ -->
-<!-- STORY 6 — LARGE STATS FINISH -->
-<!-- ══════════════════════════════════════════════ -->
-<article class="story s6" id="s6">
-  <div>
-    <div class="story-category">Astronomie · Seltsame Wissenschaft</div>
-    <h2 class="story-hed">
-      Zwei schwarze<br>Löcher kurz vor<br>der Kollision.
-    </h2>
-    <p class="story-dek">
-      Erstmals in der Geschichte haben Astronomen zwei supermassive schwarze Löcher unmittelbar vor ihrer Verschmelzung direkt beobachtet. Ein kosmisches Ereignis, das bisher nur theoretisch beschrieben wurde. Die Entdeckung bestätigt Prognosen aus der Allgemeinen Relativitätstheorie.
-    </p>
-    <div class="story-source">Quelle: Scinexx · April 2026</div>
-    <a class="story-link" href="https://www.scinexx.de/" target="_blank">Weiterlesen →</a>
-  </div>
-  <div class="s6-stats">
-    <div class="s6-stat-item">
-      <div class="s6-stat-num">2×</div>
-      <div class="s6-stat-desc">Supermassive Schwarze Löcher<br>kurz vor Verschmelzung</div>
-    </div>
-    <div class="s6-stat-item">
-      <div class="s6-stat-num">#1</div>
-      <div class="s6-stat-desc">Erste direkte Beobachtung<br>dieser Art überhaupt</div>
+<!-- ═══════════════════════════════════════════
+     STORY 2 — MIDNIGHT STAT
+═══════════════════════════════════════════ -->
+<section id="story-2">
+  <div class="story-inner">
+    <div class="story-grid">
+      <div>
+        <div class="relevant-badge">▲ Direkt relevant für dich</div>
+        <div class="story-number">02 · EU AI Act · Datenschutz</div>
+        <h2 class="story-headline">109 Tage bis zur KI-Pflicht — bist du bereit?</h2>
+        <p class="story-deck">Am 2. August 2026 tritt der EU AI Act in voller Kraft in Kraft. Schulen, die KI-Systeme einsetzen, müssen bis dahin Schulungspflichten, Risikobewertungen und Compliance-Dokumentation vorweisen. Wer jetzt nicht handelt, steht im Herbst vor einem Problem.</p>
+        <div class="story-source">Quelle: KI-Café · EU AI Act Tracker 2026</div>
+      </div>
+      <div>
+        <div class="big-stat">02.08</div>
+        <div class="stat-label">Stichtag EU AI Act 2026</div>
+      </div>
     </div>
   </div>
-</article>
+</section>
 
-<div class="story-divider"></div>
+<!-- ═══════════════════════════════════════════
+     STORY 3 — ROSE ALARM STAMP
+═══════════════════════════════════════════ -->
+<section id="story-3">
+  <div class="stamp">
+    <div class="stamp-text">HOCH&shy;RISIKO<br>§ AI Act</div>
+  </div>
+  <div class="story-inner">
+    <div class="relevant-badge">▲ Direkt relevant für dich</div>
+    <div class="story-number">03 · EU AI Act · Schulleitung</div>
+    <h2 class="story-headline">Schule = <em>Hochrisiko.</em><br>Und jetzt?</h2>
+    <p class="story-deck">Der EU AI Act klassifiziert KI-gestützte Bildungsentscheidungen als Hochrisiko-Systeme. Wer Noten bewertet, Schullaufbahnen empfiehlt oder Lernstände automatisiert auswertet, unterliegt strengsten Auflagen. Schulstrategen.de erklärt, was das konkret für Schulleiter bedeutet — und was sofort zu tun ist.</p>
+    <div class="story-source">Quelle: Schulstrategen.de · Pundt &amp; Franz 2026</div>
+  </div>
+</section>
 
-<!-- ══════════════════════════════════════════════ -->
-<!-- STORY 7 — DARK HERO WITH ACCENT -->
-<!-- ══════════════════════════════════════════════ -->
-<article class="story s7" id="s7">
-  <div class="s7-accent-line"></div>
-  <div class="s7-num">7</div>
-  <div class="s7-eyebrow">Tiefsee-Biologie · Japan</div>
-  <div class="story-category">Seltsame Wissenschaft</div>
-  <h2 class="story-hed" style="padding-left: 32px;">
-    Ein Tier ohne<br>Klassifikation.<br>Wirklich.
-  </h2>
-  <p class="story-dek" style="padding-left: 32px;">
-    In Tiefseegräben vor der Küste Japans haben Forscher eine Vielfalt exotischer Meereskreaturen entdeckt — darunter ein Lebewesen, das in keine bekannte biologische Klassifikation passt. Die Tiefsee bleibt der unerforschte Kontinent unseres Planeten.
-  </p>
-  <div class="story-source" style="padding-left: 32px;">Quelle: Forschung-und-Wissen.de · April 2026</div>
-  <a class="story-link" style="padding-left: 32px;" href="https://www.forschung-und-wissen.de/" target="_blank">Weiterlesen →</a>
-</article>
+<!-- ═══════════════════════════════════════════
+     STORY 4 — TERMINAL
+═══════════════════════════════════════════ -->
+<section id="story-4">
+  <div class="story-inner">
+    <div class="relevant-badge" style="background:#39d353; color:#0d1117;">▲ Direkt relevant für dich</div>
+    <div class="terminal-prompt">$ schulki --check-dsgvo --status</div>
+    <div class="story-number" style="color:rgba(57,211,83,0.5); opacity:1;">04 · Datenschutz · DSGVO</div>
+    <h2 class="story-headline">schulKI:<br>DSGVO-<br>konform.<br>Fertig.<span class="cursor"></span></h2>
+    <p class="story-deck">schulKI bietet KI-Tools, die explizit für das deutsche Schulsystem und die DSGVO entwickelt wurden. Kein Abwägen mehr, ob ChatGPT erlaubt ist. Kein Datenschutzbeauftragter-Stress. Einfach anmelden und unterrichten.</p>
+    <div class="story-source" style="color:rgba(57,211,83,0.5);">Quelle: schulKI.de · 2026</div>
+  </div>
+</section>
 
-<div class="story-divider"></div>
+<!-- ═══════════════════════════════════════════
+     STORY 5 — ACADEMIC DROP CAP
+═══════════════════════════════════════════ -->
+<section id="story-5">
+  <div class="story-inner">
+    <div class="relevant-badge" style="background:#c77b34;">▲ Direkt relevant für dich</div>
+    <div class="story-number" style="color:rgba(44,24,16,0.45); opacity:1;">05 · KI-Tools · Praxischeck</div>
+    <div>
+      <span class="drop-cap">F</span>
+      <h2 class="story-headline">obizz, telli, schulKI:<br>Wer gewinnt den<br>Praxischeck?</h2>
+    </div>
+    <div class="clear"></div>
+    <p class="story-deck" style="margin-top:24px;">Das Deutsche Schulportal hat die bekanntesten KI-Plattformen für Schulen verglichen: Fobizz, telli, schulKI und weitere. Welches Tool eignet sich für welches Fach, welche Altersgruppe, welches Budget? Eine praktische Entscheidungshilfe für Schulleiter und Lehrkräfte.</p>
+    <div class="story-source">Quelle: Deutsches Schulportal · 2026</div>
+  </div>
+</section>
 
-<!-- ══════════════════════════════════════════════ -->
-<!-- STORY 8 — BRIGHT SCIENCE -->
-<!-- ══════════════════════════════════════════════ -->
-<article class="story s8" id="s8">
-  <div class="s8-num">8</div>
-  <div class="story-category">Raumfahrt · Artemis</div>
-  <h2 class="story-hed">
-    Artemis 2 am<br>Mond. Wir sind<br>wieder draußen.
-  </h2>
-  <p class="story-dek">
-    Die Artemis-2-Mondmission hat den Höhepunkt ihrer Mondorbitbahn erreicht. Die Passage hinter dem Erdtrabanten fand Anfang April statt — das erste Mal seit Jahrzehnten, dass Menschen so nah am Mond waren. Der nächste Schritt ist die Landung.
-  </p>
-  <div class="story-source">Quelle: NASA / Spektrum.de · April 2026</div>
-  <a class="story-link" href="https://www.spektrum.de/" target="_blank">Weiterlesen →</a>
-</article>
+<!-- ═══════════════════════════════════════════
+     STORY 6 — BIG STATS FINISH
+═══════════════════════════════════════════ -->
+<section id="story-6">
+  <div class="story-inner">
+    <div class="story-grid">
+      <div>
+        <div class="story-number" style="color:rgba(255,255,255,0.4); opacity:1;">06 · Digitalpolitik · EU</div>
+        <h2 class="story-headline">Ab 28. April:<br>USB-C für alle<br>Laptops in der EU</h2>
+        <p class="story-deck">Europa vereinheitlicht das Laden. Ab Ende April müssen alle neuen Notebooks USB-C nutzen — das reduziert E-Müll massiv und macht Schulausstattung einfacher. Ein Kabel, alle Geräte.</p>
+        <div class="story-source">Quelle: iamexpat.de · April 2026</div>
+      </div>
+      <div class="stats-col">
+        <div class="stat-item">
+          <div class="stat-num">28.04</div>
+          <div class="stat-desc">Stichtag USB-C-Pflicht</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">27</div>
+          <div class="stat-desc">EU-Staaten, ein Standard</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="story-divider"></div>
+<!-- ═══════════════════════════════════════════
+     STORY 7 — DARK ACCENT LINE
+═══════════════════════════════════════════ -->
+<section id="story-7">
+  <div class="ghost-number">7</div>
+  <div class="story-inner">
+    <div class="story-number">07 · Quantenphysik · Forschung</div>
+    <h2 class="story-headline">Quantensysteme<br>haben ein<br>geheimes Gedächtnis</h2>
+    <p class="story-deck">Physiker haben entdeckt, dass Quantensysteme ihre Vergangenheit heimlich „erinnern" — selbst wenn sie nach außen keine Spur hinterlassen. Das widerspricht bisherigen Grundannahmen der Quantenmechanik und könnte Quantencomputing grundlegend verändern.</p>
+    <div class="story-source">Quelle: ScienceDaily · April 2026</div>
+  </div>
+</section>
 
-<!-- ══════════════════════════════════════════════ -->
-<!-- STORY 9 — BROADSHEET -->
-<!-- ══════════════════════════════════════════════ -->
-<article class="story s9" id="s9">
-  <div class="s9-rule-top"></div>
-  <div class="s9-rule-bottom"></div>
-  <div class="s9-num">9</div>
-  <div class="story-category">Good News · Verwaltung</div>
-  <h2 class="story-hed">
-    Steuererklärung<br>per einem<br>einzigen Klick.
-  </h2>
-  <p class="story-dek">
-    Die automatische Steuererklärung per Knopfdruck ist gestartet. Wer einfache Einkommensverhältnisse hat, kann sich ab sofort die stundenlange Formularprozedur sparen — das Finanzamt befüllt die Erklärung selbst vor. Ein echter Bürokratieabbau.
-  </p>
-  <div class="story-source">Quelle: Goodnews.eu · April 2026</div>
-  <a class="story-link" href="https://goodnews.eu/" target="_blank">Weiterlesen →</a>
-</article>
+<!-- ═══════════════════════════════════════════
+     STORY 8 — BRIGHT LIME
+═══════════════════════════════════════════ -->
+<section id="story-8">
+  <div class="ghost-number">8</div>
+  <div class="story-inner">
+    <div class="story-number">08 · Genetik · Überraschend</div>
+    <h2 class="story-headline">Ein einziger<br>DNA-Buchstabe<br>entscheidet alles</h2>
+    <p class="story-deck">Eine einzige DNA-Base bestimmt, ob ein Mensch männliche oder weibliche Merkmale entwickelt. Forscher nennen es einen der verblüffendsten Befunde der modernen Genetik — und ein Ergebnis, das Schulbücher in Biologie neu schreiben muss.</p>
+    <div class="story-source">Quelle: Science News · April 2026</div>
+  </div>
+</section>
 
-<div class="story-divider"></div>
+<!-- ═══════════════════════════════════════════
+     STORY 9 — BROADSHEET
+═══════════════════════════════════════════ -->
+<section id="story-9">
+  <div class="ghost-number">9</div>
+  <div class="story-inner">
+    <div class="broadsheet-rules">
+      <div class="thick"></div>
+      <div class="thin"></div>
+    </div>
+    <div class="story-number" style="color:rgba(26,16,8,0.4); opacity:1;">09 · Biologie · Entdeckung</div>
+    <h2 class="story-headline">Libellen sehen,<br>was kein Mensch<br>sehen kann</h2>
+    <p class="story-deck">Libellen besitzen ein Sehprotein, das fast baugleich mit dem menschlichen Auge ist — und dennoch nahes Infrarotlicht wahrnehmen kann. Eine evolutionäre Überraschung aus dem Insektenreich, die zeigt: Die Natur hat Lösungen erfunden, an die wir noch gar nicht gedacht haben.</p>
+    <div class="story-source">Quelle: Astrobiology &amp; Science Research · April 2026</div>
+  </div>
+</section>
 
-<!-- ══════════════════════════════════════════════ -->
-<!-- STORY 10 — WARM GOOD NEWS -->
-<!-- ══════════════════════════════════════════════ -->
-<article class="story s10" id="s10">
-  <div class="s10-circle"></div>
-  <div class="s10-circle2"></div>
-  <div class="s10-num">10</div>
-  <div class="story-category">Good News · Kultur</div>
-  <h2 class="story-hed">
-    Berliner Bühnen<br>brummen wieder.<br>Kultur lebt.
-  </h2>
-  <p class="story-dek">
-    Die Berliner Theater, Opernhäuser und Konzertsäle verzeichnen wieder stark steigende Besucherzahlen. Nach Jahren der Krise ist das Kulturinteresse zurück — und mit ihm die Überzeugung, dass gemeinsame Erlebnisse in einem Raum durch keine Streaming-Plattform zu ersetzen sind.
-  </p>
-  <div class="story-source" style="color: #52b788;">Quelle: Goodnews.eu · April 2026</div>
-  <a class="story-link" href="https://goodnews.eu/berliner-buehnen-wieder-gut-besucht-startschuss-fuer-steuererklaerung-per-klick-forschung-kartiert-erstmals-nervennetz-der-klitoris/" target="_blank">Weiterlesen →</a>
-</article>
+<!-- ═══════════════════════════════════════════
+     STORY 10 — WARM FOREST
+═══════════════════════════════════════════ -->
+<section id="story-10">
+  <div class="deco-circle-1"></div>
+  <div class="deco-circle-2"></div>
+  <div class="story-inner">
+    <div class="story-number">10 · Good News · Deutschland</div>
+    <h2 class="story-headline">Deutschland gibt<br>zurück — und zeigt,<br>wie Versöhnung geht</h2>
+    <p class="story-deck">Deutschland richtet einen Restitutionsrat ein, der die Rückgabe kolonialer Kulturgüter und menschlicher Überreste an Herkunftsländer koordiniert. Ein historisches Signal der Verantwortungsübernahme — und ein Modell, das weltweit Schule macht.</p>
+    <div class="story-source">Quelle: deutschland.de · April 2026</div>
+  </div>
+</section>
 
 <!-- FOOTER -->
-<footer class="mag-footer">
-  <div class="mag-footer-brand">Good Morning ·</div>
-  <div class="mag-footer-note">
-    Automatisch kuratiert für Timo Off<br>
-    Quellen: goodnews.eu · rnd.de/bildung · all-ai.de · Deutsches Schulportal · Scinexx<br>
-    ★ = Direkt relevant · Täglich 07:00 Uhr
-  </div>
+<footer class="magazine-footer">
+  <div class="footer-title">Good Morning</div>
+  <div class="footer-sub">Timo Offs tägliches Briefing · 15. April 2026 · offthecloud.github.io</div>
 </footer>
 
 </body>
