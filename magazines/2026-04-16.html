@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Morning — 16. April 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+  /* MASTHEAD */
+  .masthead {
+    background: #fff;
+    padding: 32px 48px 24px;
+    border-bottom: 3px solid #000;
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .masthead-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(32px, 5vw, 72px);
+    letter-spacing: -2px;
+    color: #000;
+  }
+  .masthead-date {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 1.5vw, 18px);
+    color: #555;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .masthead-tagline {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: clamp(13px, 1.2vw, 16px);
+    color: #888;
+    margin-left: auto;
+  }
+
+  /* NAV BAR */
+  .toc-nav {
+    background: #fff;
+    border-bottom: 2px solid #e0e0e0;
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    scrollbar-width: none;
+  }
+  .toc-nav::-webkit-scrollbar { display: none; }
+  .toc-nav a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #333;
+    white-space: nowrap;
+    border-right: 1px solid #e0e0e0;
+    transition: background 0.2s;
+  }
+  .toc-nav a:hover { background: #f5f5f5; }
+  .toc-nav a:first-child { border-left: 1px solid #e0e0e0; }
+  .toc-tag-relevant {
+    background: #e63946;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  /* RELEVANT BADGE */
+  .badge-relevant {
+    display: inline-block;
+    background: #e63946;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(10px, 1vw, 13px);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 6px 14px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  /* SECTION SHARED */
+  section {
+    min-height: 100vh;
+    padding: clamp(60px, 8vw, 120px) clamp(32px, 8vw, 120px);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .story-label {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(11px, 1vw, 13px);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.7;
+  }
+  .story-headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(42px, 6vw, 96px);
+    line-height: 1.0;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+  }
+  .story-deck {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.6;
+    font-weight: 400;
+    max-width: 680px;
+    margin-bottom: 24px;
+  }
+  .story-source {
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0.5;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .ghost-number {
+    position: absolute;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(280px, 40vw, 600px);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ============================
+     1. HERO DARK
+  ============================= */
+  #s1 {
+    background: #070810;
+    color: #fff;
+  }
+  #s1 .ghost-number {
+    bottom: -80px;
+    right: -40px;
+    color: #fff;
+    opacity: 0.04;
+  }
+  #s1 .story-label { color: #6c63ff; }
+  #s1 .story-headline { color: #fff; }
+  #s1 .story-deck { color: rgba(255,255,255,0.75); }
+  #s1 .story-source { color: rgba(255,255,255,0.4); }
+  #s1 .badge-relevant { }
+  #s1 .accent-line {
+    width: 80px;
+    height: 4px;
+    background: #6c63ff;
+    margin-bottom: 24px;
+    border-radius: 2px;
+  }
+
+  /* ============================
+     2. MIDNIGHT STAT
+  ============================= */
+  #s2 {
+    background: #03045e;
+    color: #fff;
+  }
+  #s2 .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    #s2 .grid { grid-template-columns: 1fr; }
+  }
+  #s2 .big-stat {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(120px, 20vw, 260px);
+    color: #90e0ef;
+    line-height: 1;
+    letter-spacing: -4px;
+  }
+  #s2 .stat-unit {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(24px, 3vw, 40px);
+    color: #90e0ef;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    margin-top: -10px;
+    text-transform: uppercase;
+  }
+  #s2 .story-deck { color: rgba(255,255,255,0.8); max-width: 100%; }
+  #s2 .story-label { color: #90e0ef; }
+  #s2 .story-source { color: rgba(255,255,255,0.35); }
+
+  /* ============================
+     3. ROSE ALARM STAMP
+  ============================= */
+  #s3 {
+    background: #fff0f3;
+    color: #1a1a1a;
+  }
+  #s3 .stamp {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    width: clamp(120px, 15vw, 220px);
+    height: clamp(120px, 15vw, 220px);
+    border: 8px solid #e63946;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-12deg);
+    text-align: center;
+    padding: 20px;
+  }
+  #s3 .stamp-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: clamp(10px, 1.2vw, 16px);
+    color: #e63946;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+  }
+  #s3 .story-label { color: #e63946; }
+
+  /* ============================
+     4. TERMINAL
+  ============================= */
+  #s4 {
+    background: #0d1117;
+    color: #c9d1d9;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  #s4 .terminal-window {
+    max-width: 780px;
+  }
+  #s4 .terminal-bar {
+    background: #161b22;
+    border-radius: 8px 8px 0 0;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0;
+  }
+  #s4 .dot { width: 12px; height: 12px; border-radius: 50%; }
+  #s4 .dot.r { background: #ff5f57; }
+  #s4 .dot.y { background: #febc2e; }
+  #s4 .dot.g { background: #28c840; }
+  #s4 .terminal-title { font-size: 12px; color: #8b949e; margin-left: 8px; letter-spacing: 0.05em; }
+  #s4 .terminal-body {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 32px;
+    margin-bottom: 40px;
+  }
+  #s4 .prompt { color: #58a6ff; font-size: clamp(13px, 1.4vw, 16px); margin-bottom: 8px; }
+  #s4 .output-line { color: #39d353; font-size: clamp(13px, 1.4vw, 16px); line-height: 1.8; }
+  #s4 .comment { color: #8b949e; font-size: clamp(11px, 1.2vw, 14px); line-height: 1.8; }
+  #s4 .cursor {
+    display: inline-block;
+    width: 10px;
+    height: 18px;
+    background: #39d353;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  #s4 .story-headline {
+    font-family: 'Fraunces', serif;
+    color: #39d353;
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
+  #s4 .story-deck {
+    font-family: 'Inter', sans-serif;
+    color: rgba(255,255,255,0.75);
+    margin-top: 20px;
+  }
+  #s4 .story-label { color: #39d353; font-family: 'Inter', sans-serif; }
+  #s4 .story-source { color: #8b949e; font-family: 'Inter', sans-serif; }
+
+  /* ============================
+     5. ACADEMIC DROP CAP
+  ============================= */
+  #s5 {
+    background: #fdf6e3;
+    color: #2c2c2c;
+  }
+  #s5 .drop-cap {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(160px, 25vw, 340px);
+    color: #c77b34;
+    float: left;
+    line-height: 0.75;
+    margin-right: 16px;
+    margin-top: 12px;
+  }
+  #s5 .story-label {
+    font-variant: small-caps;
+    color: #c77b34;
+  }
+  #s5 .story-headline { color: #2c2c2c; }
+  #s5 .story-deck { color: #4a4a4a; }
+  #s5 .story-source { color: #888; }
+  #s5 .clearfix::after { content: ''; display: table; clear: both; }
+
+  /* ============================
+     6. BIG STATS FINISH
+  ============================= */
+  #s6 {
+    background: #1a1a2e;
+    color: #fff;
+  }
+  #s6 .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    #s6 .grid2 { grid-template-columns: 1fr; }
+  }
+  #s6 .stats-col {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  #s6 .big-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(72px, 10vw, 140px);
+    color: #e94560;
+    line-height: 1;
+    letter-spacing: -3px;
+  }
+  #s6 .num-label {
+    font-size: clamp(13px, 1.2vw, 16px);
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  #s6 .story-label { color: #e94560; }
+  #s6 .story-deck { color: rgba(255,255,255,0.8); }
+  #s6 .story-source { color: rgba(255,255,255,0.35); }
+
+  /* ============================
+     7. DARK ACCENT LINE
+  ============================= */
+  #s7 {
+    background: #0f0e17;
+    color: #fffffe;
+    border-left: 8px solid transparent;
+  }
+  #s7::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(to bottom, #ff6b6b, #ee00ff);
+  }
+  #s7 .ghost-number {
+    bottom: -60px;
+    right: -20px;
+    color: #fff;
+    opacity: 0.04;
+  }
+  #s7 .story-label { color: #ff6b6b; }
+  #s7 .story-headline { color: #fffffe; }
+  #s7 .story-deck { color: rgba(255,255,255,0.75); }
+  #s7 .story-source { color: rgba(255,255,255,0.35); }
+
+  /* ============================
+     8. BRIGHT LIME
+  ============================= */
+  #s8 {
+    background: #e9ff70;
+    color: #0d0d0d;
+  }
+  #s8 .ghost-number {
+    top: -40px;
+    right: -20px;
+    color: #000;
+    opacity: 0.08;
+  }
+  #s8 .story-label { color: #1a6b1a; }
+  #s8 .story-headline { color: #0d0d0d; }
+  #s8 .story-deck { color: #1a1a1a; }
+  #s8 .story-source { color: rgba(0,0,0,0.45); }
+
+  /* ============================
+     9. BROADSHEET
+  ============================= */
+  #s9 {
+    background: #f5f0e8;
+    color: #1a1a1a;
+  }
+  #s9 .rule-top {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+  #s9 .rule-top::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 8px;
+    background: #1a1a1a;
+    margin-bottom: 3px;
+  }
+  #s9 .rule-top::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #1a1a1a;
+  }
+  #s9 .ghost-number {
+    bottom: -60px;
+    right: -20px;
+    color: #000;
+    opacity: 0.05;
+  }
+  #s9 .story-headline {
+    font-style: italic;
+    color: #1a1a1a;
+  }
+  #s9 .story-label { color: #555; }
+  #s9 .story-deck { color: #3a3a3a; }
+  #s9 .story-source { color: rgba(0,0,0,0.4); }
+
+  /* ============================
+     10. WARM FOREST
+  ============================= */
+  #s10 {
+    background: linear-gradient(135deg, #2d6a4f 0%, #081c15 100%);
+    color: #fefae0;
+    position: relative;
+  }
+  #s10 .circle1 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 2px solid rgba(254, 250, 224, 0.08);
+    top: -150px;
+    right: -150px;
+  }
+  #s10 .circle2 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 2px solid rgba(254, 250, 224, 0.06);
+    bottom: -80px;
+    left: -80px;
+  }
+  #s10 .circle3 {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    border: 1px solid rgba(254, 250, 224, 0.04);
+    top: -200px;
+    right: -200px;
+  }
+  #s10 .story-label { color: #d8f3dc; opacity: 0.85; }
+  #s10 .story-headline { color: #fefae0; }
+  #s10 .story-deck { color: rgba(254, 250, 224, 0.85); }
+  #s10 .story-source { color: rgba(254, 250, 224, 0.4); }
+
+  /* FOOTER */
+  footer {
+    background: #070810;
+    color: rgba(255,255,255,0.4);
+    padding: 40px 48px;
+    text-align: center;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.05em;
+  }
+  footer strong {
+    color: rgba(255,255,255,0.7);
+    font-family: 'Fraunces', serif;
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-title">Good Morning</div>
+  <div class="masthead-date">Donnerstag, 16. April 2026</div>
+  <div class="masthead-tagline">Zehn Geschichten für einen klaren Start in den Tag</div>
+</header>
+
+<!-- TOC NAV -->
+<nav class="toc-nav">
+  <a href="#s1">① telli flächendeckend <span class="toc-tag-relevant">▲ Relevant</span></a>
+  <a href="#s2">② EU AI Act Countdown <span class="toc-tag-relevant">▲ Relevant</span></a>
+  <a href="#s3">③ KI-Regeln ungelesen <span class="toc-tag-relevant">▲ Relevant</span></a>
+  <a href="#s4">④ Hochrisiko-KI <span class="toc-tag-relevant">▲ Relevant</span></a>
+  <a href="#s5">⑤ DigitalPakt 2.0 <span class="toc-tag-relevant">▲ Relevant</span></a>
+  <a href="#s6">⑥ Artemis 2</a>
+  <a href="#s7">⑦ Deutschland wächst</a>
+  <a href="#s8">⑧ Neue Insel</a>
+  <a href="#s9">⑨ Tiefsee-Rätsel</a>
+  <a href="#s10">⑩ Bildungsurlaub</a>
+</nav>
+
+<!-- ============================================================
+     1. HERO DARK — telli jetzt flächendeckend in Deutschland
+============================================================ -->
+<section id="s1">
+  <div class="ghost-number">1</div>
+  <div style="max-width: 780px; position: relative; z-index: 1;">
+    <div class="badge-relevant">▲ Direkt relevant für dich</div>
+    <div class="story-label">KI-Tools · Bildung · Bundesländer</div>
+    <div class="accent-line"></div>
+    <h2 class="story-headline">telli&nbsp;landet<br>in&nbsp;Thüringen —<br>jetzt&nbsp;fast&nbsp;alle dabei</h2>
+    <p class="story-deck">Seit dem 2. April steht der datenschutzkonforme KI-Chatbot <em>telli</em> allen Thüringer Lehrkräften kostenlos zur Verfügung. Damit schließt das letzte große Bundesland zu den anderen Ländern auf: NRW, Bayern, Niedersachsen, Baden-Württemberg, Hessen, Schleswig-Holstein, Brandenburg, Bremen und das Saarland sind bereits dabei.</p>
+    <p class="story-deck" style="margin-top: 12px;">Bildungsminister Holter spricht von einem „historischen Schritt". Was telli besonders macht: Daten werden nicht an Dritte weitergegeben, nicht zum Training genutzt — und Lehrkräfte können fiktive Dialogpartner als QR-Code mit Schülerinnen und Schülern teilen.</p>
+    <div class="story-source">Quellen: FWU · news4teachers · telli.schule</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     2. MIDNIGHT STAT — EU AI Act: 108 Tage
+============================================================ -->
+<section id="s2">
+  <div class="badge-relevant">▲ Direkt relevant für dich</div>
+  <div class="grid">
+    <div>
+      <div class="big-stat">108</div>
+      <div class="stat-unit">Tage</div>
+    </div>
+    <div>
+      <div class="story-label">EU AI Act · Recht · Schule</div>
+      <h2 class="story-headline" style="color: #fff; font-size: clamp(36px, 4.5vw, 72px);">Der Countdown<br>läuft seit<br>Monaten</h2>
+      <p class="story-deck">Am <strong style="color: #90e0ef;">2. August 2026</strong> wird der Großteil des EU AI Acts verbindlich — und Schulen zählen explizit zur Hochrisiko-Zone. Wer bis dahin keine Risikoabschätzungen, keine Dokumentation und kein geschultes Personal vorweisen kann, riskiert Bußgelder von bis zu 35 Millionen Euro oder 7% des Jahresumsatzes.</p>
+      <p class="story-deck" style="margin-top: 12px;">108 Tage. Die Frage ist nicht mehr ob, sondern wie schnell Schulleitungen handeln.</p>
+      <div class="story-source">Quellen: advisori.de · ki-cafe.de · TÜV Consulting</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3. ROSE ALARM STAMP — 88% haben die KI-Regeln noch nicht gelesen
+============================================================ -->
+<section id="s3">
+  <div class="stamp">
+    <div class="stamp-text">ALARM­LAGE<br>an<br>Schulen</div>
+  </div>
+  <div style="max-width: 680px; position: relative; z-index: 1;">
+    <div class="badge-relevant">▲ Direkt relevant für dich</div>
+    <div class="story-label" style="color: #e63946;">Umfrage · Compliance · Schule</div>
+    <h2 class="story-headline">88% der Lehrkräfte<br>haben die KI-Regeln<br>noch nicht gelesen</h2>
+    <p class="story-deck">Eine aktuelle Befragung zeichnet ein klares Bild: Acht von zehn Lehrkräften haben sich bislang kaum oder gar nicht mit den geltenden KI-Regelungen befasst. Der häufigste Grund: 78% geben an, es sei neben den regulären Aufgaben schlicht nicht zu leisten.</p>
+    <p class="story-deck" style="margin-top: 12px;">Was das für Schulleitungen bedeutet: Compliance kann nicht delegiert werden. Wer wartet, bis alle informiert sind, wartet zu lange. Strukturierte Fortbildungsformate — kurz, wiederholbar, praxisnah — werden zur Führungsaufgabe.</p>
+    <div class="story-source">Quellen: Deutsches Schulportal · bildungssprache.net</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4. TERMINAL — Wann wird KI zur Hochrisiko-KI?
+============================================================ -->
+<section id="s4">
+  <div class="badge-relevant" style="margin-bottom: 24px;">▲ Direkt relevant für dich</div>
+  <div class="story-label">EU AI Act · Praxis · Hochrisiko</div>
+  <div class="terminal-window">
+    <div class="terminal-bar">
+      <div class="dot r"></div>
+      <div class="dot y"></div>
+      <div class="dot g"></div>
+      <div class="terminal-title">ki-check.sh — Schul-KI-Risikoanalyse</div>
+    </div>
+    <div class="terminal-body">
+      <div class="prompt">$ run ki_check --kontext schule</div>
+      <div class="output-line"> </div>
+      <div class="comment"># KEIN Hochrisiko → normaler Betrieb OK:</div>
+      <div class="output-line">✓ Arbeitsblatt aufhübschen</div>
+      <div class="output-line">✓ Unterrichtsideen generieren</div>
+      <div class="output-line">✓ Text zusammenfassen</div>
+      <div class="output-line"> </div>
+      <div class="comment"># HOCHRISIKO → Dokumentation + Konformitätsbewertung:</div>
+      <div class="output-line" style="color: #e63946;">✗ Lernstand individuell analysieren</div>
+      <div class="output-line" style="color: #e63946;">✗ Notenvorschläge generieren</div>
+      <div class="output-line" style="color: #e63946;">✗ Prognose über Schulerfolg erstellen</div>
+      <div class="output-line" style="color: #e63946;">✗ Emotionserkennung im Unterricht</div>
+      <div class="output-line"> </div>
+      <div class="prompt">$ <span class="cursor"></span></div>
+    </div>
+  </div>
+  <h2 class="story-headline" style="font-size: clamp(36px, 4vw, 72px); margin-top: 24px;">Die Grenze ist<br>präzise — und nah</h2>
+  <p class="story-deck">Sobald eine KI individuelle Lernstände analysiert, Prognosen über den Schulerfolg erstellt oder das Verhalten von Schülerinnen und Schülern auswertet, wird sie zur Hochrisiko-KI im Sinne des EU AI Acts — mit vollem Dokumentations- und Konformitätspflichten.</p>
+  <div class="story-source" style="margin-top: 20px;">Quellen: schulstrategen.de · unterrichten.digital · info.cotec.de</div>
+</section>
+
+<!-- ============================================================
+     5. ACADEMIC DROP CAP — DigitalPakt 2.0
+============================================================ -->
+<section id="s5">
+  <div class="clearfix">
+    <div class="badge-relevant">▲ Direkt relevant für dich</div>
+    <div class="story-label">DigitalPakt 2.0 · Fortbildung · Lehrkräfte</div>
+    <div>
+      <span class="drop-cap">3</span>
+      <h2 class="story-headline" style="font-size: clamp(36px, 5vw, 80px); display: inline;">770 Lehrkräfte<br>neu zertifiziert —<br>die Welle rollt</h2>
+    </div>
+    <div style="clear: both; margin-top: 24px;">
+      <p class="story-deck">Der DigitalPakt 2.0 setzt neue Prioritäten: Nicht mehr Hardware steht im Mittelpunkt, sondern die nachhaltige Qualifizierung von Lehrkräften und modernen pädagogischen Konzepten. 3.770 Lehrkräfte haben inzwischen die vierwöchige Zusatzqualifikation Künstliche Intelligenz von fobizz abgeschlossen — mit positiven Evaluationsergebnissen.</p>
+      <p class="story-deck" style="margin-top: 16px;">Parallel: LehrerNRW bietet am 12. Mai und 16. Juni 2026 kostenfreie Online-Fortbildungen für KI-Neuentdecker und KI-Explorer an. Die Nachfrage übersteigt regelmäßig die Kapazitäten.</p>
+      <div class="story-source">Quellen: fobizz.com · lehrernrw.de · ad-hoc-news.de</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. BIG STATS FINISH — Artemis 2
+============================================================ -->
+<section id="s6">
+  <div class="grid2">
+    <div>
+      <div class="story-label">Raumfahrt · NASA · Erfolg</div>
+      <h2 class="story-headline">Erste Mond­umrundung<br>seit&nbsp;50&nbsp;Jahren —<br>Artemis&nbsp;2 ist&nbsp;zurück</h2>
+      <p class="story-deck">Am 2. April 2026 startete Artemis II vom Kennedy Space Center. Zehn Tage später landete die Orion-Kapsel um 2:07 Uhr MESZ sicher im Pazifik vor der Küste von San Diego. Die vier Astronauten absolvierten damit die erste Mondumrundung durch Menschen seit der Apollo-Ära.</p>
+      <p class="story-deck" style="margin-top: 12px;">An Bord: deutsches Ingenieurswesen. Das European Service Module — in Deutschland endmontiert — sorgte für Energie und Antrieb auf dem Weg zum Mond und zurück.</p>
+      <div class="story-source">Quellen: scinexx.de · DLR · ORF · NASA</div>
+    </div>
+    <div class="stats-col">
+      <div>
+        <div class="big-num">406.771</div>
+        <div class="num-label">km entfernt von der Erde — neuer Rekord</div>
+      </div>
+      <div>
+        <div class="big-num">50</div>
+        <div class="num-label">Jahre — so lange lag die letzte Mondumrundung zurück</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. DARK ACCENT LINE — Deutschland auf Wachstumskurs
+============================================================ -->
+<section id="s7">
+  <div class="ghost-number">7</div>
+  <div style="max-width: 780px; position: relative; z-index: 1; padding-left: 40px;">
+    <div class="story-label">Wirtschaft · OECD · Deutschland</div>
+    <h2 class="story-headline">Deutschland<br>wächst&nbsp;—&nbsp;endlich<br>wieder&nbsp;schneller</h2>
+    <p class="story-deck">Nach drei Jahren wirtschaftlicher Stagnation prognostiziert die OECD für 2026 ein Wachstum von <strong style="color: #ff6b6b;">+1,0%</strong> für Deutschland — und damit erstmals schneller als der EU-Durchschnitt. Für 2027 werden +1,5% erwartet.</p>
+    <p class="story-deck" style="margin-top: 12px;">Treiber: der Ausbau erneuerbarer Energien, Innovationen in der Forschung und die schrittweise Digitalisierung öffentlicher Stellen. Kommunen können zudem bis Mai 2026 Fördermittel für neue Trinkwasserbrunnen beantragen — über 100 wurden bereits gebaut.</p>
+    <div class="story-source">Quellen: kommunal.de · goodnews.eu · change-magazin.de</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. BRIGHT LIME — Neue Insel in der Antarktis
+============================================================ -->
+<section id="s8">
+  <div class="ghost-number">8</div>
+  <div style="max-width: 780px; position: relative; z-index: 1;">
+    <div class="story-label">Wissenschaft · Antarktis · Entdeckung</div>
+    <h2 class="story-headline">Neues Land<br>am Ende<br>der Welt</h2>
+    <p class="story-deck">Polarforscher haben im Weddellmeer in der Antarktis eine bislang vollständig unbekannte Insel entdeckt. Das Eiland war jahrzehntelang unter dem Eis verborgen — sein Auftauchen ist ein direktes Zeichen des beschleunigten Gletscherschmelzens.</p>
+    <p class="story-deck" style="margin-top: 12px;">Was wie eine gute Nachricht klingt, ist eine ambivalente Meldung: Eine neue Insel erscheint — weil das Eis, das sie verbarg, dauerhaft verschwunden ist. Die Klimaforschung nennt das eine "Rückkopplungsentdeckung".</p>
+    <div class="story-source">Quellen: scinexx.de · spektrum.de</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     9. BROADSHEET — Tiefsee-Rätsel
+============================================================ -->
+<section id="s9">
+  <div class="rule-top"></div>
+  <div class="ghost-number">9</div>
+  <div style="max-width: 780px; position: relative; z-index: 1;">
+    <div class="story-label">Tiefseeforschung · Japan · Biologie</div>
+    <h2 class="story-headline" style="font-size: clamp(38px, 5.5vw, 88px);"><em>Ein Wesen,<br>das in keine<br>Kategorie passt</em></h2>
+    <p class="story-deck">In Tiefseegräben vor der japanischen Küste haben Forscher ein Tier entdeckt, das sich keiner bekannten biologischen Kategorie zuordnen lässt. Die Morphologie ist so ungewöhnlich, dass Taxonomen bereits diskutieren, ob es sich um eine neue Klasse handeln könnte — nicht nur eine neue Art oder Gattung.</p>
+    <p class="story-deck" style="margin-top: 12px;">Gleichzeitig: Anglerfische zeigen in neuen Studien deutlich komplexere Jagdmechanismen als bisher bekannt — mit beweglichen, chemisch lockenden Leuchtorganen, die aktiv gesteuert werden können. Die Tiefsee gibt ihr Wissen langsam preis.</p>
+    <div class="story-source">Quellen: scinexx.de · forschung-und-wissen.de · spektrum.de</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10. WARM FOREST — Bildungsurlaub booming
+============================================================ -->
+<section id="s10">
+  <div class="circle1"></div>
+  <div class="circle2"></div>
+  <div class="circle3"></div>
+  <div style="max-width: 780px; position: relative; z-index: 1;">
+    <div class="story-label">Bildungsurlaub · Weiterbildung · Positive News</div>
+    <h2 class="story-headline">Menschen<br>investieren<br>wieder in sich</h2>
+    <p class="story-deck">Immer mehr Beschäftigte in Deutschland nutzen ihren gesetzlichen Anspruch auf Bildungsurlaub — und das mit gestiegener Ernsthaftigkeit. Statt Auszeiten geht es um reale Kompetenzen: Sprachen, Digitalthemen, persönliche Entwicklung.</p>
+    <p class="story-deck" style="margin-top: 12px;">In einer Zeit, in der KI-Kompetenz zur Pflichtqualifikation wird, ist das eine ermutigende Verschiebung: Menschen warten nicht darauf, dass Institutionen sie qualifizieren. Sie handeln selbst. Das ist vielleicht die positivste Bildungsnachricht des Jahres.</p>
+    <div class="story-source">Quellen: change-magazin.de · goodnews.eu · zdfheute.de</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Good Morning</strong> &nbsp;·&nbsp; 16. April 2026 &nbsp;·&nbsp;
+  Kuratiert für Timo Off &nbsp;·&nbsp;
+  Generiert mit Claude &nbsp;·&nbsp;
+  <a href="https://offthecloud.github.io/magazines/" style="color: rgba(255,255,255,0.5); text-decoration: none;">Alle Ausgaben</a>
+</footer>
+
+</body>
+</html>
