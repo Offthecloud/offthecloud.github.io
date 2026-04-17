@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Morning — 17. April 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --headline: clamp(42px, 6vw, 96px);
+    --deck: clamp(18px, 2vw, 24px);
+    --label: clamp(11px, 1.2vw, 13px);
+    --fraunces: 'Fraunces', serif;
+    --inter: 'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--inter);
+    overflow-x: hidden;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: #070810;
+    color: #fff;
+    text-align: center;
+    padding: 60px 40px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .masthead-eyebrow {
+    font-family: var(--inter);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #6c63ff;
+    margin-bottom: 16px;
+  }
+  .masthead-title {
+    font-family: var(--fraunces);
+    font-weight: 900;
+    font-size: clamp(52px, 9vw, 140px);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #fff 0%, #a0a0c0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+  }
+  .masthead-date {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ── TOC NAV ── */
+  .toc-nav {
+    background: #fff;
+    border-bottom: 2px solid #e8e8e8;
+    padding: 0 32px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .toc-nav::-webkit-scrollbar { display: none; }
+  .toc-nav ul {
+    display: inline-flex;
+    list-style: none;
+    gap: 0;
+    height: 52px;
+    align-items: stretch;
+  }
+  .toc-nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 18px;
+    font-family: var(--inter);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: #444;
+    border-right: 1px solid #e8e8e8;
+    transition: color 0.15s, background 0.15s;
+    text-transform: uppercase;
+  }
+  .toc-nav ul li a:hover { color: #6c63ff; background: #f8f8ff; }
+  .toc-tag-relevant {
+    background: #e63946;
+    color: #fff !important;
+    font-size: 9px !important;
+    font-weight: 800 !important;
+    padding: 2px 5px;
+    border-radius: 2px;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  /* ── BADGE ── */
+  .badge-relevant {
+    display: inline-block;
+    background: #e63946;
+    color: #fff;
+    font-family: var(--inter);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin-bottom: 24px;
+    border-radius: 2px;
+  }
+
+  /* ── SECTION SHARED ── */
+  section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .section-inner {
+    position: relative;
+    z-index: 2;
+    padding: clamp(48px, 8vw, 100px) clamp(32px, 8vw, 120px);
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .ghost-num {
+    position: absolute;
+    font-family: var(--fraunces);
+    font-weight: 900;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+  }
+  .section-label {
+    font-family: var(--inter);
+    font-size: var(--label);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  h2.headline {
+    font-family: var(--fraunces);
+    font-weight: 900;
+    font-size: var(--headline);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+  }
+  p.deck {
+    font-size: var(--deck);
+    line-height: 1.55;
+    max-width: 780px;
+    font-weight: 400;
+  }
+  .source-line {
+    margin-top: 28px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.45;
+  }
+
+  /* ══════════════════════════════════
+     1. HERO DARK
+  ══════════════════════════════════ */
+  #story-1 {
+    background: #070810;
+    color: #fff;
+  }
+  #story-1 .ghost-num {
+    right: -2vw;
+    bottom: -8vh;
+    font-size: clamp(200px, 35vw, 560px);
+    color: rgba(108, 99, 255, 0.04);
+  }
+  #story-1 .section-label { color: #6c63ff; }
+  #story-1 h2.headline {
+    background: linear-gradient(135deg, #fff 30%, #9d97ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  #story-1 p.deck { color: rgba(255,255,255,0.75); }
+  #story-1 .big-fact {
+    margin-top: 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid rgba(108,99,255,0.4);
+    border-radius: 4px;
+    padding: 16px 28px;
+  }
+  #story-1 .big-fact-num {
+    font-family: var(--fraunces);
+    font-weight: 900;
+    font-size: clamp(48px, 6vw, 80px);
+    color: #6c63ff;
+    line-height: 1;
+  }
+  #story-1 .big-fact-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.4;
+    max-width: 220px;
+  }
+
+  /* ══════════════════════════════════
+     2. MIDNIGHT STAT
+  ══════════════════════════════════ */
+  #story-2 {
+    background: #03045e;
+    color: #fff;
+  }
+  #story-2 .section-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 6vw, 80px);
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    #story-2 .section-inner { grid-template-columns: 1fr; }
+  }
+  #story-2 .stat-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  #story-2 .big-stat {
+    font-family: var(--fraunces);
+    font-weight: 900;
+    font-size: clamp(120px, 20vw, 260px);
+    color: #90e0ef;
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+  }
+  #story-2 .stat-label {
+    font-size: clamp(14px, 1.8vw, 18px);
+    color: rgba(144, 224, 239, 0.7);
+    margin-top: 12px;
+    font-weight: 500;
+  }
+  #story-2 .section-label { color: #90e0ef; opacity: 0.6; }
+  #story-2 h2.headline { font-size: clamp(36px, 4.5vw, 72px); }
+  #story-2 p.deck { color: rgba(255,255,255,0.72); }
+
+  /* ══════════════════════════════════
+     3. ROSE ALARM STAMP
+  ══════════════════════════════════ */
+  #story-3 {
+    background: #fff0f3;
+    color: #1a1a1a;
+  }
+  #story-3 .stamp {
+    position: absolute;
+    top: clamp(32px, 5vw, 60px);
+    right: clamp(32px, 6vw, 80px);
+    width: clamp(100px, 14vw, 180px);
+    height: clamp(100px, 14vw, 180px);
+    border: 8px solid #e63946;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-12deg);
+    z-index: 2;
+  }
+  #story-3 .stamp-text {
+    font-family: var(--fraunces);
+    font-weight: 900;
+    font-size: clamp(12px, 1.6vw, 18px);
+    color: #e63946;
+    text-align: center;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  #story-3 .section-label { color: #e63946; }
+  #story-3 h2.headline { color: #1a1a1a; }
+  #story-3 p.deck { color: #2d2d2d; }
+  #story-3 .checklist {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 640px;
+  }
+  #story-3 .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: clamp(15px, 1.6vw, 18px);
+    color: #1a1a1a;
+    line-height: 1.4;
+  }
+  #story-3 .check-box {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #e63946;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  #story-3 .check-box span { color: #e63946; font-size: 14px; font-weight: 700; }
+
+  /* ══════════════════════════════════
+     4. TERMINAL
+  ══════════════════════════════════ */
+  #story-4 {
+    background: #0d1117;
+    color: #39d353;
+    font-family: 'Courier New', monospace;
+  }
+  #story-4 .section-inner { padding-top: 80px; }
+  #story-4 .terminal-window {
+    background: #161b22;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 860px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+  }
+  #story-4 .terminal-bar {
+    background: #21262d;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  #story-4 .dot { width: 12px; height: 12px; border-radius: 50%; }
+  #story-4 .dot-r { background: #ff5f57; }
+  #story-4 .dot-y { background: #febc2e; }
+  #story-4 .dot-g { background: #28c840; }
+  #story-4 .terminal-title {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.05em;
+  }
+  #story-4 .terminal-body {
+    padding: 28px 32px 36px;
+    font-size: clamp(14px, 1.5vw, 17px);
+    line-height: 1.7;
+  }
+  #story-4 .prompt { color: #58a6ff; }
+  #story-4 .output { color: #39d353; margin-bottom: 6px; }
+  #story-4 .output-dim { color: rgba(57, 211, 83, 0.55); }
+  #story-4 .output-warn { color: #f8d963; }
+  #story-4 .output-stat {
+    font-size: clamp(56px, 9vw, 120px);
+    font-family: var(--fraunces);
+    font-weight: 900;
+    color: #39d353;
+    line-height: 1;
+    margin: 16px 0 8px;
+    letter-spacing: -0.02em;
+  }
+  #story-4 .cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.2em;
+    background: #39d353;
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  #story-4 .badge-relevant { margin-bottom: 0; margin-top: 28px; }
+
+  /* ══════════════════════════════════
+     5. ACADEMIC DROP CAP
+  ══════════════════════════════════ */
+  #story-5 {
+    background: #fdf6e3;
+    color: #1a1a1a;
+  }
+  #story-5 .ghost-num {
+    right: -2vw;
+    bottom: -5vh;
+    font-size: clamp(180px, 30vw, 480px);
+    color: rgba(199, 123, 52, 0.06);
+  }
+  #story-5 .section-label { color: #c77b34; }
+  #story-5 .drop-cap-wrap {
+    display: block;
+    max-width: 900px;
+  }
+  #story-5 .drop-cap-letter {
+    font-family: var(--fraunces);
+    font-weight: 900;
+    font-size: clamp(160px, 25vw, 340px);
+    line-height: 0.75;
+    color: #c77b34;
+    float: left;
+    margin-right: 12px;
+    margin-bottom: -8px;
+  }
+  #story-5 h2.headline {
+    font-size: clamp(36px, 4.5vw, 72px);
+    display: inline;
+    font-variant: small-caps;
+  }
+  #story-5 p.deck {
+    clear: both;
+    margin-top: 28px;
+    color: #2d2d2d;
+  }
+  #story-5 .sub-fact {
+    margin-top: 32px;
+    padding-left: 24px;
+    border-left: 4px solid #c77b34;
+    font-size: clamp(16px, 1.8vw, 20px);
+    color: #555;
+    font-style: italic;
+    line-height: 1.5;
+    max-width: 680px;
+  }
+
+  /* ══════════════════════════════════
+     6. BIG STATS FINISH
+  ══════════════════════════════════ */
+  #story-6 {
+    background: #1a1a2e;
+    color: #fff;
+  }
+  #story-6 .section-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: clamp(32px, 6vw, 80px);
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    #story-6 .section-inner { grid-template-columns: 1fr; }
+  }
+  #story-6 .section-label { color: rgba(233, 69, 96, 0.8); }
+  #story-6 h2.headline { color: #fff; font-size: clamp(38px, 5vw, 80px); }
+  #story-6 p.deck { color: rgba(255,255,255,0.72); }
+  #story-6 .stats-col {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  #story-6 .stat-item { border-top: 1px solid rgba(233,69,96,0.3); padding-top: 20px; }
+  #story-6 .stat-num {
+    font-family: var(--fraunces);
+    font-weight: 900;
+    font-size: clamp(64px, 9vw, 120px);
+    color: #e94560;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  #story-6 .stat-desc {
+    margin-top: 8px;
+    font-size: clamp(13px, 1.4vw, 15px);
+    color: rgba(255,255,255,0.5);
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  /* ══════════════════════════════════
+     7. DARK ACCENT LINE
+  ══════════════════════════════════ */
+  #story-7 {
+    background: #0f0e17;
+    color: #fff;
+  }
+  #story-7 .accent-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    background: linear-gradient(180deg, #ff6b35 0%, #f7c59f 50%, #e91e8c 100%);
+  }
+  #story-7 .ghost-num {
+    right: clamp(20px, 4vw, 60px);
+    bottom: clamp(20px, 4vw, 40px);
+    font-size: clamp(160px, 26vw, 420px);
+    color: rgba(255,255,255,0.03);
+  }
+  #story-7 .section-label { color: #f7c59f; opacity: 0.8; }
+  #story-7 h2.headline {
+    background: linear-gradient(135deg, #fff 0%, #f7c59f 60%, #e91e8c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  #story-7 p.deck { color: rgba(255,255,255,0.7); }
+  #story-7 .pull-quote {
+    margin-top: 40px;
+    font-family: var(--fraunces);
+    font-style: italic;
+    font-size: clamp(20px, 2.4vw, 30px);
+    color: #f7c59f;
+    line-height: 1.4;
+    max-width: 680px;
+    padding-left: 24px;
+    border-left: 3px solid #e91e8c;
+  }
+
+  /* ══════════════════════════════════
+     8. BRIGHT LIME
+  ══════════════════════════════════ */
+  #story-8 {
+    background: #e9ff70;
+    color: #0a0a0a;
+  }
+  #story-8 .ghost-num {
+    top: -4vh;
+    right: -2vw;
+    font-size: clamp(180px, 30vw, 480px);
+    color: rgba(0,0,0,0.08);
+  }
+  #story-8 .section-label { color: rgba(0,0,0,0.5); }
+  #story-8 h2.headline { color: #0a0a0a; }
+  #story-8 p.deck { color: #1a1a1a; }
+  #story-8 .highlight-box {
+    margin-top: 36px;
+    background: rgba(0,0,0,0.08);
+    border-radius: 6px;
+    padding: 20px 28px;
+    max-width: 640px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  #story-8 .highlight-icon { font-size: 40px; flex-shrink: 0; }
+  #story-8 .highlight-text { font-size: clamp(15px, 1.6vw, 18px); line-height: 1.5; font-weight: 500; color: #0a0a0a; }
+
+  /* ══════════════════════════════════
+     9. BROADSHEET
+  ══════════════════════════════════ */
+  #story-9 {
+    background: #f5f0e8;
+    color: #1a1a1a;
+  }
+  #story-9 .rule-top {
+    margin-bottom: 28px;
+  }
+  #story-9 .rule-thick {
+    height: 5px;
+    background: #1a1a1a;
+    margin-bottom: 3px;
+  }
+  #story-9 .rule-thin {
+    height: 1px;
+    background: #1a1a1a;
+  }
+  #story-9 .ghost-num {
+    right: clamp(20px, 4vw, 60px);
+    bottom: clamp(20px, 4vw, 40px);
+    font-size: clamp(160px, 26vw, 420px);
+    color: rgba(0,0,0,0.04);
+  }
+  #story-9 .section-label { color: #555; }
+  #story-9 h2.headline {
+    font-style: italic;
+    color: #1a1a1a;
+    font-size: clamp(40px, 5.5vw, 88px);
+  }
+  #story-9 p.deck { color: #333; }
+  #story-9 .science-fact {
+    margin-top: 36px;
+    padding: 20px 24px;
+    background: rgba(0,0,0,0.06);
+    border-radius: 2px;
+    max-width: 640px;
+  }
+  #story-9 .science-fact-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  #story-9 .science-fact-text { font-size: clamp(15px, 1.6vw, 18px); line-height: 1.5; color: #1a1a1a; }
+
+  /* ══════════════════════════════════
+     10. WARM FOREST
+  ══════════════════════════════════ */
+  #story-10 {
+    background: linear-gradient(160deg, #2d6a4f 0%, #1b4332 50%, #081c15 100%);
+    color: #d8f3dc;
+    position: relative;
+  }
+  #story-10 .circle-deco {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(216,243,220,0.1);
+    pointer-events: none;
+  }
+  #story-10 .circle-1 {
+    width: clamp(300px, 50vw, 700px);
+    height: clamp(300px, 50vw, 700px);
+    top: -20%;
+    right: -15%;
+  }
+  #story-10 .circle-2 {
+    width: clamp(200px, 35vw, 500px);
+    height: clamp(200px, 35vw, 500px);
+    top: 5%;
+    right: -8%;
+    border-color: rgba(216,243,220,0.06);
+  }
+  #story-10 .section-label { color: rgba(216,243,220,0.5); }
+  #story-10 h2.headline {
+    background: linear-gradient(135deg, #d8f3dc 0%, #b7e4c7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  #story-10 p.deck { color: rgba(216,243,220,0.78); }
+  #story-10 .stats-row {
+    margin-top: 44px;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  #story-10 .s-item { }
+  #story-10 .s-num {
+    font-family: var(--fraunces);
+    font-weight: 900;
+    font-size: clamp(48px, 6vw, 80px);
+    color: #b7e4c7;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  #story-10 .s-desc {
+    margin-top: 4px;
+    font-size: 13px;
+    color: rgba(216,243,220,0.5);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ── FOOTER ── */
+  .magazine-footer {
+    background: #070810;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    padding: 48px 32px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+  }
+  .magazine-footer strong { color: rgba(255,255,255,0.6); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- ══ MASTHEAD ══ -->
+<header class="masthead">
+  <p class="masthead-eyebrow">Freitag &nbsp;·&nbsp; 17. April 2026 &nbsp;·&nbsp; Edition #1</p>
+  <h1 class="masthead-title">Good Morning</h1>
+  <p class="masthead-date">Dein tägliches Briefing — kuratiert für Timo Off</p>
+</header>
+
+<!-- ══ TOC NAV ══ -->
+<nav class="toc-nav" aria-label="Inhaltsverzeichnis">
+  <ul>
+    <li><a href="#story-1">01 telli überall <span class="toc-tag-relevant">RELEVANT</span></a></li>
+    <li><a href="#story-2">02 KI-Big-Bang <span class="toc-tag-relevant">RELEVANT</span></a></li>
+    <li><a href="#story-3">03 KI-Pflicht <span class="toc-tag-relevant">RELEVANT</span></a></li>
+    <li><a href="#story-4">04 88% unwissend <span class="toc-tag-relevant">RELEVANT</span></a></li>
+    <li><a href="#story-5">05 Tiefsee-Rätsel</a></li>
+    <li><a href="#story-6">06 Ökostrom-Rekord</a></li>
+    <li><a href="#story-7">07 Dunkle Materie</a></li>
+    <li><a href="#story-8">08 Lungenkrebs</a></li>
+    <li><a href="#story-9">09 DNA-Baustein</a></li>
+    <li><a href="#story-10">10 Deutschland wächst</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════
+  01 — HERO DARK
+  telli jetzt in allen Bundesländern
+════════════════════════════════════════ -->
+<section id="story-1">
+  <div class="ghost-num">01</div>
+  <div class="section-inner">
+    <span class="badge-relevant">▲ Direkt relevant für dich</span>
+    <p class="section-label" style="color:#6c63ff;">KI in der Schule &nbsp;·&nbsp; Infrastruktur</p>
+    <h2 class="headline">telli ist jetzt<br>überall.</h2>
+    <p class="deck">Thüringen hat als letztes Bundesland im April 2026 den datenschutzkonformen KI-Chatbot <strong>telli</strong> für alle Schulen freigeschaltet. Mit Niedersachsen (Februar 2026) und nun Thüringen ist das lang angestrebte Ziel Realität: Alle 16 Bundesländer bieten ihren Schulen eine rechtssichere, kostenfreie KI-Lösung. Entwickelt mit Mitteln aus dem DigitalPakt Schule — made in Germany.</p>
+    <div class="big-fact">
+      <div class="big-fact-num">16<span style="font-size:0.4em;color:rgba(108,99,255,0.6)">/16</span></div>
+      <div class="big-fact-label" style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.4;">Bundesländer mit Landeslizenz für KI-Tools. Das Netz ist vollständig.</div>
+    </div>
+    <p class="source-line" style="color:rgba(255,255,255,0.3);margin-top:32px;">Quelle: Deutsches Schulportal · leb-bw.de</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  02 — MIDNIGHT STAT
+  EU AI Act: Der Big Bang kommt
+════════════════════════════════════════ -->
+<section id="story-2">
+  <div class="section-inner">
+    <div>
+      <span class="badge-relevant">▲ Direkt relevant für dich</span>
+      <p class="section-label">EU AI Act &nbsp;·&nbsp; Compliance</p>
+      <h2 class="headline" style="color:#fff;font-size:clamp(36px,4.5vw,72px);">Der KI-<br>Big-Bang<br>kommt.</h2>
+      <p class="deck">Am <strong style="color:#90e0ef;">2. August 2026</strong> wird der EU AI Act vollständig anwendbar — inklusive strenger Anforderungen an Hochrisiko-Systeme. Der Bildungssektor zählt explizit dazu. Wer KI einsetzt, braucht ab dann Dokumentation, Transparenz und nachweisbare Kompetenz. Das ist kein bürokratisches Randthema — das ist Schulrecht.</p>
+      <p class="source-line" style="color:rgba(144,224,239,0.3);margin-top:28px;">Quelle: ki-cafe.de · Deutsches Schulportal · eu-ai-act.de</p>
+    </div>
+    <div class="stat-col">
+      <div class="big-stat">107</div>
+      <div class="stat-label">Tage bis zum<br>2. August 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  03 — ROSE ALARM STAMP
+  KI-Kompetenzpflicht
+════════════════════════════════════════ -->
+<section id="story-3">
+  <div class="stamp">
+    <span class="stamp-text">Rechts&shy;pflicht<br>ab sofort</span>
+  </div>
+  <div class="section-inner">
+    <span class="badge-relevant">▲ Direkt relevant für dich</span>
+    <p class="section-label" style="color:#e63946;">EU AI Act &nbsp;·&nbsp; Schulleitung</p>
+    <h2 class="headline">KI-Kompetenz<br>ist Pflicht.</h2>
+    <p class="deck">Der EU AI Act verankert es rechtlich: Schulträger und Schulleitungen müssen sicherstellen, dass ihr Personal über ausreichende KI-Kompetenz verfügt. Das ist keine Empfehlung mehr. Wer das nicht nachweisen kann, riskiert Compliance-Probleme — und im schlimmsten Fall Haftung.</p>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-box"><span>→</span></div>
+        <span>Fortbildungsplan für KI-Kompetenz erstellen &amp; dokumentieren</span>
+      </div>
+      <div class="check-item">
+        <div class="check-box"><span>→</span></div>
+        <span>Eingesetzte KI-Tools auf Hochrisiko-Klassifikation prüfen</span>
+      </div>
+      <div class="check-item">
+        <div class="check-box"><span>→</span></div>
+        <span>Kollegium informieren: Was ist erlaubt, was ist verboten?</span>
+      </div>
+      <div class="check-item">
+        <div class="check-box"><span>→</span></div>
+        <span>Datenschutzbeauftragte:n einbeziehen — spätestens jetzt</span>
+      </div>
+    </div>
+    <p class="source-line" style="color:#888;margin-top:28px;">Quelle: haufe-akademie.de · ki-lehren.de · info.cotec.de</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  04 — TERMINAL
+  88% kennen die Regeln nicht
+════════════════════════════════════════ -->
+<section id="story-4">
+  <div class="section-inner">
+    <div class="terminal-window">
+      <div class="terminal-bar">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+        <span class="terminal-title">schulreport_2026.sh — bash</span>
+      </div>
+      <div class="terminal-body">
+        <div class="output"><span class="prompt">timo@humboldtschule:~$</span> ./lehrkraft-ki-check.sh</div>
+        <div class="output output-dim">Analysiere KI-Regelkompetenz im Kollegium...</div>
+        <div class="output output-dim">Lade Studiendaten...</div>
+        <div style="height:12px"></div>
+        <div class="output output-warn">⚠ WARNING: Kritischer Befund</div>
+        <div class="output-stat">88%</div>
+        <div class="output output-warn">...der Lehrkräfte haben sich weniger intensiv<br>&nbsp;&nbsp;&nbsp;&nbsp;bis gar nicht mit KI-Regelungen beschäftigt.</div>
+        <div style="height:16px"></div>
+        <div class="output output-dim">Source: Aktuelle Studie via Deutsches Schulportal, April 2026</div>
+        <div class="output output-dim">Status: HANDLUNGSBEDARF ERKANNT</div>
+        <div style="height:8px"></div>
+        <div class="output"><span class="prompt">timo@humboldtschule:~$</span> <span class="cursor"></span></div>
+      </div>
+    </div>
+    <span class="badge-relevant" style="margin-top:28px;display:inline-block;">▲ Direkt relevant für dich</span>
+    <p class="source-line" style="color:rgba(57,211,83,0.3);margin-top:16px;">Quelle: Deutsches Schulportal · bildungssprache.net</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  05 — ACADEMIC DROP CAP
+  Tiefsee-Rätsel
+════════════════════════════════════════ -->
+<section id="story-5">
+  <div class="ghost-num">05</div>
+  <div class="section-inner">
+    <p class="section-label" style="color:#c77b34;">Seltsame Wissenschaft &nbsp;·&nbsp; Meeresbiologie</p>
+    <div class="drop-cap-wrap">
+      <span class="drop-cap-letter">T</span>
+      <h2 class="headline">iefe Rätsel</h2>
+    </div>
+    <p class="deck">In Tiefseegräben vor Japan haben Forschende eine Serie exotischer Meerestiere entdeckt — darunter ein Wesen, das sich keiner bekannten biologischen Kategorie zuordnen lässt. Die Tiefsee bleibt das unerforschte Universum direkt vor unserer Haustür: Wir wissen mehr über die Mondoberfläche als über den Boden unserer Ozeane.</p>
+    <div class="sub-fact">„Das Tier passt in keine Schublade — wir stehen vor einer völlig neuen Klassifikationsfrage."<br><span style="font-size:13px;font-style:normal;color:#888;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;">— Forschungsteam, April 2026</span></div>
+    <p class="source-line" style="color:#888;margin-top:28px;">Quelle: scinexx.de · forschung-und-wissen.de</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  06 — BIG STATS FINISH
+  Ökostrom-Rekord
+════════════════════════════════════════ -->
+<section id="story-6">
+  <div class="section-inner">
+    <div>
+      <p class="section-label" style="color:rgba(233,69,96,0.8);">Good News &nbsp;·&nbsp; Energie &amp; Klima</p>
+      <h2 class="headline">Deutschland<br>läuft mit<br>Ökostrom.</h2>
+      <p class="deck">Im ersten Quartal 2026 deckten erneuerbare Energien erstmals mehr als die Hälfte des deutschen Stromverbrauchs — 53 Prozent. Windkraft legte dabei um 27 Prozent gegenüber dem Vorjahr zu. Und am 8. April feierte die Solarenergie einen neuen April-Tagesrekord, der zeigt: Die Energiewende ist keine Utopie mehr.</p>
+      <p class="source-line" style="color:rgba(255,255,255,0.25);margin-top:24px;">Quelle: goodnews.eu · kommunal.de</p>
+    </div>
+    <div class="stats-col">
+      <div class="stat-item">
+        <div class="stat-num">53%</div>
+        <div class="stat-desc">Ökostromanteil<br>Q1 2026 — erstmals über 50%</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">+27%</div>
+        <div class="stat-desc">Windkraft-Zuwachs<br>gegenüber Vorjahr</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  07 — DARK ACCENT LINE
+  Dunkle Materie
+════════════════════════════════════════ -->
+<section id="story-7">
+  <div class="accent-bar"></div>
+  <div class="ghost-num">07</div>
+  <div class="section-inner" style="padding-left:clamp(48px,9vw,140px);">
+    <p class="section-label" style="color:#f7c59f;opacity:0.8;">Physik &nbsp;·&nbsp; Kosmologie</p>
+    <h2 class="headline">Dunkle Materie<br>hat ein<br>Doppelleben.</h2>
+    <p class="deck">Physiker:innen präsentieren ein Modell, das Dunkle Materie in zwei Varianten aufteilt: einen energiearmen Grundzustand und einen angeregten Zustand. Falls die Theorie stimmt, wäre das eine Revolution — und eine Erklärung für bislang rätselhafte kosmische Signale, die seit Jahren niemand deuten konnte.</p>
+    <div class="pull-quote">
+      „95 Prozent des Universums bestehen aus Dingen, die wir noch nicht verstehen. Das hier könnte ein Schlüssel sein."
+    </div>
+    <p class="source-line" style="color:rgba(255,255,255,0.2);margin-top:32px;">Quelle: scinexx.de · spektrum.de</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  08 — BRIGHT LIME
+  Lungenkrebs-Früherkennung
+════════════════════════════════════════ -->
+<section id="story-8">
+  <div class="ghost-num">08</div>
+  <div class="section-inner">
+    <p class="section-label" style="color:rgba(0,0,0,0.5);">Good News &nbsp;·&nbsp; Gesundheit</p>
+    <h2 class="headline">Früher<br>erkennen.<br>Leben retten.</h2>
+    <p class="deck">Seit dem 1. April 2026 haben Hochrisiko-Raucher in Deutschland das gesetzliche Recht auf ein jährliches Niedrigdosis-CT zur Früherkennung von Lungenkrebs — vollständig gedeckt von der gesetzlichen Krankenversicherung. Lungenkrebs ist die häufigste Krebstodesursache in Deutschland. Diese Maßnahme könnte Tausende Leben retten.</p>
+    <div class="highlight-box">
+      <div class="highlight-icon">🫁</div>
+      <div class="highlight-text">Betroffen: Personen ab 50, 20+ Packungsjahre. Der Anspruch gilt ab sofort — sprechen Sie Ihr Praxisteam an.</div>
+    </div>
+    <p class="source-line" style="color:rgba(0,0,0,0.3);margin-top:28px;">Quelle: goodnews.eu · zdfheute.de</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  09 — BROADSHEET
+  DNA-Baustein & Geschlecht
+════════════════════════════════════════ -->
+<section id="story-9">
+  <div class="ghost-num">09</div>
+  <div class="section-inner">
+    <div class="rule-top">
+      <div class="rule-thick"></div>
+      <div class="rule-thin"></div>
+    </div>
+    <p class="section-label" style="color:#555;">Genetik &nbsp;·&nbsp; Grundlagenforschung</p>
+    <h2 class="headline">Ein Baustein.<br>Zwei<br>Geschlechter.</h2>
+    <p class="deck">Ob sich männliche oder weibliche Merkmale entwickeln, hängt von einem einzigen DNA-Baustein ab — das ist das Ergebnis einer neuen Studie, die im April 2026 erschienen ist. Die Entdeckung könnte das Verständnis von Geschlechtsentwicklung und damit verbundenen Erkrankungen grundlegend verändern und neue Therapieansätze eröffnen.</p>
+    <div class="science-fact">
+      <div class="science-fact-label">Kontext</div>
+      <div class="science-fact-text">Das menschliche Genom besteht aus rund 3 Milliarden Basenpaaren. Dass ein einzelnes davon über einen fundamentalen biologischen Prozess entscheidet, zeigt: Wie wenig wir noch wissen.</div>
+    </div>
+    <p class="source-line" style="color:#888;margin-top:28px;">Quelle: spektrum.de · scinexx.de</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  10 — WARM FOREST
+  Deutschland wächst wieder
+════════════════════════════════════════ -->
+<section id="story-10">
+  <div class="circle-deco circle-1"></div>
+  <div class="circle-deco circle-2"></div>
+  <div class="section-inner">
+    <p class="section-label" style="color:rgba(216,243,220,0.5);">Good News &nbsp;·&nbsp; Wirtschaft &amp; Zukunft</p>
+    <h2 class="headline">Deutschland<br>wächst<br>wieder.</h2>
+    <p class="deck">Die OECD erwartet für Deutschland 2026 ein Wirtschaftswachstum von einem Prozent — und 1,5 Prozent für 2027. Das wäre das erste Mal seit Jahren, dass Deutschland schneller wächst als der EU-Durchschnitt. Kombiniert mit dem Ökostrom-Rekord und dem stärksten Windkraft-Jahr der Geschichte: Die Nachrichten sind besser als die Schlagzeilen.</p>
+    <div class="stats-row">
+      <div class="s-item">
+        <div class="s-num">+1,0%</div>
+        <div class="s-desc">BIP-Wachstum 2026<br>(OECD-Prognose)</div>
+      </div>
+      <div class="s-item">
+        <div class="s-num">+1,5%</div>
+        <div class="s-desc">BIP-Wachstum 2027<br>— schneller als EU</div>
+      </div>
+    </div>
+    <p class="source-line" style="color:rgba(216,243,220,0.25);margin-top:36px;">Quelle: kommunal.de · goodnews-magazin.de · OECD</p>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="magazine-footer">
+  <p><strong>Good Morning</strong> &nbsp;·&nbsp; 17. April 2026 &nbsp;·&nbsp; Kuratiert für Timo Off</p>
+  <p style="margin-top:8px;">10 Storys &nbsp;·&nbsp; 4 direkt relevant &nbsp;·&nbsp; Täglich neu</p>
+</footer>
+
+</body>
+</html>
