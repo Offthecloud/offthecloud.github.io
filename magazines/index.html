@@ -9,151 +9,53 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: #070810;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    min-height: 100vh;
-  }
-  .header {
-    padding: 80px 48px 60px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-  }
-  .eyebrow {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: #6c63ff;
-    margin-bottom: 16px;
-  }
-  .title {
-    font-family: 'Fraunces', serif;
-    font-weight: 900;
-    font-size: clamp(52px, 9vw, 120px);
-    line-height: 0.9;
-    letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #fff 0%, #a0a0c0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 16px;
-  }
-  .subtitle {
-    font-size: 14px;
-    color: rgba(255,255,255,0.35);
-    letter-spacing: 0.1em;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2px;
-    padding: 2px;
-    max-width: 1400px;
-    margin: 60px auto;
-  }
-  .card {
-    background: #0f0e17;
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 4px;
-    overflow: hidden;
-    transition: background 0.2s, border-color 0.2s;
-    text-decoration: none;
-    display: block;
-    padding: 36px 32px 32px;
-  }
-  .card:hover { background: #16152a; border-color: rgba(108,99,255,0.3); }
-  .card-num {
-    font-family: 'Fraunces', serif;
-    font-weight: 900;
-    font-size: 64px;
-    line-height: 1;
-    color: rgba(108,99,255,0.15);
-    margin-bottom: 20px;
-    letter-spacing: -0.02em;
-  }
-  .card-date {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 28px;
-    color: #fff;
-    line-height: 1.1;
-    margin-bottom: 12px;
-  }
-  .card-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-  }
-  .card-arrow {
-    margin-top: 28px;
-    font-size: 20px;
-    color: #6c63ff;
-  }
-  .card.latest { border-color: rgba(108,99,255,0.4); background: #100f20; }
-  .card.latest .card-num { color: rgba(108,99,255,0.25); }
-  .badge-new {
-    display: inline-block;
-    background: #6c63ff;
-    color: #fff;
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 2px;
-    margin-bottom: 16px;
-  }
-  footer {
-    text-align: center;
-    padding: 48px;
-    font-size: 12px;
-    color: rgba(255,255,255,0.2);
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
+  body { font-family: 'Inter', sans-serif; background: #070810; color: #e0e0e0; min-height: 100vh; padding: 3rem 2rem; }
+  header { text-align: center; margin-bottom: 3rem; }
+  header h1 { font-family: 'Fraunces', serif; font-weight: 900; font-size: clamp(2.5rem, 6vw, 5rem); color: #fff; line-height: 1; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+  header p { font-size: 0.9rem; color: #6c63ff; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+  .card { background: #0f0e17; border: 1px solid #1e1d2e; border-radius: 12px; padding: 1.8rem; text-decoration: none; color: inherit; display: block; transition: border-color 0.2s, transform 0.2s; }
+  .card:hover { border-color: #6c63ff; transform: translateY(-3px); }
+  .card.latest { border-color: #6c63ff; background: #12112a; }
+  .card .tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #6c63ff; margin-bottom: 0.7rem; }
+  .card.latest .tag { color: #e9ff70; }
+  .card h2 { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.7rem; color: #fff; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+  .card .date-str { font-size: 0.8rem; color: #666; margin-top: 0.7rem; }
+  .card .arrow { font-size: 1.2rem; color: #6c63ff; margin-top: 1rem; display: block; }
+  footer { text-align: center; margin-top: 4rem; font-size: 0.75rem; color: #333; }
 </style>
 </head>
 <body>
-
-<header class="header">
-  <p class="eyebrow">Timo Off &nbsp;·&nbsp; Tägliches Briefing</p>
-  <h1 class="title">Good Morning</h1>
-  <p class="subtitle">Alle Ausgaben — kuratiert für einen Schulleiter, der die Zukunft im Blick hat</p>
+<header>
+  <h1>Good Morning</h1>
+  <p>Alle Ausgaben · Timo Off's Daily Magazine</p>
 </header>
-
 <div class="grid">
-
-  <a href="2026-04-17.html" class="card latest">
-    <span class="badge-new">Neu heute</span>
-    <div class="card-num">17</div>
-    <div class="card-date">Freitag,<br>17. April 2026</div>
-    <div class="card-label">10 Storys · 4 direkt relevant</div>
-    <div class="card-arrow">→</div>
+  <a href="2026-04-18.html" class="card latest">
+    <div class="tag">✦ Neueste Ausgabe</div>
+    <h2>18. April 2026</h2>
+    <div class="date-str">Samstag · 10 Geschichten</div>
+    <span class="arrow">→</span>
   </a>
-
+  <a href="2026-04-17.html" class="card">
+    <div class="tag">Good Morning</div>
+    <h2>17. April 2026</h2>
+    <div class="date-str">Freitag · 10 Geschichten</div>
+    <span class="arrow">→</span>
+  </a>
   <a href="2026-04-16.html" class="card">
-    <div class="card-num">16</div>
-    <div class="card-date">Donnerstag,<br>16. April 2026</div>
-    <div class="card-label">10 Storys</div>
-    <div class="card-arrow">→</div>
+    <div class="tag">Good Morning</div>
+    <h2>16. April 2026</h2>
+    <div class="date-str">Donnerstag · 10 Geschichten</div>
+    <span class="arrow">→</span>
   </a>
-
   <a href="2026-04-15.html" class="card">
-    <div class="card-num">15</div>
-    <div class="card-date">Mittwoch,<br>15. April 2026</div>
-    <div class="card-label">10 Storys</div>
-    <div class="card-arrow">→</div>
+    <div class="tag">Good Morning</div>
+    <h2>15. April 2026</h2>
+    <div class="date-str">Mittwoch · 10 Geschichten</div>
+    <span class="arrow">→</span>
   </a>
-
 </div>
-
-<footer>
-  Good Morning &nbsp;·&nbsp; Täglich neu &nbsp;·&nbsp; Made for Timo Off
-</footer>
-
+<footer>Good Morning Magazine · Täglich kuratiert für Timo Off · Generiert von Claude</footer>
 </body>
 </html>

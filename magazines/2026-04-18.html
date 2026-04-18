@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Morning — 18. April 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+  /* NAV */
+  nav.toc {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: #fff;
+    border-bottom: 2px solid #e63946;
+    padding: 0.6rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  nav.toc .nav-brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 1.05rem;
+    color: #070810;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+  nav.toc a {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #333;
+    padding: 0.25rem 0.6rem;
+    border-radius: 3px;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  nav.toc a:hover { background: #f0f0f0; }
+  nav.toc a.relevant {
+    background: #e63946;
+    color: #fff;
+  }
+  nav.toc a.relevant:hover { background: #c1121f; }
+
+  /* MASTHEAD */
+  .masthead {
+    background: #070810;
+    color: #fff;
+    text-align: center;
+    padding: 3rem 2rem 2rem;
+    border-bottom: 1px solid #222;
+  }
+  .masthead .date-line {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #6c63ff;
+    margin-bottom: 0.8rem;
+  }
+  .masthead h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .masthead .tagline {
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    color: #aaa;
+    font-style: italic;
+  }
+
+  /* RELEVANT BADGE */
+  .badge-relevant {
+    display: inline-block;
+    background: #e63946;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 3px;
+    margin-bottom: 1.2rem;
+  }
+
+  /* STORY NUMBER */
+  .story-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* SOURCE LINE */
+  .source-line {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin-top: 1.5rem;
+  }
+
+  /* ── SECTION 1: HERO DARK ── */
+  #s1 {
+    min-height: 100vh;
+    background: #070810;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 2rem;
+  }
+  #s1 .ghost-num {
+    position: absolute;
+    bottom: -4rem;
+    right: -2rem;
+    font-size: clamp(160px, 28vw, 380px);
+    color: #fff;
+    opacity: 0.04;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    line-height: 1;
+  }
+  #s1 .inner {
+    max-width: 820px;
+    position: relative;
+    z-index: 2;
+  }
+  #s1 .overline {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #6c63ff;
+    margin-bottom: 1.2rem;
+  }
+  #s1 h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(42px, 6vw, 96px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+  #s1 p {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.65;
+    color: #ccc;
+    max-width: 640px;
+  }
+  #s1 .accent-bar {
+    width: 64px;
+    height: 5px;
+    background: #6c63ff;
+    margin-bottom: 1.5rem;
+    border-radius: 2px;
+  }
+
+  /* ── SECTION 2: MIDNIGHT STAT ── */
+  #s2 {
+    min-height: 100vh;
+    background: #03045e;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    overflow: hidden;
+  }
+  #s2 .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1000px;
+    width: 100%;
+    align-items: center;
+  }
+  #s2 .big-stat {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(120px, 20vw, 260px);
+    color: #90e0ef;
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+  #s2 h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(42px, 4.5vw, 72px);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  #s2 p {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.65;
+    color: #cce;
+  }
+  @media(max-width: 680px) {
+    #s2 .grid { grid-template-columns: 1fr; gap: 2rem; }
+    #s2 .big-stat { font-size: clamp(100px, 30vw, 180px); }
+  }
+
+  /* ── SECTION 3: ROSE ALARM STAMP ── */
+  #s3 {
+    min-height: 100vh;
+    background: #fff0f3;
+    color: #1a1a2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  #s3 .stamp {
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    width: clamp(100px, 14vw, 180px);
+    height: clamp(100px, 14vw, 180px);
+    border: 8px solid #e63946;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-12deg);
+    font-size: clamp(0.55rem, 1.2vw, 0.8rem);
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #e63946;
+    text-align: center;
+    line-height: 1.3;
+    padding: 1rem;
+  }
+  #s3 .inner {
+    max-width: 780px;
+    position: relative;
+    z-index: 2;
+  }
+  #s3 h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(42px, 6vw, 90px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    color: #1a1a2e;
+  }
+  #s3 p {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.7;
+    color: #333;
+  }
+  #s3 .research-box {
+    margin-top: 2rem;
+    border-left: 4px solid #e63946;
+    padding-left: 1.2rem;
+    font-style: italic;
+    font-size: clamp(16px, 1.6vw, 20px);
+    color: #555;
+  }
+
+  /* ── SECTION 4: TERMINAL ── */
+  #s4 {
+    min-height: 100vh;
+    background: #0d1117;
+    color: #39d353;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    overflow: hidden;
+  }
+  #s4 .terminal-box {
+    max-width: 840px;
+    width: 100%;
+  }
+  #s4 .t-bar {
+    background: #161b22;
+    border-radius: 8px 8px 0 0;
+    padding: 0.6rem 1rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  #s4 .dot { width: 12px; height: 12px; border-radius: 50%; }
+  #s4 .dot.r { background: #e63946; }
+  #s4 .dot.y { background: #f4c430; }
+  #s4 .dot.g { background: #39d353; }
+  #s4 .t-body {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 2rem;
+  }
+  #s4 .prompt-line {
+    color: #58a6ff;
+    font-size: clamp(13px, 1.5vw, 16px);
+    margin-bottom: 0.4rem;
+  }
+  #s4 .t-headline {
+    font-size: clamp(24px, 4vw, 52px);
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 1.2rem 0;
+    color: #39d353;
+    font-family: 'Courier New', monospace;
+  }
+  #s4 .t-body p {
+    font-size: clamp(14px, 1.6vw, 18px);
+    line-height: 1.8;
+    color: #8b949e;
+    margin-bottom: 0.8rem;
+  }
+  #s4 .cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.1em;
+    background: #39d353;
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  #s4 .t-tag {
+    display: inline-block;
+    background: #1f6feb;
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+  }
+
+  /* ── SECTION 5: ACADEMIC DROP CAP ── */
+  #s5 {
+    min-height: 100vh;
+    background: #fdf6e3;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    overflow: hidden;
+  }
+  #s5 .inner {
+    max-width: 820px;
+    position: relative;
+  }
+  #s5 .overline {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #c77b34;
+    margin-bottom: 1rem;
+  }
+  #s5 h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(42px, 5.5vw, 84px);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+  }
+  #s5 .drop-wrap::first-letter {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(80px, 12vw, 160px);
+    float: left;
+    line-height: 0.75;
+    padding-right: 0.1em;
+    color: #c77b34;
+    font-variant: small-caps;
+  }
+  #s5 .drop-wrap {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 1.2rem;
+  }
+  #s5 .list-items {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  #s5 .list-item {
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+    font-size: clamp(16px, 1.6vw, 20px);
+    line-height: 1.5;
+  }
+  #s5 .list-item .dot-mark {
+    width: 8px;
+    height: 8px;
+    background: #c77b34;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.55em;
+  }
+
+  /* ── SECTION 6: BIG STATS FINISH ── */
+  #s6 {
+    min-height: 100vh;
+    background: #1a1a2e;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    overflow: hidden;
+  }
+  #s6 .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1000px;
+    width: 100%;
+    align-items: center;
+  }
+  #s6 h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(42px, 4.5vw, 72px);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  #s6 p {
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.65;
+    color: #ccc;
+  }
+  #s6 .stats-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  #s6 .stat-block .stat-val {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(60px, 10vw, 130px);
+    color: #e94560;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  #s6 .stat-block .stat-label {
+    font-size: clamp(14px, 1.5vw, 18px);
+    color: #aaa;
+    margin-top: 0.3rem;
+  }
+  @media(max-width: 680px) {
+    #s6 .grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  /* ── SECTION 7: DARK ACCENT LINE ── */
+  #s7 {
+    min-height: 100vh;
+    background: #0f0e17;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  #s7 .ghost-num {
+    position: absolute;
+    bottom: -3rem;
+    right: -1rem;
+    font-size: clamp(140px, 24vw, 340px);
+    color: #fff;
+    opacity: 0.04;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    line-height: 1;
+  }
+  #s7 .inner {
+    max-width: 820px;
+    border-left: 8px solid;
+    border-image: linear-gradient(180deg, #ff6b35, #f72585) 1;
+    padding-left: 2.5rem;
+    position: relative;
+    z-index: 2;
+  }
+  #s7 .overline {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #ff6b35;
+    margin-bottom: 1rem;
+  }
+  #s7 h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(42px, 5.5vw, 88px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+  #s7 p {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.65;
+    color: #ccc;
+  }
+
+  /* ── SECTION 8: BRIGHT LIME ── */
+  #s8 {
+    min-height: 100vh;
+    background: #e9ff70;
+    color: #0d0d0d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  #s8 .ghost-num {
+    position: absolute;
+    top: -2rem;
+    right: -1rem;
+    font-size: clamp(160px, 28vw, 380px);
+    color: #0d0d0d;
+    opacity: 0.08;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    line-height: 1;
+  }
+  #s8 .inner {
+    max-width: 820px;
+    position: relative;
+    z-index: 2;
+  }
+  #s8 .overline {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  #s8 h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(42px, 6vw, 96px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    color: #0d0d0d;
+  }
+  #s8 p {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.65;
+    color: #333;
+  }
+  #s8 .fact-highlight {
+    margin-top: 2rem;
+    background: rgba(0,0,0,0.08);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    font-size: clamp(16px, 1.7vw, 20px);
+    font-weight: 600;
+    color: #111;
+  }
+
+  /* ── SECTION 9: BROADSHEET ── */
+  #s9 {
+    min-height: 100vh;
+    background: #f5f0e8;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  #s9 .ghost-num {
+    position: absolute;
+    bottom: -3rem;
+    right: -1rem;
+    font-size: clamp(140px, 24vw, 340px);
+    color: #1a1a1a;
+    opacity: 0.04;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    line-height: 1;
+  }
+  #s9 .inner {
+    max-width: 820px;
+    position: relative;
+    z-index: 2;
+  }
+  #s9 .rule-top {
+    border: none;
+    height: 0;
+    border-top: 6px solid #1a1a1a;
+    margin-bottom: 4px;
+  }
+  #s9 .rule-thin {
+    border: none;
+    height: 0;
+    border-top: 1px solid #1a1a1a;
+    margin-bottom: 1.5rem;
+  }
+  #s9 .overline {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+  #s9 h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: clamp(42px, 5.5vw, 88px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+  }
+  #s9 p {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.7;
+    color: #333;
+  }
+
+  /* ── SECTION 10: WARM FOREST ── */
+  #s10 {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #2d6a4f 0%, #081c15 100%);
+    color: #f0ebe3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  #s10 .circle1 {
+    position: absolute;
+    width: clamp(200px, 35vw, 500px);
+    height: clamp(200px, 35vw, 500px);
+    border: 60px solid rgba(255,255,255,0.04);
+    border-radius: 50%;
+    top: -100px;
+    right: -100px;
+  }
+  #s10 .circle2 {
+    position: absolute;
+    width: clamp(150px, 25vw, 360px);
+    height: clamp(150px, 25vw, 360px);
+    border: 40px solid rgba(255,255,255,0.04);
+    border-radius: 50%;
+    bottom: -80px;
+    left: -80px;
+  }
+  #s10 .inner {
+    max-width: 820px;
+    position: relative;
+    z-index: 2;
+  }
+  #s10 .overline {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #95d5b2;
+    margin-bottom: 1rem;
+  }
+  #s10 h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(42px, 6vw, 96px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    color: #f0ebe3;
+  }
+  #s10 p {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.65;
+    color: #c8e6c9;
+  }
+  #s10 .good-tag {
+    display: inline-block;
+    background: #95d5b2;
+    color: #081c15;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    margin-bottom: 1.2rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #070810;
+    color: #555;
+    text-align: center;
+    padding: 3rem 2rem;
+    font-size: 0.78rem;
+    line-height: 1.8;
+  }
+  footer .footer-brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    color: #6c63ff;
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="date-line">Samstag · 18. April 2026</div>
+  <h1>Good Morning ☕</h1>
+  <p class="tagline">Dein tägliches Editorial-Magazin · 10 Geschichten, handverlesen für Timo Off</p>
+</header>
+
+<!-- TOC NAV -->
+<nav class="toc">
+  <span class="nav-brand">Heute</span>
+  <a href="#s1" class="relevant">1 · telli in allen Ländern</a>
+  <a href="#s2" class="relevant">2 · 88% der Lehrkräfte</a>
+  <a href="#s3" class="relevant">3 · KI: Wann hilft, wann schadet?</a>
+  <a href="#s4" class="relevant">4 · Claude for Education</a>
+  <a href="#s5" class="relevant">5 · KI-Landeslizenzen</a>
+  <a href="#s6">6 · 53% Erneuerbare</a>
+  <a href="#s7">7 · Artemis 2 am Mond</a>
+  <a href="#s8">8 · Riesige Fossilien</a>
+  <a href="#s9" class="relevant">9 · Bildungspreis 2026</a>
+  <a href="#s10">10 · Lungenkrebs-Screening</a>
+</nav>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 1 · HERO DARK -->
+<!-- ══════════════════════════════════════════ -->
+<section id="s1">
+  <div class="inner">
+    <div class="overline">KI in Schulen · Breaking</div>
+    <span class="badge-relevant">▲ Direkt relevant für dich</span>
+    <div class="accent-bar"></div>
+    <h2>telli ist jetzt in allen Bundesländern</h2>
+    <p>Thüringen hat als letztes Bundesland den KI-Chatbot <strong style="color:#fff">telli</strong> freigeschaltet. Damit ist der datenschutzkonforme Schul-KI-Assistent der Telekom nun in ganz Deutschland für alle Schülerinnen, Schüler und Lehrkräfte verfügbar — kostenlos, ohne DSGVO-Risiko. Alle 16 Länder haben außerdem Landeslizenzen für weitere Tools (fobizz, SchulKI, FelloFish) abgeschlossen. Die flächendeckende KI-Infrastruktur für Schulen ist damit Realität.</p>
+    <p class="source-line">Quelle: Deutsches Schulportal · April 2026</p>
+  </div>
+  <div class="ghost-num">1</div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 2 · MIDNIGHT STAT -->
+<!-- ══════════════════════════════════════════ -->
+<section id="s2">
+  <div class="grid">
+    <div>
+      <div class="big-stat">88%</div>
+    </div>
+    <div>
+      <span class="badge-relevant">▲ Direkt relevant für dich</span>
+      <h2>der Lehrkräfte haben KI-Regeln kaum gelesen</h2>
+      <p>Eine repräsentative Umfrage der Deutschen Telekom Stiftung (März 2026) zeigt: 88 Prozent der befragten Lehrerinnen und Lehrer haben sich wenig oder gar nicht mit den geltenden KI-Regelungen in Schulen beschäftigt. Die Tools sind da — aber das regulatorische Wissen fehlt. Eine riesige Fortbildungsaufgabe wartet auf die Schulleitung.</p>
+      <p class="source-line" style="color:#90e0ef;opacity:0.6;">Quelle: Deutsche Telekom Stiftung · März 2026</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 3 · ROSE ALARM STAMP -->
+<!-- ══════════════════════════════════════════ -->
+<section id="s3">
+  <div class="stamp">Neue<br>Forschung<br>2026</div>
+  <div class="inner">
+    <span class="badge-relevant">▲ Direkt relevant für dich</span>
+    <h2>Wann KI beim Lernen hilft — und wann sie schadet</h2>
+    <p>Das Deutsches Schulportal hat eine neue Forschungsübersicht veröffentlicht, die endlich klar zwischen förderlichem und schädlichem KI-Einsatz im Unterricht unterscheidet. KI hilft beim Erklären, beim Üben und bei der Differenzierung — schadet aber, wenn Schülerinnen und Schüler sie zum Denken-Umgehen nutzen und dabei das eigenständige Denken verlernen.</p>
+    <div class="research-box">
+      „Wenn KI das Denken ersetzt statt unterstützt, entsteht kognitive Abhängigkeit — besonders in der kritischen Phase des Kompetenzerwerbs." — Bildungsforschung 2026
+    </div>
+    <p class="source-line">Quelle: Deutsches Schulportal · Bildungsforschung 2026</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 4 · TERMINAL -->
+<!-- ══════════════════════════════════════════ -->
+<section id="s4">
+  <div class="terminal-box">
+    <div class="t-bar">
+      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+      <span style="font-size:0.75rem;color:#8b949e;margin-left:0.5rem;">ki-news — bash</span>
+    </div>
+    <div class="t-body">
+      <div class="prompt-line">$ news --filter=education --source=anthropic,openai --date=2026-04</div>
+      <span class="t-tag">▲ DIREKT RELEVANT FÜR DICH</span>
+      <div class="t-headline">Claude for Education<br>ist live.<span class="cursor"></span></div>
+      <p>Anthropic hat „Claude for Education" gestartet — eine speziell für Hochschulen und weiterführende Schulen optimierte Version von Claude. Parallel dazu hat OpenAI die „OpenAI Academy" mit KI-Literacytrainings für Bildungseinrichtungen gelauncht.</p>
+      <p>Beide Angebote zielen darauf ab, kritisches Denken zu stärken statt zu ersetzen — und kommen mit Datenschutzgarantien für Bildungseinrichtungen. Für deutsche Schulen gilt: DSGVO-Kompatibilität muss separat geprüft werden.</p>
+      <p class="source-line" style="color:#8b949e;">Quelle: AI for Education Blog · April 2026</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 5 · ACADEMIC DROP CAP -->
+<!-- ══════════════════════════════════════════ -->
+<section id="s5">
+  <div class="inner">
+    <div class="overline">Schulleitung · Praxis</div>
+    <span class="badge-relevant">▲ Direkt relevant für dich</span>
+    <h2>Was Schulen jetzt kostenlos nutzen dürfen</h2>
+    <div class="drop-wrap">
+    Alle Bundesländer haben inzwischen Landeslizenzen für KI-Tools abgeschlossen — doch viele Schulleitungen wissen nicht, welche Tools konkret freigeschaltet sind. Baden-Württemberg hat im April 2026 eine neue Übersicht aller verfügbaren KI-Landesapplikationen veröffentlicht.
+    </div>
+    <div class="list-items">
+      <div class="list-item"><div class="dot-mark"></div><span><strong>telli</strong> — DSGVO-konformer KI-Chatbot für Schüler und Lehrkräfte (alle Länder)</span></div>
+      <div class="list-item"><div class="dot-mark"></div><span><strong>fobizz</strong> — Fortbildungs- und Unterrichtsplattform mit KI-Assistent (Landeslizenz)</span></div>
+      <div class="list-item"><div class="dot-mark"></div><span><strong>SchulKI</strong> — speziell für den schulischen Einsatz konzipiert, ohne Datenweitergabe</span></div>
+      <div class="list-item"><div class="dot-mark"></div><span><strong>FelloFish</strong> — KI-gestützte Lernbegleitung, besonders für Förderbedarf geeignet</span></div>
+    </div>
+    <p class="source-line">Quelle: Landeselternbeirat BW · Schule im Blickpunkt April 2026</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 6 · BIG STATS FINISH -->
+<!-- ══════════════════════════════════════════ -->
+<section id="s6">
+  <div class="grid">
+    <div>
+      <h2>Deutschland auf Rekordkurs bei erneuerbarer Energie</h2>
+      <p>Im ersten Quartal 2026 deckten erneuerbare Energien erstmals mehr als die Hälfte des deutschen Stromverbrauchs. Am 8. April wurde ein neuer Tagesrekord für Solarstrom aufgestellt. Ein klares Signal: die Energiewende ist in der Realität angekommen.</p>
+      <p class="source-line" style="color:#aaa;">Quelle: ZDF Heute · Good News April 2026</p>
+    </div>
+    <div class="stats-col">
+      <div class="stat-block">
+        <div class="stat-val">53%</div>
+        <div class="stat-label">Erneuerbarer Anteil Q1 2026</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-val">426 GWh</div>
+        <div class="stat-label">Solar-Tagesrekord 8. April</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 7 · DARK ACCENT LINE -->
+<!-- ══════════════════════════════════════════ -->
+<section id="s7">
+  <div class="inner">
+    <div class="overline">Wissenschaft · Raumfahrt</div>
+    <h2>Artemis 2: Menschen umrunden den Mond</h2>
+    <p>Die NASA-Mission Artemis 2 hat erfolgreich die Mondumrundung abgeschlossen und atemberaubende Bilder aus der Mondumlaufbahn zur Erde übertragen. Es sind die ersten Menschen seit über 50 Jahren, die den Mond aus der Nähe sehen — ein historischer Moment, der weltweit Millionen begeistert. Die Bilder zeigen die Erdkugel im Mondorbit auf eine Weise, die selbst erfahrene Astronauten zum Staunen bringt.</p>
+    <p style="margin-top:1rem;font-style:italic;color:#ff6b35;">„Das Beste an der Raumfahrt ist, dass sie uns lehrt, wie klein und wie wertvoll unsere Erde ist."</p>
+    <p class="source-line">Quelle: NASA · Artemis Program 2026</p>
+  </div>
+  <div class="ghost-num">7</div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 8 · BRIGHT LIME -->
+<!-- ══════════════════════════════════════════ -->
+<section id="s8">
+  <div class="ghost-num">8</div>
+  <div class="inner">
+    <div class="overline">Seltsame Wissenschaft · Paläontologie</div>
+    <h2>20-Meter-Dino in Patagonien ausgegraben</h2>
+    <p>Paläontologen haben in Patagonien das Fossil eines riesigen Sauropoden freigelegt — rund 20 Meter lang, und vermutlich eine bislang unbekannte Art. Das Tier lebte vor etwa 90 Millionen Jahren. Gleichzeitig wurden in den Tiefseegräben vor Japan Meereswesen entdeckt, die in kein bekanntes Klassifikationssystem passen — die Tiefsee bleibt ein Ort voller Überraschungen.</p>
+    <div class="fact-highlight">
+      🦕 Fakt: Mehr als 80% der Weltmeere sind noch unerforschter als die Mondoberfläche.
+    </div>
+    <p class="source-line">Quelle: Scinexx · Forschung & Wissen April 2026</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 9 · BROADSHEET -->
+<!-- ══════════════════════════════════════════ -->
+<section id="s9">
+  <div class="inner">
+    <hr class="rule-top">
+    <hr class="rule-thin">
+    <div class="overline">Bildung · Auszeichnung · Bewerbung läuft</div>
+    <span class="badge-relevant">▲ Direkt relevant für dich</span>
+    <h2>„KI-Kompetenz für alle!" — Jetzt bewerben</h2>
+    <p>Seit dem 17. April 2026 können sich Schulen und Bildungseinrichtungen für den Deutschen Arbeitgeberpreis für Bildung 2026 bewerben. Thema in diesem Jahr: Wie Bildungseinrichtungen KI-Kompetenz für alle Schülerinnen und Schüler fördern — unabhängig von Herkunft und Vorwissen. Der Preis ist mit bis zu 10.000 Euro dotiert und bietet vor allem Sichtbarkeit für innovative Schulkonzepte.</p>
+    <p style="margin-top:1.2rem;font-size:clamp(16px,1.6vw,20px);color:#555;line-height:1.7;">Bewerbungsschluss: voraussichtlich Ende Juni 2026. Mehr Infos unter arbeitgeber.de/bildungspreis.</p>
+    <p class="source-line">Quelle: Arbeitgeber.de · April 2026</p>
+  </div>
+  <div class="ghost-num">9</div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 10 · WARM FOREST -->
+<!-- ══════════════════════════════════════════ -->
+<section id="s10">
+  <div class="circle1"></div>
+  <div class="circle2"></div>
+  <div class="inner">
+    <div class="overline">Good News · Gesundheit</div>
+    <span class="good-tag">✓ Gute Nachricht</span>
+    <h2>Lungenkrebsscreening jetzt kostenlos für alle Risikogruppen</h2>
+    <p>Seit dem 1. April 2026 haben Hochrisikogruppen (starke Raucher ab 50 Jahren) Anspruch auf ein jährliches Niedrigdosis-CT zur Lungenkrebsfrüherkennung — vollständig von der gesetzlichen Krankenversicherung übernommen. Lungenkrebs wird so oft frühzeitig erkannt, wenn er noch gut behandelbar ist. Eine der bedeutsamsten Präventionsmaßnahmen der letzten Jahre in Deutschland.</p>
+    <p style="margin-top:1.5rem;color:#95d5b2;font-size:clamp(16px,1.6vw,20px);">Früherkennung rettet Leben — und das zahlt jetzt die Kasse.</p>
+    <p class="source-line" style="color:#95d5b2;opacity:0.6;">Quelle: GKV · Neue Leistungen ab April 2026</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">Good Morning</span>
+  Ausgabe vom 18. April 2026 · Kuratiert für Timo Off<br>
+  Generiert von Claude · Alle Angaben ohne Gewähr
+</footer>
+
+</body>
+</html>
