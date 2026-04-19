@@ -61,6 +61,16 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
   }
+  .masthead-edition {
+    margin-top: 10px;
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--purple);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
 
   /* TOC NAV */
   .toc-nav {
@@ -77,7 +87,6 @@
     overflow-x: auto;
     gap: 0;
     scrollbar-width: none;
-    -ms-overflow-style: none;
   }
   .toc-inner::-webkit-scrollbar { display: none; }
   .toc-item {
@@ -96,11 +105,7 @@
     flex-shrink: 0;
   }
   .toc-item:hover { background: #f8f8f8; }
-  .toc-num {
-    font-weight: 800;
-    font-size: 10px;
-    color: #999;
-  }
+  .toc-num { font-weight: 800; font-size: 10px; color: #999; }
   .toc-tag-red {
     background: var(--red);
     color: white;
@@ -132,7 +137,6 @@
   .story { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
   .story-inner { position: relative; z-index: 2; width: 100%; max-width: 1100px; margin: 0 auto; padding: 80px 48px; }
 
-  /* GHOST NUMBER */
   .ghost {
     position: absolute;
     font-family: var(--headline);
@@ -143,540 +147,104 @@
     line-height: 1;
   }
 
-  /* STORY 1 — HERO DARK */
+  /* 1 — HERO DARK */
   #s1 { background: #070810; }
-  #s1 .ghost {
-    font-size: clamp(200px, 35vw, 500px);
-    color: rgba(108,99,255,0.04);
-    bottom: -60px; right: -40px;
-  }
-  #s1 .story-num {
-    font-family: var(--body);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--purple);
-    margin-bottom: 24px;
-  }
-  #s1 .story-tag {
-    font-family: var(--body);
-    font-size: 11px;
-    font-weight: 600;
-    color: rgba(108,99,255,0.8);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    margin-bottom: 20px;
-  }
-  #s1 h1 {
-    font-family: var(--headline);
-    font-size: var(--hl-size);
-    font-weight: 900;
-    color: white;
-    line-height: 1.0;
-    margin-bottom: 32px;
-    max-width: 900px;
-  }
-  #s1 .deck {
-    font-size: var(--deck-size);
-    color: rgba(255,255,255,0.65);
-    line-height: 1.65;
-    max-width: 680px;
-    margin-bottom: 40px;
-    font-weight: 300;
-  }
-  #s1 .source-line {
-    font-size: 12px;
-    color: rgba(255,255,255,0.25);
-    font-style: italic;
-  }
+  #s1 .ghost { font-size: clamp(200px,35vw,500px); color: rgba(108,99,255,0.04); bottom: -60px; right: -40px; }
+  #s1 .story-tag { font-family: var(--body); font-size: 11px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(108,99,255,0.8); margin-bottom: 20px; }
+  #s1 h1 { font-family: var(--headline); font-size: var(--hl-size); font-weight: 900; color: white; line-height: 1.0; margin-bottom: 32px; max-width: 900px; }
+  #s1 .deck { font-size: var(--deck-size); color: rgba(255,255,255,0.65); line-height: 1.65; max-width: 680px; margin-bottom: 40px; font-weight: 300; }
+  #s1 .source-line { font-size: 12px; color: rgba(255,255,255,0.25); font-style: italic; }
 
-  /* STORY 2 — MIDNIGHT STAT */
+  /* 2 — MIDNIGHT STAT */
   #s2 { background: #03045e; }
-  #s2 .story-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
-  @media (max-width: 768px) {
-    #s2 .story-inner { grid-template-columns: 1fr; }
-  }
-  #s2 .stat-side {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  #s2 .big-stat {
-    font-family: var(--headline);
-    font-size: clamp(120px, 20vw, 260px);
-    font-weight: 900;
-    color: var(--cyan);
-    line-height: 0.85;
-    margin-bottom: 8px;
-  }
-  #s2 .stat-label {
-    font-family: var(--body);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    color: rgba(144,224,239,0.6);
-    text-transform: uppercase;
-  }
-  #s2 .content-side {}
-  #s2 .story-tag {
-    font-family: var(--body);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    color: var(--cyan);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    opacity: 0.7;
-  }
-  #s2 h2 {
-    font-family: var(--headline);
-    font-size: clamp(36px, 4.5vw, 72px);
-    font-weight: 900;
-    color: white;
-    line-height: 1.05;
-    margin-bottom: 28px;
-  }
-  #s2 .deck {
-    font-size: var(--deck-size);
-    color: rgba(255,255,255,0.6);
-    line-height: 1.65;
-    font-weight: 300;
-    margin-bottom: 36px;
-  }
-  #s2 .source-line {
-    font-size: 12px;
-    color: rgba(144,224,239,0.3);
-    font-style: italic;
-  }
+  #s2 .story-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  @media (max-width: 768px) { #s2 .story-inner { grid-template-columns: 1fr; } }
+  #s2 .big-stat { font-family: var(--headline); font-size: clamp(120px,20vw,260px); font-weight: 900; color: var(--cyan); line-height: 0.85; margin-bottom: 8px; }
+  #s2 .stat-label { font-family: var(--body); font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: rgba(144,224,239,0.6); text-transform: uppercase; }
+  #s2 .story-tag { font-family: var(--body); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; color: var(--cyan); text-transform: uppercase; margin-bottom: 20px; opacity: 0.7; }
+  #s2 h2 { font-family: var(--headline); font-size: clamp(36px,4.5vw,72px); font-weight: 900; color: white; line-height: 1.05; margin-bottom: 28px; }
+  #s2 .deck { font-size: var(--deck-size); color: rgba(255,255,255,0.6); line-height: 1.65; font-weight: 300; margin-bottom: 36px; }
+  #s2 .source-line { font-size: 12px; color: rgba(144,224,239,0.3); font-style: italic; }
 
-  /* STORY 3 — ROSE ALARM STAMP */
+  /* 3 — ROSE ALARM STAMP */
   #s3 { background: #fff0f3; }
-  #s3 .stamp {
-    position: absolute;
-    top: 60px;
-    right: 60px;
-    width: clamp(120px, 16vw, 200px);
-    height: clamp(120px, 16vw, 200px);
-    border: 8px solid var(--red);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: rotate(-12deg);
-    z-index: 3;
-  }
-  #s3 .stamp-text {
-    font-family: var(--headline);
-    font-size: clamp(14px, 2vw, 22px);
-    font-weight: 900;
-    color: var(--red);
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    line-height: 1.2;
-    padding: 12px;
-  }
-  #s3 .story-tag {
-    font-family: var(--body);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    color: var(--red);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  #s3 h2 {
-    font-family: var(--headline);
-    font-size: var(--hl-size);
-    font-weight: 900;
-    color: #1a0a0e;
-    line-height: 1.0;
-    margin-bottom: 32px;
-    max-width: 820px;
-  }
-  #s3 .deck {
-    font-size: var(--deck-size);
-    color: #4a2530;
-    line-height: 1.65;
-    max-width: 680px;
-    margin-bottom: 40px;
-    font-weight: 400;
-  }
-  #s3 .source-line {
-    font-size: 12px;
-    color: rgba(230,57,70,0.4);
-    font-style: italic;
-  }
+  #s3 .stamp { position: absolute; top: 60px; right: 60px; width: clamp(120px,16vw,200px); height: clamp(120px,16vw,200px); border: 8px solid var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; transform: rotate(-12deg); z-index: 3; }
+  #s3 .stamp-text { font-family: var(--headline); font-size: clamp(14px,2vw,22px); font-weight: 900; color: var(--red); text-align: center; text-transform: uppercase; line-height: 1.2; padding: 12px; }
+  #s3 .story-tag { font-family: var(--body); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; color: var(--red); text-transform: uppercase; margin-bottom: 20px; }
+  #s3 h2 { font-family: var(--headline); font-size: var(--hl-size); font-weight: 900; color: #1a0a0e; line-height: 1.0; margin-bottom: 32px; max-width: 820px; }
+  #s3 .deck { font-size: var(--deck-size); color: #4a2530; line-height: 1.65; max-width: 680px; margin-bottom: 40px; }
+  #s3 .source-line { font-size: 12px; color: rgba(230,57,70,0.4); font-style: italic; }
 
-  /* STORY 4 — TERMINAL */
+  /* 4 — TERMINAL */
   #s4 { background: #0d1117; }
-  #s4 .prompt-line {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
-    color: #58a6ff;
-    margin-bottom: 24px;
-    letter-spacing: 0.05em;
-  }
-  #s4 .story-tag {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 12px;
-    color: var(--green-term);
-    margin-bottom: 20px;
-    opacity: 0.8;
-  }
-  #s4 h2 {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: clamp(28px, 4vw, 62px);
-    font-weight: 700;
-    color: var(--green-term);
-    line-height: 1.15;
-    margin-bottom: 32px;
-    max-width: 860px;
-  }
-  #s4 .deck {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: clamp(15px, 1.6vw, 20px);
-    color: rgba(57,211,83,0.7);
-    line-height: 1.8;
-    max-width: 700px;
-    margin-bottom: 40px;
-  }
-  #s4 .cursor::after {
-    content: '█';
-    animation: blink 1s step-end infinite;
-    color: var(--green-term);
-  }
+  #s4 .prompt-line { font-family: 'Courier New', monospace; font-size: 14px; color: #58a6ff; margin-bottom: 24px; letter-spacing: 0.05em; }
+  #s4 .story-tag { font-family: 'Courier New', monospace; font-size: 12px; color: var(--green-term); margin-bottom: 20px; opacity: 0.8; }
+  #s4 h2 { font-family: 'Courier New', monospace; font-size: clamp(28px,4vw,62px); font-weight: 700; color: var(--green-term); line-height: 1.15; margin-bottom: 32px; max-width: 860px; }
+  #s4 .deck { font-family: 'Courier New', monospace; font-size: clamp(15px,1.6vw,20px); color: rgba(57,211,83,0.7); line-height: 1.8; max-width: 700px; margin-bottom: 40px; }
+  #s4 .cursor::after { content: '█'; animation: blink 1s step-end infinite; color: var(--green-term); }
   @keyframes blink { 50% { opacity: 0; } }
-  #s4 .source-line {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 11px;
-    color: rgba(57,211,83,0.3);
-  }
+  #s4 .source-line { font-family: 'Courier New', monospace; font-size: 11px; color: rgba(57,211,83,0.3); }
 
-  /* STORY 5 — ACADEMIC DROP CAP */
+  /* 5 — ACADEMIC DROP CAP */
   #s5 { background: #fdf6e3; }
-  #s5 .story-tag {
-    font-family: var(--body);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    color: var(--amber);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  #s5 .drop-wrap {
-    max-width: 820px;
-  }
-  #s5 .drop-cap {
-    float: left;
-    font-family: var(--headline);
-    font-size: clamp(160px, 25vw, 340px);
-    font-weight: 900;
-    color: var(--amber);
-    line-height: 0.7;
-    margin-right: 20px;
-    margin-bottom: 0;
-    padding-top: 12px;
-  }
-  #s5 h2 {
-    font-family: var(--headline);
-    font-size: clamp(36px, 4.5vw, 72px);
-    font-weight: 900;
-    font-style: italic;
-    color: #2c1a00;
-    line-height: 1.05;
-    margin-bottom: 24px;
-    font-variant: small-caps;
-  }
-  #s5 .deck {
-    font-size: var(--deck-size);
-    color: #5a3a00;
-    line-height: 1.7;
-    margin-bottom: 36px;
-    font-weight: 400;
-  }
+  #s5 .story-tag { font-family: var(--body); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; color: var(--amber); text-transform: uppercase; margin-bottom: 20px; }
+  #s5 .drop-cap { float: left; font-family: var(--headline); font-size: clamp(160px,25vw,340px); font-weight: 900; color: var(--amber); line-height: 0.7; margin-right: 20px; margin-bottom: 0; padding-top: 12px; }
+  #s5 h2 { font-family: var(--headline); font-size: clamp(36px,4.5vw,72px); font-weight: 900; font-style: italic; color: #2c1a00; line-height: 1.05; margin-bottom: 24px; font-variant: small-caps; }
+  #s5 .deck { font-size: var(--deck-size); color: #5a3a00; line-height: 1.7; margin-bottom: 36px; }
   #s5 .clearfix::after { content: ''; display: table; clear: both; }
-  #s5 .source-line {
-    font-size: 12px;
-    color: rgba(199,123,52,0.4);
-    font-style: italic;
-    clear: both;
-  }
+  #s5 .source-line { font-size: 12px; color: rgba(199,123,52,0.4); font-style: italic; clear: both; }
 
-  /* STORY 6 — BIG STATS FINISH */
+  /* 6 — BIG STATS FINISH */
   #s6 { background: #1a1a2e; }
-  #s6 .story-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
-  @media (max-width: 768px) {
-    #s6 .story-inner { grid-template-columns: 1fr; }
-  }
-  #s6 .content-side .story-tag {
-    font-family: var(--body);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    color: rgba(233,69,96,0.7);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  #s6 h2 {
-    font-family: var(--headline);
-    font-size: clamp(36px, 4.5vw, 72px);
-    font-weight: 900;
-    color: white;
-    line-height: 1.05;
-    margin-bottom: 28px;
-  }
-  #s6 .deck {
-    font-size: var(--deck-size);
-    color: rgba(255,255,255,0.55);
-    line-height: 1.65;
-    font-weight: 300;
-    margin-bottom: 32px;
-  }
-  #s6 .stats-side {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-  }
-  #s6 .stat-block {}
-  #s6 .stat-num {
-    font-family: var(--headline);
-    font-size: clamp(80px, 12vw, 160px);
-    font-weight: 900;
-    color: var(--crimson);
-    line-height: 0.9;
-    margin-bottom: 8px;
-  }
-  #s6 .stat-desc {
-    font-family: var(--body);
-    font-size: 13px;
-    font-weight: 500;
-    color: rgba(233,69,96,0.6);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-  }
-  #s6 .source-line {
-    font-size: 12px;
-    color: rgba(255,255,255,0.2);
-    font-style: italic;
-  }
+  #s6 .story-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  @media (max-width: 768px) { #s6 .story-inner { grid-template-columns: 1fr; } }
+  #s6 .story-tag { font-family: var(--body); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; color: rgba(233,69,96,0.7); text-transform: uppercase; margin-bottom: 20px; }
+  #s6 h2 { font-family: var(--headline); font-size: clamp(36px,4.5vw,72px); font-weight: 900; color: white; line-height: 1.05; margin-bottom: 28px; }
+  #s6 .deck { font-size: var(--deck-size); color: rgba(255,255,255,0.55); line-height: 1.65; font-weight: 300; margin-bottom: 32px; }
+  #s6 .stat-num { font-family: var(--headline); font-size: clamp(80px,12vw,160px); font-weight: 900; color: var(--crimson); line-height: 0.9; margin-bottom: 8px; }
+  #s6 .stat-desc { font-family: var(--body); font-size: 13px; font-weight: 500; color: rgba(233,69,96,0.6); text-transform: uppercase; letter-spacing: 0.15em; }
+  #s6 .stats-side { display: flex; flex-direction: column; gap: 40px; }
+  #s6 .source-line { font-size: 12px; color: rgba(255,255,255,0.2); font-style: italic; }
 
-  /* STORY 7 — DARK ACCENT LINE */
+  /* 7 — DARK ACCENT LINE */
   #s7 { background: #0f0e17; }
-  #s7 .ghost {
-    font-size: clamp(200px, 30vw, 440px);
-    color: rgba(255,255,255,0.025);
-    bottom: -40px; right: -30px;
-  }
-  #s7 .accent-bar {
-    width: 8px;
-    height: 100%;
-    min-height: 100vh;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background: linear-gradient(to bottom, #ff6b35, #f7c59f, #ff4da6);
-    z-index: 1;
-  }
-  #s7 .story-tag {
-    font-family: var(--body);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    color: #ff6b35;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  #s7 h2 {
-    font-family: var(--headline);
-    font-size: var(--hl-size);
-    font-weight: 900;
-    color: white;
-    line-height: 1.0;
-    margin-bottom: 32px;
-    max-width: 860px;
-  }
-  #s7 .deck {
-    font-size: var(--deck-size);
-    color: rgba(255,255,255,0.6);
-    line-height: 1.65;
-    max-width: 680px;
-    margin-bottom: 40px;
-    font-weight: 300;
-  }
-  #s7 .source-line {
-    font-size: 12px;
-    color: rgba(255,107,53,0.3);
-    font-style: italic;
-  }
+  #s7 .ghost { font-size: clamp(200px,30vw,440px); color: rgba(255,255,255,0.025); bottom: -40px; right: -30px; }
+  #s7 .accent-bar { width: 8px; height: 100%; min-height: 100vh; position: absolute; left: 0; top: 0; background: linear-gradient(to bottom, #ff6b35, #f7c59f, #ff4da6); z-index: 1; }
+  #s7 .story-tag { font-family: var(--body); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; color: #ff6b35; text-transform: uppercase; margin-bottom: 20px; }
+  #s7 h2 { font-family: var(--headline); font-size: var(--hl-size); font-weight: 900; color: white; line-height: 1.0; margin-bottom: 32px; max-width: 860px; }
+  #s7 .deck { font-size: var(--deck-size); color: rgba(255,255,255,0.6); line-height: 1.65; max-width: 680px; margin-bottom: 40px; font-weight: 300; }
+  #s7 .source-line { font-size: 12px; color: rgba(255,107,53,0.3); font-style: italic; }
 
-  /* STORY 8 — BRIGHT LIME */
+  /* 8 — BRIGHT LIME */
   #s8 { background: #e9ff70; }
-  #s8 .ghost {
-    font-size: clamp(200px, 32vw, 460px);
-    color: rgba(0,0,0,0.08);
-    top: -40px; right: -30px;
-  }
-  #s8 .story-tag {
-    font-family: var(--body);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    color: rgba(0,0,0,0.45);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  #s8 h2 {
-    font-family: var(--headline);
-    font-size: var(--hl-size);
-    font-weight: 900;
-    color: #0a0a0a;
-    line-height: 1.0;
-    margin-bottom: 32px;
-    max-width: 820px;
-  }
-  #s8 .deck {
-    font-size: var(--deck-size);
-    color: rgba(0,0,0,0.65);
-    line-height: 1.65;
-    max-width: 680px;
-    margin-bottom: 40px;
-    font-weight: 400;
-  }
-  #s8 .source-line {
-    font-size: 12px;
-    color: rgba(0,0,0,0.3);
-    font-style: italic;
-  }
+  #s8 .ghost { font-size: clamp(200px,32vw,460px); color: rgba(0,0,0,0.08); top: -40px; right: -30px; }
+  #s8 .story-tag { font-family: var(--body); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; color: rgba(0,0,0,0.45); text-transform: uppercase; margin-bottom: 20px; }
+  #s8 h2 { font-family: var(--headline); font-size: var(--hl-size); font-weight: 900; color: #0a0a0a; line-height: 1.0; margin-bottom: 32px; max-width: 820px; }
+  #s8 .deck { font-size: var(--deck-size); color: rgba(0,0,0,0.65); line-height: 1.65; max-width: 680px; margin-bottom: 40px; }
+  #s8 .source-line { font-size: 12px; color: rgba(0,0,0,0.3); font-style: italic; }
 
-  /* STORY 9 — BROADSHEET */
+  /* 9 — BROADSHEET */
   #s9 { background: #f5f0e8; }
-  #s9 .ghost {
-    font-size: clamp(200px, 30vw, 440px);
-    color: rgba(0,0,0,0.04);
-    bottom: -50px; right: -30px;
-  }
-  #s9 .rule-thick {
-    height: 6px;
-    background: #1a1a1a;
-    margin-bottom: 3px;
-  }
-  #s9 .rule-thin {
-    height: 1.5px;
-    background: #1a1a1a;
-    margin-bottom: 36px;
-  }
-  #s9 .story-tag {
-    font-family: var(--body);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    color: #555;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  #s9 h2 {
-    font-family: var(--headline);
-    font-size: var(--hl-size);
-    font-weight: 900;
-    font-style: italic;
-    color: #1a1a1a;
-    line-height: 1.0;
-    margin-bottom: 32px;
-    max-width: 860px;
-  }
-  #s9 .deck {
-    font-size: var(--deck-size);
-    color: #333;
-    line-height: 1.7;
-    max-width: 680px;
-    margin-bottom: 40px;
-    font-weight: 400;
-  }
-  #s9 .source-line {
-    font-size: 12px;
-    color: rgba(0,0,0,0.3);
-    font-style: italic;
-  }
+  #s9 .ghost { font-size: clamp(200px,30vw,440px); color: rgba(0,0,0,0.04); bottom: -50px; right: -30px; }
+  #s9 .rule-thick { height: 6px; background: #1a1a1a; margin-bottom: 3px; }
+  #s9 .rule-thin { height: 1.5px; background: #1a1a1a; margin-bottom: 36px; }
+  #s9 .story-tag { font-family: var(--body); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; color: #555; text-transform: uppercase; margin-bottom: 20px; }
+  #s9 h2 { font-family: var(--headline); font-size: var(--hl-size); font-weight: 900; font-style: italic; color: #1a1a1a; line-height: 1.0; margin-bottom: 32px; max-width: 860px; }
+  #s9 .deck { font-size: var(--deck-size); color: #333; line-height: 1.7; max-width: 680px; margin-bottom: 40px; }
+  #s9 .source-line { font-size: 12px; color: rgba(0,0,0,0.3); font-style: italic; }
 
-  /* STORY 10 — WARM FOREST */
-  #s10 { background: linear-gradient(135deg, #2d6a4f, #081c15); position: relative; overflow: hidden; }
-  #s10 .deco-circle-1 {
-    position: absolute;
-    width: clamp(300px, 45vw, 600px);
-    height: clamp(300px, 45vw, 600px);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 50%;
-    top: -100px; right: -100px;
-    z-index: 1;
-  }
-  #s10 .deco-circle-2 {
-    position: absolute;
-    width: clamp(200px, 30vw, 400px);
-    height: clamp(200px, 30vw, 400px);
-    border: 1px solid rgba(255,255,255,0.04);
-    border-radius: 50%;
-    bottom: -60px; left: -80px;
-    z-index: 1;
-  }
-  #s10 .story-tag {
-    font-family: var(--body);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  #s10 h2 {
-    font-family: var(--headline);
-    font-size: var(--hl-size);
-    font-weight: 900;
-    color: #f8f4ec;
-    line-height: 1.0;
-    margin-bottom: 32px;
-    max-width: 860px;
-  }
-  #s10 .deck {
-    font-size: var(--deck-size);
-    color: rgba(248,244,236,0.75);
-    line-height: 1.65;
-    max-width: 680px;
-    margin-bottom: 40px;
-    font-weight: 300;
-  }
-  #s10 .source-line {
-    font-size: 12px;
-    color: rgba(255,255,255,0.25);
-    font-style: italic;
-  }
+  /* 10 — WARM FOREST */
+  #s10 { background: linear-gradient(135deg, #2d6a4f, #081c15); }
+  #s10 .deco-circle-1 { position: absolute; width: clamp(300px,45vw,600px); height: clamp(300px,45vw,600px); border: 1px solid rgba(255,255,255,0.06); border-radius: 50%; top: -100px; right: -100px; z-index: 1; }
+  #s10 .deco-circle-2 { position: absolute; width: clamp(200px,30vw,400px); height: clamp(200px,30vw,400px); border: 1px solid rgba(255,255,255,0.04); border-radius: 50%; bottom: -60px; left: -80px; z-index: 1; }
+  #s10 .story-tag { font-family: var(--body); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: 20px; }
+  #s10 h2 { font-family: var(--headline); font-size: var(--hl-size); font-weight: 900; color: #f8f4ec; line-height: 1.0; margin-bottom: 32px; max-width: 860px; }
+  #s10 .deck { font-size: var(--deck-size); color: rgba(248,244,236,0.75); line-height: 1.65; max-width: 680px; margin-bottom: 40px; font-weight: 300; }
+  #s10 .source-line { font-size: 12px; color: rgba(255,255,255,0.25); font-style: italic; }
 
   /* FOOTER */
-  .footer {
-    background: #070810;
-    color: rgba(255,255,255,0.3);
-    text-align: center;
-    padding: 48px 24px;
-    font-family: var(--body);
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    border-top: 1px solid rgba(255,255,255,0.05);
-  }
-  .footer strong {
-    color: rgba(255,255,255,0.55);
-  }
+  .footer { background: #070810; color: rgba(255,255,255,0.3); text-align: center; padding: 48px 24px; font-family: var(--body); font-size: 12px; border-top: 1px solid rgba(255,255,255,0.05); }
+  .footer strong { color: rgba(255,255,255,0.55); }
 
   @media (max-width: 600px) {
     .story-inner { padding: 60px 24px; }
@@ -692,199 +260,194 @@
   <div class="masthead-label">Good Morning Magazine</div>
   <div class="masthead-title">Good<br>Morning</div>
   <div class="masthead-date">Sonntag, 19. April 2026 &nbsp;·&nbsp; 10 Geschichten</div>
+  <div class="masthead-edition">Probeausgabe — Neue Themenstruktur</div>
 </header>
 
 <!-- TOC NAV -->
 <nav class="toc-nav">
   <div class="toc-inner">
     <a href="#s1" class="toc-item">
-      <span class="toc-num">01</span>
-      telli fast flächendeckend
+      <span class="toc-num">01</span> telli: »Historischer Schritt«
       <span class="toc-tag-red">RELEVANT</span>
     </a>
     <a href="#s2" class="toc-item">
-      <span class="toc-num">02</span>
-      88% kennen KI-Regeln nicht
+      <span class="toc-num">02</span> 51% nutzen KI — 87% wollen Regeln
       <span class="toc-tag-red">RELEVANT</span>
     </a>
     <a href="#s3" class="toc-item">
-      <span class="toc-num">03</span>
-      Claude for Education
+      <span class="toc-num">03</span> Schulleitungskongress: Gesundheit
       <span class="toc-tag-red">RELEVANT</span>
     </a>
     <a href="#s4" class="toc-item">
-      <span class="toc-num">04</span>
-      Master-Kurs in 12 Stunden
-    </a>
-    <a href="#s5" class="toc-item">
-      <span class="toc-num">05</span>
-      20-Meter-Dino entdeckt
-    </a>
-    <a href="#s6" class="toc-item">
-      <span class="toc-num">06</span>
-      Solar-Rekord April
-    </a>
-    <a href="#s7" class="toc-item">
-      <span class="toc-num">07</span>
-      Erneuerbare &gt; 50%
-    </a>
-    <a href="#s8" class="toc-item">
-      <span class="toc-num">08</span>
-      Artemis 2 am Mond
-    </a>
-    <a href="#s9" class="toc-item">
-      <span class="toc-num">09</span>
-      BW KI-Landeslizenzen
+      <span class="toc-num">04</span> Deadline August 2026
       <span class="toc-tag-red">RELEVANT</span>
     </a>
+    <a href="#s5" class="toc-item">
+      <span class="toc-num">05</span> KMK: Neue Prüfungskultur
+      <span class="toc-tag-red">RELEVANT</span>
+    </a>
+    <a href="#s6" class="toc-item">
+      <span class="toc-num">06</span> Darf KI Bildung formen?
+      <span class="toc-tag-red">RELEVANT</span>
+    </a>
+    <a href="#s7" class="toc-item">
+      <span class="toc-num">07</span> 100 Tage Isolation für den Mars
+    </a>
+    <a href="#s8" class="toc-item">
+      <span class="toc-num">08</span> E-Auto-Boom: 24% Marktanteil
+    </a>
+    <a href="#s9" class="toc-item">
+      <span class="toc-num">09</span> Rechtsanspruch Ganztagsschule
+    </a>
     <a href="#s10" class="toc-item">
-      <span class="toc-num">10</span>
-      Lungenkrebsscreening
+      <span class="toc-num">10</span> Wissenschaftsjahr 2026
     </a>
   </div>
 </nav>
 
-<!-- STORY 1 — HERO DARK -->
+<!-- S1 — HERO DARK | Slot: KI-Tool für Schulen -->
 <section id="s1" class="story">
   <div class="ghost">01</div>
   <div class="story-inner">
-    <div class="story-tag">KI in der Schule</div>
+    <div class="story-tag">KI-Tool für Schulen &nbsp;·&nbsp; telli</div>
     <div class="relevant-badge">▲ Direkt relevant für dich</div>
-    <h1>telli jetzt in fast allen Bundesländern verfügbar</h1>
-    <p class="deck">Der KI-Chatbot telli hat sich in deutschen Schulen fast flächendeckend etabliert. Als letztes Bundesland hat Thüringen im April 2026 allen Schulen Zugang gewährt. Das Tool unterstützt Lehrkräfte bei der Unterrichtsvorbereitung, ermöglicht KI-gestützte Dialoge und lässt sich via QR-Code direkt in den Unterricht integrieren – DSGVO-konform und ohne eigenen Account für Schülerinnen und Schüler.</p>
-    <div class="source-line">Quelle: Deutsches Schulportal, April 2026</div>
+    <h1>Thüringen schaltet telli frei — Bildungsminister spricht von »historischem Schritt«</h1>
+    <p class="deck">Thüringen ist das jüngste Bundesland, das allen Schulen Zugang zum datenschutzkonformen KI-Chatbot telli gewährt. Bildungsminister Christian Tischner nannte die Freischaltung im April 2026 einen „historischen Schritt": Erstmals steht Lehrkräften und Schülerinnen ein staatlich geprüftes KI-Werkzeug direkt im Schulportal zur Verfügung — ohne eigenen Account, ohne Datenweitergabe an kommerzielle Anbieter. telli wurde im Auftrag der KMK entwickelt und ist mittlerweile in fast allen Bundesländern aktiv.</p>
+    <div class="source-line">Quelle: news4teachers.de, April 2026</div>
   </div>
 </section>
 
-<!-- STORY 2 — MIDNIGHT STAT -->
+<!-- S2 — MIDNIGHT STAT | Slot: KI im Unterricht / Lehrerpraxis -->
 <section id="s2" class="story">
   <div class="story-inner">
     <div class="stat-side">
-      <div class="big-stat">88%</div>
-      <div class="stat-label">der Lehrkräfte</div>
+      <div class="big-stat">51%</div>
+      <div class="stat-label">nutzen KI</div>
     </div>
     <div class="content-side">
-      <div class="story-tag">Studie · Datenschutz</div>
+      <div class="story-tag">KI im Unterricht &nbsp;·&nbsp; Bitkom-Studie</div>
       <div class="relevant-badge">▲ Direkt relevant für dich</div>
-      <h2>Alarmstudie: Kaum eine Lehrkraft kennt die KI-Regeln</h2>
-      <p class="deck">Eine aktuelle Erhebung zeigt: 88 Prozent der befragten Lehrerinnen und Lehrer haben sich kaum oder gar nicht mit den geltenden KI-Regulierungen für den Schulbereich auseinandergesetzt. Dabei ist seit Mai 2024 der EU AI Act in Kraft – der gesamte Bildungsbereich gilt darin als „Hochrisiko-Bereich". Als Schulleitung bist du direkt in der Pflicht, Klarheit zu schaffen.</p>
-      <div class="source-line">Quelle: bildungssprache.net, 2026</div>
+      <h2>Jede zweite Lehrkraft nutzt KI — aber 87% wollen endlich klare Regeln</h2>
+      <p class="deck">51 Prozent der Lehrkräfte in Deutschland haben bereits KI-Tools wie ChatGPT, SchulKI oder FieteAI im schulischen Kontext eingesetzt — 81 Prozent davon direkt zur Wissensvermittlung im Unterricht. Gleichzeitig wünschen sich 87 Prozent verständliche und umsetzbare Regelwerke für den Alltag. Die Lücke zwischen Praxis und Orientierung ist riesig. Wer als Schulleitung hier Führung übernimmt, gestaltet gerade die Norm.</p>
+      <div class="source-line">Quelle: Bitkom e.V. / Deutsches Schulportal, 2026</div>
     </div>
   </div>
 </section>
 
-<!-- STORY 3 — ROSE ALARM STAMP -->
+<!-- S3 — ROSE ALARM STAMP | Slot: Schulleitung / Leadership -->
 <section id="s3" class="story">
   <div class="stamp">
-    <div class="stamp-text">NEU<br>2026</div>
+    <div class="stamp-text">16.<br>April<br>2026</div>
   </div>
   <div class="story-inner">
-    <div class="story-tag">Anthropic · Claude</div>
+    <div class="story-tag">Schulleitung &nbsp;·&nbsp; Österreichischer Schulleitungskongress</div>
     <div class="relevant-badge">▲ Direkt relevant für dich</div>
-    <h2>Claude for Education: Anthropic launcht KI für den Bildungsbereich</h2>
-    <p class="deck">Anthropic hat gemeinsam mit OpenAI (OpenAI Academy) ein bildungsspezifisches KI-Angebot gestartet: „Claude for Education" ist eine auf Hochschulen und Bildungseinrichtungen zugeschnittene Version des KI-Assistenten. Schwerpunkte liegen auf kritischem Denken, Lernunterstützung und Datensouveränität. Bislang liegt der Fokus auf Higher Education – aber das Modell ist auch für Schulleitungen und Lehrkräfte interessant, die mit KI reflektiert umgehen wollen.</p>
-    <div class="source-line">Quelle: aiforeducation.io / Anthropic, 2026</div>
+    <h2>Schulleitungskongress 2026: Gesundheit und Wohlbefinden als Führungsaufgabe</h2>
+    <p class="deck">Der Österreichische Schulleitungskongress widmete seine Ausgabe am 16. April 2026 einer zentralen, oft unterschätzten Frage: Wie schützen Schulleitungen die Gesundheit ihrer Lehrkräfte — und ihre eigene? In Zeiten von Digitalisierungsdruck, KI-Einführung und Fachkräftemangel wird Führung zur Fürsorge. Die Kongress-Impulse sind auch für deutsche Schulleitungen relevant: Wer nachhaltig führen will, muss zuerst die Menschen in den Blick nehmen.</p>
+    <div class="source-line">Quelle: oeslk.at, April 2026</div>
   </div>
 </section>
 
-<!-- STORY 4 — TERMINAL -->
+<!-- S4 — TERMINAL | Slot: Datenschutz / DSGVO -->
 <section id="s4" class="story">
   <div class="story-inner">
-    <div class="prompt-line">root@upenn:~$ claude --mode tutor --subject master-curriculum</div>
-    <div class="story-tag">// Hochschule · KI-Assistent · Fallstudie</div>
-    <h2>Master-Kurs in 12 Stunden:<br>Professor lernt mit Claude<span class="cursor"></span></h2>
-    <p class="deck">Ein Professor der University of Pennsylvania hat einen Wochenstoff eines Master-Studiengangs mit Claude als persönlichem Tutor in zwölf Stunden durchgearbeitet. Die KI erstellte Lehrpläne, wählte Lektüren aus und beantwortete Fragen in Echtzeit. Das Experiment zeigt: KI verändert nicht nur, wie Schülerinnen lernen – sondern auch, wie Erwachsene sich Wissen erschließen.</p>
-    <div class="source-line">// Quelle: Business Insider DE, 2026</div>
+    <div class="prompt-line">root@schule:~$ check --deadline EU-AI-Act --date 2026-08-02</div>
+    <div class="story-tag">// Datenschutz &nbsp;·&nbsp; EU AI Act &nbsp;·&nbsp; Deadline</div>
+    <div class="relevant-badge" style="background:#39d353; color:#0d1117;">▲ Direkt relevant für dich</div>
+    <h2>Countdown läuft: Ab 2. August 2026 greift der EU AI Act für Hochrisiko-Systeme<span class="cursor"></span></h2>
+    <p class="deck">Ab dem 2. August 2026 müssen alle Schulen als Betreiberinnen von KI-Systemen nachweisen, dass eingesetzte Hochrisiko-KI die Anforderungen des EU AI Act erfüllt — Transparenz, Fairness, Datenschutz. Die KI-Kompetenzverpflichtung für Lehrkräfte und Schüler gilt bereits seit Februar 2025. Wer jetzt noch keine KI-Governance in der Schule etabliert hat, hat noch wenige Monate Zeit.</p>
+    <div class="source-line">// Quelle: unterrichten.digital / Deutsches Schulportal, 2026</div>
   </div>
 </section>
 
-<!-- STORY 5 — ACADEMIC DROP CAP -->
+<!-- S5 — ACADEMIC DROP CAP | Slot: Bildungspolitik / Prüfungskultur / KMK -->
 <section id="s5" class="story">
   <div class="story-inner">
-    <div class="story-tag">Paläontologie · Patagonien</div>
+    <div class="story-tag">Bildungspolitik &nbsp;·&nbsp; KMK &nbsp;·&nbsp; Prüfungskultur</div>
+    <div class="relevant-badge">▲ Direkt relevant für dich</div>
     <div class="drop-wrap clearfix">
-      <span class="drop-cap">P</span>
-      <h2>Patagonia Monster: 20-Meter-Sauropode aus der Kreide</h2>
-      <p class="deck">Paläontologen haben in Patagonien das Fossil eines rund 20 Meter langen Sauropoden entdeckt – eines pflanzenfressenden Riesensauriers aus der Kreidezeit. Der Fund gilt als einer der bedeutendsten des Jahres und wirft neue Fragen über die Ausbreitung und Körpergröße dieser Dinosaurierfamilie auf dem südamerikanischen Kontinent auf. Schöne Erinnerung: Die Erde hat Überraschungen auf Lager.</p>
+      <span class="drop-cap">4K</span>
+      <h2>KMK fordert neue Prüfungskultur: Kommunikation, Kollaboration, Kreativität, kritisches Denken</h2>
+      <p class="deck">Die Kultusministerkonferenz hat ihre Handlungsempfehlung konkretisiert: Prüfungsformate müssen sich grundlegend wandeln, um KI-Nutzungskompetenz sichtbar und fair bewertbar zu machen. Im Mittelpunkt stehen die sogenannten 4K-Kompetenzen. Der Prozess der Leistungserbringung rückt stärker in den Fokus — nicht nur das Ergebnis. Für Schulleitungen bedeutet das: interne Prüfungskonzepte überdenken, jetzt.</p>
     </div>
-    <div class="source-line">Quelle: Forschung & Wissen / Spektrum.de, April 2026</div>
+    <div class="source-line">Quelle: KMK / Deutsches Schulportal, 2026</div>
   </div>
 </section>
 
-<!-- STORY 6 — BIG STATS FINISH -->
+<!-- S6 — BIG STATS FINISH | Slot: Ethik / Menschlichkeit -->
 <section id="s6" class="story">
   <div class="story-inner">
     <div class="content-side">
-      <div class="story-tag">Energie · Good News</div>
-      <h2>Deutschlands bester Solar-Tag aller Zeiten</h2>
-      <p class="deck">Am 8. April 2026 hat Deutschland einen neuen April-Rekord bei der Solarstromerzeugung aufgestellt: 426 Gigawatt in einem einzigen Tag. Das Überangebot trieb den Börsenstrompreis kurzfristig auf minus 324 Euro pro Megawattstunde – Strom war buchstäblich so günstig, dass er etwas kostete, wenn man ihn abnahm. Ein historischer Moment für die Energiewende.</p>
-      <div class="source-line">Quelle: kommunal.de / Energiedaten, April 2026</div>
+      <div class="story-tag">Ethik &amp; Menschlichkeit &nbsp;·&nbsp; KI-Gesellschaft</div>
+      <div class="relevant-badge">▲ Direkt relevant für dich</div>
+      <h2>Was darf KI in der Bildung — und was nicht?</h2>
+      <p class="deck">2026 greifen neue EU- und Bundesgesetze: KI-Systeme in Bildungseinrichtungen müssen auf Fairness, Transparenz und Nicht-Diskriminierung geprüft werden. Dahinter steht eine tiefere Frage, die Pädagoginnen und Pädagogen stellen müssen: Welche Aufgaben dürfen wir nie an Maschinen delegieren? Beziehung, Empathie, moralisches Urteil — das bleibt menschlich. UNESCO-Empfehlung und EU AI Act geben den rechtlichen Rahmen. Den pädagogischen Kern bestimmen wir selbst.</p>
+      <div class="source-line">Quelle: UNESCO / mebis Magazin / das-ki-magazin.de, 2026</div>
     </div>
     <div class="stats-side">
       <div class="stat-block">
-        <div class="stat-num">426</div>
-        <div class="stat-desc">GW Solar · 8. April</div>
+        <div class="stat-num">193</div>
+        <div class="stat-desc">UNESCO-Staaten</div>
       </div>
       <div class="stat-block">
-        <div class="stat-num">−324</div>
-        <div class="stat-desc">€/MWh Strompreis</div>
+        <div class="stat-num">2021</div>
+        <div class="stat-desc">Globale KI-Ethik-Empfehlung</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STORY 7 — DARK ACCENT LINE -->
+<!-- S7 — DARK ACCENT LINE | Slot: Wissenschaft / Forschung -->
 <section id="s7" class="story">
   <div class="accent-bar"></div>
   <div class="ghost">07</div>
   <div class="story-inner">
-    <div class="story-tag">Energiewende · Meilenstein</div>
-    <h2>Erstmals: Erneuerbare decken über die Hälfte des deutschen Stroms</h2>
-    <p class="deck">Im ersten Quartal 2026 haben erneuerbare Energien erstmals mehr als 50 Prozent des deutschen Stromverbrauchs gedeckt – genau 53 Prozent. Haupttreiber war ein außergewöhnlich windstarkes Quartal mit 27 Prozent mehr Windstromproduktion als im Vorjahreszeitraum. Ein Wendepunkt, der zeigt: Die Energiewende ist keine Absichtserklärung mehr, sondern gelebte Realität.</p>
-    <div class="source-line">Quelle: Energie-Daten Q1 2026, kommunal.de</div>
+    <div class="story-tag">Forschung &nbsp;·&nbsp; DLR &nbsp;·&nbsp; Raumfahrtmedizin</div>
+    <h2>100 Tage eingesperrt für die Wissenschaft: DLR startet Mars-Isolationsstudie</h2>
+    <p class="deck">Das Deutsche Zentrum für Luft- und Raumfahrt (DLR) startet 2026 die Isolationsstudie SOLIS100: Teilnehmende verbringen 100 Tage abgeschnitten von der Außenwelt in der Forschungsanlage :envihab in Köln — um zu erforschen, was monatelange Isolation mit Körper, Geist und Teamdynamik macht. Die Erkenntnisse sollen künftige Marsflüge vorbereiten. Gleichzeitig läuft das Wissenschaftsjahr 2026 unter dem Motto „Medizin der Zukunft".</p>
+    <div class="source-line">Quelle: DLR / wissenschaftsjahr.de, 2026</div>
   </div>
 </section>
 
-<!-- STORY 8 — BRIGHT LIME -->
+<!-- S8 — BRIGHT LIME | Slot: Good News Umwelt/Energie -->
 <section id="s8" class="story">
   <div class="ghost">08</div>
   <div class="story-inner">
-    <div class="story-tag">Raumfahrt · Artemis</div>
-    <h2>Artemis 2 umrundet den Mond — und schickt Bilder</h2>
-    <p class="deck">Die bemannte NASA-Mission Artemis 2 hat ihren Höhepunkt erreicht: die Umrundung des Mondes. Die Crew hat faszinierende Aufnahmen übertragen – darunter Bilder der Mondoberfläche aus nächster Nähe und der Erde als kleiner blauer Punkt im Dunkel des Alls. Zum ersten Mal seit der Apollo-Ära reisen Menschen wieder bis zum Mond. Geschichte, live übertragen.</p>
-    <div class="source-line">Quelle: Forschung & Wissen, April 2026</div>
+    <div class="story-tag">Good News &nbsp;·&nbsp; Mobilität &nbsp;·&nbsp; Klimaschutz</div>
+    <h2>E-Auto erstmals beliebter als Benziner: 24% Marktanteil im März 2026</h2>
+    <p class="deck">Im März 2026 wurden in Deutschland 70.663 reine Elektroautos neu zugelassen — ein Plus von 66 Prozent gegenüber dem Vorjahr. Der Elektroauto-Anteil überschritt damit erstmals die 24-Prozent-Marke und überholte den Benzineranteil. Treiber ist die neue sozial gestaffelte Kaufprämie. Gleichzeitig verabschiedete das Bundeskabinett das Klimaschutzprogramm 2026 mit 67 Maßnahmen, die bis 2030 zusätzlich 25 Millionen Tonnen CO₂ einsparen sollen.</p>
+    <div class="source-line">Quelle: kommunal.de / Bundesumweltministerium, April 2026</div>
   </div>
 </section>
 
-<!-- STORY 9 — BROADSHEET -->
+<!-- S9 — BROADSHEET | Slot: Good News Gesundheit/Gesellschaft -->
 <section id="s9" class="story">
   <div class="ghost">09</div>
   <div class="story-inner">
     <div class="rule-thick"></div>
     <div class="rule-thin"></div>
-    <div class="story-tag">Schulpolitik · Baden-Württemberg</div>
-    <div class="relevant-badge">▲ Direkt relevant für dich</div>
-    <h2>Baden-Württemberg weitet KI-Landeslizenzen für Schulen aus</h2>
-    <p class="deck">Der Landeselternbeirat Baden-Württemberg informiert für das Schuljahr 2025/26 über neue KI-Landesapplikationen. Schulen im Land erhalten damit zusätzliche, datenschutzkonforme KI-Werkzeuge – direkt über die Landesinfrastruktur, ohne eigene Beschaffung. Das Modell gilt als Blaupause: Wer in anderen Bundesländern ähnliche Strukturen aufbauen will, kann sich an BW orientieren.</p>
-    <div class="source-line">Quelle: Landeselternbeirat BW (leb-bw.de), April 2026</div>
+    <div class="story-tag">Good News &nbsp;·&nbsp; Bildung &amp; Familie &nbsp;·&nbsp; Recht</div>
+    <h2>Ab 1. August 2026: Rechtsanspruch auf Ganztagsbetreuung für Erstklässler</h2>
+    <p class="deck">Eltern von Erstklässlerinnen und Erstklässlern haben ab dem 1. August 2026 erstmals einen gesetzlichen Anspruch auf ganztägige Grundschulbetreuung — vollständig kostenfrei. Das Ganztagsförderungsgesetz sieht eine schrittweise Ausweitung auf alle Klassen 1 bis 4 bis 2029/30 vor, was rund 3,7 Millionen Kinder betrifft. Für Schulen und Schulleitungen bedeutet das: mehr Verantwortung, mehr Ressourcen, mehr Gestaltungsraum.</p>
+    <div class="source-line">Quelle: BMFJ / sonntagsblatt.de, 2026</div>
   </div>
 </section>
 
-<!-- STORY 10 — WARM FOREST -->
+<!-- S10 — WARM FOREST | Slot: Wildcard -->
 <section id="s10" class="story">
   <div class="deco-circle-1"></div>
   <div class="deco-circle-2"></div>
   <div class="story-inner">
-    <div class="story-tag">Gesundheit · Good News</div>
-    <h2>Kostenloses Lungenkrebsscreening für Raucher seit 1. April</h2>
-    <p class="deck">Seit dem 1. April 2026 haben Hochrisikoraucher in Deutschland Anspruch auf eine jährliche Niedrigdosis-Computertomographie zur Lungenkrebsfrüherkennung – vollständig von der gesetzlichen Krankenversicherung übernommen. Die Früherkennung kann bei bis zu sechs von tausend Raucherinnen und Rauchern das Leben retten. Eine stille, aber bedeutsame Verbesserung der Gesundheitsversorgung in Deutschland.</p>
-    <div class="source-line">Quelle: GKV-Spitzenverband / Gesundheitsnachrichten, April 2026</div>
+    <div class="story-tag">Wildcard &nbsp;·&nbsp; Wissenschaftsjahr &nbsp;·&nbsp; Medizin</div>
+    <h2>Wissenschaftsjahr 2026: Deutschland erkundet die Medizin der Zukunft</h2>
+    <p class="deck">Das Bundesministerium für Forschung hat das Wissenschaftsjahr 2026 unter das Thema „Medizin der Zukunft" gestellt. Geförderte Kommunikationsprojekte starten bundesweit — von KI-gestützter Diagnostik bis zu personalisierten Therapien. Die Initiative öffnet Forschungseinrichtungen und Universitäten für die Öffentlichkeit und lädt Schulen ein, Wissenschaft hautnah zu erleben. Ein schöner Anlass für Kooperationsprojekte.</p>
+    <div class="source-line">Quelle: wissenschaftsjahr.de / DLR Projektträger, 2026</div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <p><strong>Good Morning Magazine</strong> &nbsp;·&nbsp; Sonntag, 19. April 2026</p>
+  <p><strong>Good Morning Magazine</strong> &nbsp;·&nbsp; 19. April 2026 &nbsp;·&nbsp; Probeausgabe neue Themenstruktur</p>
   <p style="margin-top:10px;">Kuratiert für Timo Off &nbsp;·&nbsp; <em>Schulleiter, Bildungsblogger, KI-Enthusiast</em></p>
 </footer>
 
