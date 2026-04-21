@@ -1,0 +1,229 @@
+<\!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Morning — 21. April 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;overflow-x:hidden;}
+.masthead{background:#070810;color:white;text-align:center;padding:70px 20px 50px;}
+.masthead-eyebrow{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:#6c63ff;margin-bottom:14px;}
+.masthead-title{font-family:'Fraunces',serif;font-size:clamp(64px,12vw,160px);font-weight:900;line-height:0.95;color:white;}
+.masthead-date{font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:rgba(255,255,255,0.45);margin-top:20px;letter-spacing:3px;text-transform:uppercase;}
+.masthead-tagline{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(16px,2vw,22px);color:rgba(255,255,255,0.55);margin-top:12px;}
+.toc-nav{background:white;border-bottom:2px solid #e8e8e8;padding:22px 40px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.07);}
+.toc-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#aaa;margin-bottom:12px;}
+.toc-list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;}
+.toc-list li a{text-decoration:none;font-size:12px;font-weight:600;color:#333;padding:5px 12px;border:1.5px solid #ddd;border-radius:20px;display:flex;align-items:center;gap:6px;transition:background 0.2s;}
+.toc-list li a:hover{background:#f5f5f5;}
+.toc-tag{background:#e63946;color:white;font-size:8px;font-weight:700;padding:2px 6px;border-radius:8px;letter-spacing:0.5px;text-transform:uppercase;}
+.badge{display:inline-block;background:#e63946;color:white;font-size:10px;font-weight:700;padding:6px 14px;border-radius:3px;letter-spacing:1.5px;margin-bottom:22px;}
+section{min-height:100vh;padding:80px 10%;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
+.story-num{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:18px;}
+.story-headline{font-family:'Fraunces',serif;font-weight:900;line-height:1.05;font-size:clamp(42px,6vw,96px);margin-bottom:28px;}
+.story-deck{font-family:'Inter',sans-serif;font-size:clamp(18px,2vw,24px);line-height:1.65;font-weight:400;max-width:720px;}
+.story-src{margin-top:30px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;opacity:0.45;}
+.ghost{position:absolute;font-family:'Fraunces',serif;font-weight:900;font-size:clamp(220px,38vw,520px);line-height:1;pointer-events:none;user-select:none;}
+#s1{background:#070810;color:white;}
+#s1 .ghost{opacity:0.04;color:#6c63ff;right:-4%;bottom:-12%;}
+#s1 .story-num{color:#6c63ff;}
+#s1 .story-headline{color:white;}
+#s1 .story-deck{color:rgba(255,255,255,0.72);}
+#s2{background:#03045e;color:white;display:grid;grid-template-columns:1.2fr 0.8fr;gap:60px;align-items:center;}
+#s2 .story-content{position:relative;z-index:2;}
+#s2 .stat-block{text-align:center;}
+#s2 .big-stat{font-family:'Fraunces',serif;font-size:clamp(120px,20vw,260px);font-weight:900;color:#90e0ef;line-height:1;}
+#s2 .stat-label{font-size:13px;font-weight:600;color:rgba(255,255,255,0.55);letter-spacing:2px;text-transform:uppercase;margin-top:8px;}
+#s2 .story-num{color:#90e0ef;}
+#s2 .story-headline{font-size:clamp(36px,4.5vw,72px);}
+#s2 .story-deck{color:rgba(255,255,255,0.72);}
+#s3{background:#fff0f3;color:#1a1a1a;}
+#s3 .stamp{position:absolute;top:44px;right:60px;width:150px;height:150px;border:8px solid #e63946;border-radius:50%;transform:rotate(-12deg);display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Inter',sans-serif;font-size:11px;font-weight:800;color:#e63946;letter-spacing:0.5px;text-transform:uppercase;line-height:1.4;padding:16px;}
+#s3 .story-num{color:#e63946;}
+#s3 .story-deck{color:#333;}
+#s4{background:#0d1117;color:#39d353;}
+#s4 .story-headline{font-family:'Courier New',monospace;color:#39d353;font-weight:700;}
+#s4 .prompt{background:#161b22;border:1px solid #30363d;padding:12px 20px;border-radius:6px;margin-bottom:28px;font-family:'Courier New',monospace;font-size:14px;color:#60a5fa;}
+#s4 .cursor::after{content:'\u2588';animation:blink 1s step-end infinite;}
+@keyframes blink{50%{opacity:0;}}
+#s4 .story-num{color:#60a5fa;}
+#s4 .story-deck{font-family:'Courier New',monospace;color:rgba(57,211,83,0.82);font-size:clamp(16px,1.8vw,21px);}
+#s4 .story-src{color:rgba(57,211,83,0.4);}
+#s5{background:#fdf6e3;color:#1a1a1a;}
+#s5 .dropcap{float:left;font-family:'Fraunces',serif;font-size:clamp(140px,22vw,320px);font-weight:900;color:#c77b34;line-height:0.82;margin-right:24px;margin-top:8px;}
+#s5 .story-headline{font-variant:small-caps;}
+#s5 .story-num{color:#c77b34;}
+#s5 .story-deck{color:#2a2a2a;}
+#s6{background:#1a1a2e;color:white;display:grid;grid-template-columns:1.2fr 0.8fr;gap:60px;align-items:center;}
+#s6 .story-content{position:relative;z-index:2;}
+#s6 .stats-right{display:flex;flex-direction:column;gap:36px;}
+#s6 .stat-num{font-family:'Fraunces',serif;font-size:clamp(70px,12vw,150px);font-weight:900;color:#e94560;line-height:1;}
+#s6 .stat-lbl{font-size:13px;font-weight:500;color:rgba(255,255,255,0.55);margin-top:4px;letter-spacing:1px;}
+#s6 .story-num{color:#e94560;}
+#s6 .story-headline{font-size:clamp(36px,4.5vw,72px);}
+#s6 .story-deck{color:rgba(255,255,255,0.72);}
+#s7{background:#0f0e17;color:white;padding-left:calc(10% + 16px);border-left:8px solid;border-image:linear-gradient(to bottom,#ff6b35,#f72585) 1;}
+#s7 .ghost{opacity:0.04;color:white;right:-4%;bottom:-14%;}
+#s7 .story-num{color:#ff6b35;}
+#s7 .story-headline{color:white;}
+#s7 .story-deck{color:rgba(255,255,255,0.72);}
+#s8{background:#e9ff70;color:#0a0a0a;}
+#s8 .ghost{opacity:0.07;color:#0a0a0a;right:-4%;top:-12%;}
+#s8 .story-num{color:rgba(0,0,0,0.4);}
+#s8 .story-headline{color:#0a0a0a;}
+#s8 .story-deck{color:#1a1a1a;}
+#s9{background:#f5f0e8;color:#1a1a1a;}
+#s9 .rule-top{border:none;border-top:10px solid #1a1a1a;margin-bottom:5px;}
+#s9 .rule-thin{border:none;border-top:2px solid #1a1a1a;margin-bottom:44px;}
+#s9 .story-headline{font-style:italic;}
+#s9 .ghost{opacity:0.05;color:#1a1a1a;right:-4%;bottom:-12%;}
+#s9 .story-num{color:#666;}
+#s9 .story-deck{color:#2a2a2a;}
+#s10{background:linear-gradient(135deg,#2d6a4f 0%,#081c15 100%);color:#f0ead6;}
+#s10 .deco{position:absolute;border-radius:50%;}
+#s10 .story-num{color:rgba(240,234,214,0.5);}
+#s10 .story-headline{color:#f0ead6;}
+#s10 .story-deck{color:rgba(240,234,214,0.82);}
+@media(max-width:768px){section{padding:60px 6%;}#s2,#s6{grid-template-columns:1fr;}.toc-nav{padding:16px 20px;}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-eyebrow">T&#228;glich kuratiert f&#252;r Timo Off</div>
+  <div class="masthead-title">Good Morning</div>
+  <div class="masthead-date">Dienstag, 21. April 2026</div>
+  <div class="masthead-tagline">KI &middot; Schule &middot; Welt &middot; 10 Geschichten, die z&#228;hlen</div>
+</header>
+
+<nav class="toc-nav">
+  <div class="toc-label">Heute in dieser Ausgabe</div>
+  <ul class="toc-list">
+    <li><a href="#s1">01 Th&#252;ringen &amp; telli <span class="toc-tag">relevant</span></a></li>
+    <li><a href="#s2">02 Lehrkr&#228;fte &amp; KI <span class="toc-tag">relevant</span></a></li>
+    <li><a href="#s3">03 Schulleitung <span class="toc-tag">relevant</span></a></li>
+    <li><a href="#s4">04 EU AI Act <span class="toc-tag">relevant</span></a></li>
+    <li><a href="#s5">05 KMK &amp; Pr&#252;fungen <span class="toc-tag">relevant</span></a></li>
+    <li><a href="#s6">06 Ethik &amp; KI <span class="toc-tag">relevant</span></a></li>
+    <li><a href="#s7">07 Raumfahrt &amp; Medizin</a></li>
+    <li><a href="#s8">08 Erneuerbare Energie</a></li>
+    <li><a href="#s9">09 E-Auto-Boom</a></li>
+    <li><a href="#s10">10 Wissenschaftsjahr 2026</a></li>
+  </ul>
+</nav>
+
+<section id="s1">
+  <div class="ghost">01</div>
+  <div class="story-num">01 &#8212; KI-Tool f&#252;r Schulen</div>
+  <div class="badge">&#9650; DIREKT RELEVANT F&#220;R DICH</div>
+  <h2 class="story-headline">Th&#252;ringen schaltet telli frei &#8212; &#8222;ein historischer Schritt&#8220;</h2>
+  <p class="story-deck">Th&#252;ringen ist das neueste Bundesland, das den KI-Chatbot <strong style="color:#6c63ff;">telli</strong> &#252;ber das Schulportal f&#252;r alle Schulen freischaltet. Bildungsminister spricht von einem &#8222;historischen Schritt&#8220;: Erstmals steht Lehrkr&#228;ften ein datenschutzkonformer KI-Assistent fl&#228;chendeckend zur Verf&#252;gung &#8212; ohne Anmeldepflicht, direkt im gewohnten Umfeld. Niedersachsen hatte telli bereits seit Februar 2026 &#252;ber die NBC integriert. Der Rollout beschleunigt sich bundesweit.</p>
+  <div class="story-src">Quelle: news4teachers.de &middot; April 2026</div>
+</section>
+
+<section id="s2">
+  <div class="story-content">
+    <div class="story-num">02 &#8212; KI im Unterricht: Lehrerpraxis</div>
+    <div class="badge">&#9650; DIREKT RELEVANT F&#220;R DICH</div>
+    <h2 class="story-headline">51% nutzen KI &#8212; 88% kennen die Regeln nicht</h2>
+    <p class="story-deck">Bitkom-Daten 2026: Jede zweite Lehrkraft hat KI bereits schulisch genutzt &#8212; davon 81% zur Wissensvermittlung, 59% um Sch&#252;ler:innen KI zu erkl&#228;ren. Doch 88% haben sich kaum mit KI-Regelungen befasst. Begr&#252;ndung: zu viel zus&#228;tzliche Last. Das Paradox: Die Nutzung w&#228;chst schneller als das Regelwissen. Schulleitungen m&#252;ssen Orientierung geben &#8212; ohne zus&#228;tzliche &#220;berforderung zu erzeugen.</p>
+    <div class="story-src">Quelle: bitkom.org &middot; bildung.digital &middot; 2026</div>
+  </div>
+  <div class="stat-block">
+    <div class="big-stat">51%</div>
+    <div class="stat-label">Lehrkr&#228;fte nutzen KI</div>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="stamp">April<br>2026<br>Kongress</div>
+  <div class="story-num">03 &#8212; Schulleitung &amp; Schulentwicklung</div>
+  <div class="badge">&#9650; DIREKT RELEVANT F&#220;R DICH</div>
+  <h2 class="story-headline">Leadership als Enabler: Keine Reform ohne F&#252;hrung</h2>
+  <p class="story-deck">Der &#214;sterreichische Schulleitungskongress (April 2026) und der Deutsche DSLK formulieren ein klares Credo: Schulentwicklung passiert nicht von selbst &#8212; sie passiert dort, wo Leitung Verantwortung als Erm&#246;glicher &#252;bernimmt, nicht als Kontrolleur. Studien zeigen: Schulleitungen beeinflussen Lernerfolg indirekt, aber signifikant &#8212; &#252;ber Unterrichtsqualit&#228;t, Schulklima und kollektive Wirksamkeit. Digitalisierung, Inklusion, KI: Wer nicht f&#252;hrt, verliert den Moment.</p>
+  <div class="story-src">Quelle: oeslk.at &middot; deutscher-schulleitungskongress.de &middot; April 2026</div>
+</section>
+
+<section id="s4">
+  <div class="story-num">04 &#8212; Datenschutz / DSGVO</div>
+  <div class="badge">&#9650; DIREKT RELEVANT F&#220;R DICH</div>
+  <div class="prompt">$ grep -r "high-risk" EU_AI_Act.pdf | grep "Schule" <span class="cursor"></span></div>
+  <h2 class="story-headline">EU AI Act: Ab August wird&#8217;s ernst f&#252;r Schulen</h2>
+  <p class="story-deck">Ab August 2026 greifen die Hochrisiko-Regeln des EU AI Acts. Schulen m&#252;ssen sicherstellen: DSGVO-Konformit&#228;t, keine unzul&#228;ssige Verarbeitung sensibler Daten (Art. 9 DSGVO), und nachweisbare KI-Literacy bei Lehrkr&#228;ften und Sch&#252;ler:innen. Wer jetzt nicht pr&#252;ft, welche Tools auf dem Index stehen, riskiert Rechtsm&#228;ngel ab Herbst. Datenschutzbeh&#246;rden BW und Bayern haben erste Handlungsleitf&#228;den ver&#246;ffentlicht &#8212; Lekt&#252;re f&#252;r jede Schulleitung.</p>
+  <div class="story-src">Quelle: unterrichten.digital &middot; campus-schulmanagement.de &middot; 2026</div>
+</section>
+
+<section id="s5">
+  <div class="story-num">05 &#8212; Bildungspolitik / Pr&#252;fungskultur</div>
+  <div class="badge">&#9650; DIREKT RELEVANT F&#220;R DICH</div>
+  <div class="dropcap">P</div>
+  <h2 class="story-headline">rozess schl&#228;gt Produkt: KMK fordert neue Pr&#252;fungskultur</h2>
+  <p class="story-deck">Die Kultusministerkonferenz macht es offiziell: Die Art, wie wir pr&#252;fen, muss sich grundlegend wandeln. Statt nur das fertige Produkt zu bewerten, soll der Entstehungsprozess in den Fokus. KI macht Endprodukte leicht generierbar &#8212; aber den Denkweg nicht. Schulen werden aufgefordert, Pr&#252;fungsformate zu entwickeln, die KI-Kompetenz sichtbar machen, statt sie zu verbieten. Ein Paradigmenwechsel &#8212; mit weitreichenden Folgen f&#252;r Schulleitungen und Lehrerkollegien.</p>
+  <div class="story-src">Quelle: kmk.org &middot; deutsches-schulportal.de &middot; 2026</div>
+</section>
+
+<section id="s6">
+  <div class="story-content">
+    <div class="story-num">06 &#8212; Ethik / Menschlichkeit / KI-Gesellschaft</div>
+    <div class="badge">&#9650; DIREKT RELEVANT F&#220;R DICH</div>
+    <h2 class="story-headline">Was bleibt menschlich, wenn KI alles kann?</h2>
+    <p class="story-deck">KI &#252;bernimmt Entscheidungen, die fr&#252;her Menschen trafen. Die UNESCO-Empfehlung zur KI-Ethik (193 Staaten) fordert Transparenz, Erkl&#228;rbarkeit und Nicht-Diskriminierung. F&#252;r Schulen konkret: KI im Ethikunterricht ist keine Kür &#8212; es ist Pflicht. Die Frage &#8222;Was darf KI?&#8220; ist zugleich die Frage &#8222;Was macht uns aus?&#8220; P&#228;dagogische R&#228;ume, die das verhandeln, werden zum Schutzraum f&#252;r Menschlichkeit im digitalen Zeitalter.</p>
+    <div class="story-src">Quelle: unesco.at &middot; philovernetzt.de &middot; kinavigator.com</div>
+  </div>
+  <div class="stats-right">
+    <div>
+      <div class="stat-num">193</div>
+      <div class="stat-lbl">UNESCO-Staaten hinter<br>der KI-Ethik-Empfehlung</div>
+    </div>
+    <div>
+      <div class="stat-num">2021</div>
+      <div class="stat-lbl">Erstes globales<br>KI-Ethik-Abkommen</div>
+    </div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="ghost">07</div>
+  <div class="story-num">07 &#8212; Wissenschaft / Raumfahrt / Medizin</div>
+  <h2 class="story-headline">SOLIS100: 100 Tage Isolation f&#252;r die Wissenschaft</h2>
+  <p class="story-deck">Am DLR-Institut :envihab in K&#246;ln startet im April 2026 die ESA-Isolationsstudie SOLIS100 &#8212; 100 Tage abgeschlossen, 126 Tage Gesamtprotokoll. Das Experiment simuliert Bedingungen langer Raumfahrtmissionen und untersucht Gesundheit, Leistung und Wohlbefinden unter extremer Isolation. Begleitend l&#228;uft SMC3, eine Bettruhestudie zur Schwerelosigkeit. Was Astronaut:innen erleben, liefert direkte Erkenntnisse f&#252;r Medizin, Schlafforschung und mentale Gesundheit auf der Erde.</p>
+  <div class="story-src">Quelle: dlr.de &middot; wissenschaftsjahr.de &middot; April 2026</div>
+</section>
+
+<section id="s8">
+  <div class="ghost">08</div>
+  <div class="story-num">08 &#8212; Good News: Umwelt &amp; Energie</div>
+  <h2 class="story-headline">Solar-Rekord: 426 GWh an einem einzigen Tag</h2>
+  <p class="story-deck">Am 8. April 2026 erzeugte Deutschland 426 Gigawattstunden Solarstrom &#8212; neuer April-Rekord. Im ersten Quartal 2026 deckten Erneuerbare erstmals <strong>53 Prozent</strong> des deutschen Stromverbrauchs &#8212; getragen von einem au&#223;ergew&#246;hnlich starken Windjahr mit 27% mehr Erzeugung als im Vorjahr. Das Klimaschutzprogramm 2026 spart zus&#228;tzlich 25 Millionen Tonnen CO2 bis 2030. Die Energiewende zeigt messbare Ergebnisse. Deutschland wird unabh&#228;ngiger.</p>
+  <div class="story-src">Quelle: bundesumweltministerium.de &middot; handelsblatt.com &middot; April 2026</div>
+</section>
+
+<section id="s9">
+  <div class="ghost">09</div>
+  <hr class="rule-top">
+  <hr class="rule-thin">
+  <div class="story-num">09 &#8212; Good News: Wirtschaft &amp; Mobilit&#228;t</div>
+  <h2 class="story-headline">E-Auto-Boom: 24% aller Neuzulassungen jetzt elektrisch</h2>
+  <p class="story-deck">Im M&#228;rz 2026 wurden 70.663 reine Elektroautos neu zugelassen &#8212; ein Plus von <strong>66 Prozent</strong> gegen&#252;ber dem Vorjahr. Erstmals &#252;bertrafen E-Autos Benziner bei den Neuzulassungen. Treiber: das neue sozial gestaffelte Kaufprogramm der Bundesregierung. Was vor zwei Jahren noch ferne Zielmarke war, ist Realit&#228;t: Fast jedes vierte neue Auto in Deutschland f&#228;hrt elektrisch &#8212; ein Strukturwandel, der sich im Alltag der Menschen spiegelt.</p>
+  <div class="story-src">Quelle: sonntagsblatt.de &middot; bundeswirtschaftsministerium.de &middot; M&#228;rz/April 2026</div>
+</section>
+
+<section id="s10">
+  <div class="deco" style="width:500px;height:500px;right:-150px;top:50%;transform:translateY(-50%);border:2px solid rgba(240,234,214,0.1);"></div>
+  <div class="deco" style="width:750px;height:750px;right:-275px;top:50%;transform:translateY(-50%);border:2px solid rgba(240,234,214,0.05);"></div>
+  <div class="story-num">10 &#8212; Wildcard</div>
+  <h2 class="story-headline">Wissenschaftsjahr 2026: &#8222;Medizin der Zukunft&#8220;</h2>
+  <p class="story-deck">Deutschland hat 2026 zum Wissenschaftsjahr der Medizin erkl&#228;rt. Das Bundesministerium f&#246;rdert Kommunikationsprojekte, die zeigen, wie Forschung Leben ver&#228;ndert &#8212; von KI-gest&#252;tzter Diagnostik bis zur personalisierten Krebstherapie. F&#252;r Schulen bietet das Wissenschaftsjahr eine seltene Chance: Bildungsangebote, Partnerschaften mit Forschungseinrichtungen, und ein gesellschaftlicher Rahmen, um Naturwissenschaften mit echten Fragen zu verkn&#252;pfen. Medizin, KI, Menschlichkeit &#8212; alles h&#228;ngt zusammen.</p>
+  <div class="story-src">Quelle: wissenschaftsjahr.de &middot; projekttraeger.dlr.de &middot; 2026</div>
+</section>
+
+<footer style="background:#070810;color:rgba(255,255,255,0.3);text-align:center;padding:40px 20px;font-size:11px;letter-spacing:2.5px;font-family:'Inter',sans-serif;text-transform:uppercase;">
+  Good Morning Magazine &mdash; 21. April 2026 &mdash; Kuratiert f&#252;r Timo Off
+</footer>
+
+</body>
+</html>
