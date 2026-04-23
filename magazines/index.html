@@ -1,67 +1,80 @@
-<!DOCTYPE html>
+<\!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Good Morning Magazine</title>
+<title>Good Morning — Alle Ausgaben</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:#070810;color:white;font-family:'Inter',sans-serif;min-height:100vh;}
-header{text-align:center;padding:80px 20px 50px;border-bottom:1px solid rgba(255,255,255,0.08);}
-.eyebrow{font-size:11px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:#6c63ff;margin-bottom:16px;}
-h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(48px,10vw,120px);line-height:1;}
-.subtitle{color:rgba(255,255,255,0.45);font-size:15px;margin-top:16px;letter-spacing:2px;}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:rgba(255,255,255,0.08);padding:1px;margin:40px;}
-.card{background:#0d0c1a;padding:36px 32px;text-decoration:none;color:white;transition:background 0.2s;display:flex;flex-direction:column;gap:12px;}
-.card:hover{background:#161428;}
-.card-date{font-size:12px;font-weight:600;color:#6c63ff;letter-spacing:2px;text-transform:uppercase;}
-.card-title{font-family:'Fraunces',serif;font-size:32px;font-weight:900;}
-.card-arrow{font-size:24px;color:rgba(255,255,255,0.3);margin-top:auto;}
-footer{text-align:center;padding:40px;font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:2px;text-transform:uppercase;}
-@media(max-width:600px){.grid{margin:20px 16px;}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#070810;color:#fff;min-height:100vh}
+.masthead{text-align:center;padding:5rem 2rem 3rem;border-bottom:1px solid rgba(108,99,255,.35)}
+.eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:#6c63ff;margin-bottom:1.2rem;font-weight:600}
+.title{font-family:'Fraunces',serif;font-size:clamp(48px,9vw,110px);font-weight:900;line-height:.88;margin-bottom:1rem}
+.subtitle{font-size:.85rem;color:rgba(255,255,255,.38);letter-spacing:.1em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;padding:3rem 4vw 5rem;max-width:1400px;margin:0 auto}
+.card{display:flex;flex-direction:column;gap:.6rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:2rem;text-decoration:none;color:#fff;transition:background .2s,border-color .2s,transform .15s;border-radius:2px;position:relative}
+.card:hover{background:rgba(108,99,255,.12);border-color:rgba(108,99,255,.5);transform:translateY(-2px)}
+.card__date{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:.6rem}
+.new-badge{background:#e63946;color:#fff;font-size:.58rem;padding:2px 6px;border-radius:2px;letter-spacing:.06em;font-weight:700}
+.card__title{font-family:'Fraunces',serif;font-size:clamp(28px,3.5vw,42px);font-weight:900;line-height:.95}
+.card__sub{font-size:.75rem;color:rgba(255,255,255,.35);line-height:1.5}
+.card__arrow{font-size:1.4rem;color:#6c63ff;margin-top:auto;padding-top:1rem}
+.footer{text-align:center;padding:2rem;font-size:.75rem;color:rgba(255,255,255,.22);border-top:1px solid rgba(255,255,255,.07)}
 </style>
 </head>
 <body>
-<header>
-  <div class="eyebrow">T&#228;glich kuratiert f&#252;r Timo Off</div>
-  <h1>Good Morning</h1>
-  <div class="subtitle">Alle Ausgaben</div>
+<header class="masthead">
+  <div class="eyebrow">T&#228;gliches Bildungsmagazin f&#252;r Timo Off</div>
+  <div class="title">Good Morning</div>
+  <div class="subtitle">7 Ausgaben &nbsp;&#xB7;&nbsp; Bildung &nbsp;&#xB7;&nbsp; KI &nbsp;&#xB7;&nbsp; Gesellschaft &nbsp;&#xB7;&nbsp; Welt</div>
 </header>
 <div class="grid">
+    <a class="card" href="2026-04-23.html">
+      <div class="card__date">Donnerstag, 23. April 2026<span class="new-badge">NEU</span></div>
+      <div class="card__title">Good Morning</div>
+      <div class="card__sub">10 Geschichten &nbsp;·&nbsp; Bildung · KI · Gesellschaft · Welt</div>
+      <div class="card__arrow">&#x2192;</div>
+    </a>
     <a class="card" href="2026-04-21.html">
-      <div class="card-date">21. April 2026</div>
-      <div class="card-title">Good Morning</div>
-      <div class="card-arrow">&#8594;</div>
+      <div class="card__date">Dienstag, 21. April 2026</div>
+      <div class="card__title">Good Morning</div>
+      <div class="card__sub">10 Geschichten &nbsp;·&nbsp; Bildung · KI · Gesellschaft · Welt</div>
+      <div class="card__arrow">&#x2192;</div>
     </a>
     <a class="card" href="2026-04-19.html">
-      <div class="card-date">19. April 2026</div>
-      <div class="card-title">Good Morning</div>
-      <div class="card-arrow">&#8594;</div>
+      <div class="card__date">Sonntag, 19. April 2026</div>
+      <div class="card__title">Good Morning</div>
+      <div class="card__sub">10 Geschichten &nbsp;·&nbsp; Bildung · KI · Gesellschaft · Welt</div>
+      <div class="card__arrow">&#x2192;</div>
     </a>
     <a class="card" href="2026-04-18.html">
-      <div class="card-date">18. April 2026</div>
-      <div class="card-title">Good Morning</div>
-      <div class="card-arrow">&#8594;</div>
+      <div class="card__date">Samstag, 18. April 2026</div>
+      <div class="card__title">Good Morning</div>
+      <div class="card__sub">10 Geschichten &nbsp;·&nbsp; Bildung · KI · Gesellschaft · Welt</div>
+      <div class="card__arrow">&#x2192;</div>
     </a>
     <a class="card" href="2026-04-17.html">
-      <div class="card-date">17. April 2026</div>
-      <div class="card-title">Good Morning</div>
-      <div class="card-arrow">&#8594;</div>
+      <div class="card__date">Freitag, 17. April 2026</div>
+      <div class="card__title">Good Morning</div>
+      <div class="card__sub">10 Geschichten &nbsp;·&nbsp; Bildung · KI · Gesellschaft · Welt</div>
+      <div class="card__arrow">&#x2192;</div>
     </a>
     <a class="card" href="2026-04-16.html">
-      <div class="card-date">16. April 2026</div>
-      <div class="card-title">Good Morning</div>
-      <div class="card-arrow">&#8594;</div>
+      <div class="card__date">Donnerstag, 16. April 2026</div>
+      <div class="card__title">Good Morning</div>
+      <div class="card__sub">10 Geschichten &nbsp;·&nbsp; Bildung · KI · Gesellschaft · Welt</div>
+      <div class="card__arrow">&#x2192;</div>
     </a>
     <a class="card" href="2026-04-15.html">
-      <div class="card-date">15. April 2026</div>
-      <div class="card-title">Good Morning</div>
-      <div class="card-arrow">&#8594;</div>
+      <div class="card__date">Mittwoch, 15. April 2026</div>
+      <div class="card__title">Good Morning</div>
+      <div class="card__sub">10 Geschichten &nbsp;·&nbsp; Bildung · KI · Gesellschaft · Welt</div>
+      <div class="card__arrow">&#x2192;</div>
     </a>
 </div>
-<footer>Good Morning Magazine &mdash; offthecloud.github.io</footer>
+<footer class="footer">Kuratiert von Claude (Anthropic) &nbsp;&#xB7;&nbsp; offthecloud.github.io</footer>
 </body>
 </html>
