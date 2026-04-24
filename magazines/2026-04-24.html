@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Morning — 24. April 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+  /* Global type */
+  .headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(42px, 6vw, 96px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .deck {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .relevant-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #e63946;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 3px;
+    margin-bottom: 24px;
+  }
+  .source-link {
+    display: inline-block;
+    margin-top: 32px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+    padding-bottom: 2px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .source-link:hover { opacity: 1; }
+
+  /* ── MASTHEAD ── */
+  #masthead {
+    background: #070810;
+    padding: 60px 8vw 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .masthead-eyebrow {
+    color: #6c63ff;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .masthead-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(48px, 8vw, 120px);
+    color: #fff;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+  .masthead-date {
+    color: rgba(255,255,255,0.45);
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 16px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── TOC NAV ── */
+  #toc {
+    background: #fff;
+    border-bottom: 2px solid #e63946;
+    padding: 0 4vw;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #toc::-webkit-scrollbar { display: none; }
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: #1a1a2e;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    border-right: 1px solid #eee;
+    transition: background 0.15s;
+  }
+  .toc-item:hover { background: #f8f8f8; }
+  .toc-num {
+    color: #aaa;
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .toc-tag {
+    background: #e63946;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  /* ── SECTION BASE ── */
+  section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10vh 8vw;
+    position: relative;
+    overflow: hidden;
+  }
+  .slot-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0.5;
+  }
+
+  /* ── 1. HERO DARK ── */
+  #s1 {
+    background: #070810;
+    color: #fff;
+  }
+  #s1 .ghost-num {
+    position: absolute;
+    right: -2vw;
+    bottom: -4vh;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(200px, 35vw, 500px);
+    line-height: 1;
+    color: #fff;
+    opacity: 0.04;
+    pointer-events: none;
+    user-select: none;
+  }
+  #s1 .accent { color: #6c63ff; }
+  #s1 .headline { color: #fff; }
+  #s1 .deck { color: rgba(255,255,255,0.75); max-width: 680px; margin-top: 24px; }
+  #s1 .source-link { color: #6c63ff; }
+  #s1 .slot-label { color: #6c63ff; }
+
+  /* ── 2. MIDNIGHT STAT ── */
+  #s2 {
+    background: #03045e;
+    color: #fff;
+  }
+  #s2 .inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6vw;
+    align-items: center;
+  }
+  @media (max-width: 768px) { #s2 .inner { grid-template-columns: 1fr; } }
+  #s2 .stat-block { display: flex; flex-direction: column; gap: 20px; }
+  #s2 .big-stat {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(120px, 20vw, 260px);
+    line-height: 0.9;
+    color: #90e0ef;
+    letter-spacing: -0.04em;
+  }
+  #s2 .stat-label { color: rgba(255,255,255,0.55); font-size: 14px; font-weight: 600; letter-spacing: 0.1em; }
+  #s2 .headline { color: #fff; }
+  #s2 .deck { color: rgba(255,255,255,0.75); margin-top: 20px; }
+  #s2 .source-link { color: #90e0ef; }
+  #s2 .slot-label { color: #90e0ef; }
+
+  /* ── 3. ROSE ALARM STAMP ── */
+  #s3 {
+    background: #fff0f3;
+    color: #1a1a2e;
+  }
+  #s3 .stamp {
+    position: absolute;
+    top: 7vh;
+    right: 7vw;
+    width: clamp(130px, 16vw, 220px);
+    height: clamp(130px, 16vw, 220px);
+    border: 8px solid #e63946;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transform: rotate(-12deg);
+    padding: 16px;
+  }
+  #s3 .stamp-text {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(13px, 1.4vw, 20px);
+    color: #e63946;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  #s3 .headline { color: #1a1a2e; max-width: 820px; }
+  #s3 .deck { color: #444; max-width: 660px; margin-top: 24px; }
+  #s3 .source-link { color: #e63946; }
+  #s3 .slot-label { color: #e63946; }
+
+  /* ── 4. TERMINAL ── */
+  #s4 {
+    background: #0d1117;
+    color: #39d353;
+    font-family: 'Courier New', monospace;
+  }
+  #s4 .terminal-box {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 32px 40px;
+    max-width: 820px;
+  }
+  #s4 .prompt-line {
+    color: #58a6ff;
+    font-size: clamp(13px, 1.5vw, 16px);
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  #s4 .terminal-headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(36px, 5vw, 80px);
+    line-height: 1.05;
+    color: #39d353;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+  #s4 .terminal-body {
+    color: rgba(57,211,83,0.8);
+    font-size: clamp(15px, 1.8vw, 20px);
+    line-height: 1.7;
+    font-family: 'Courier New', monospace;
+  }
+  #s4 .cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.2em;
+    background: #39d353;
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  #s4 .source-link { color: #58a6ff; font-family: 'Inter', sans-serif; }
+  #s4 .slot-label { color: rgba(57,211,83,0.5); font-family: 'Inter', sans-serif; margin-bottom: 20px; }
+
+  /* ── 5. ACADEMIC DROP CAP ── */
+  #s5 {
+    background: #fdf6e3;
+    color: #2c1810;
+  }
+  #s5 .dropcap-wrap {
+    max-width: 900px;
+  }
+  #s5 .drop-letter {
+    float: left;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(160px, 25vw, 340px);
+    line-height: 0.78;
+    color: #c77b34;
+    margin-right: 16px;
+    margin-bottom: -8px;
+  }
+  #s5 .headline { color: #2c1810; font-variant: small-caps; }
+  #s5 .deck { color: #5a3a1a; margin-top: 24px; max-width: 680px; }
+  #s5 .source-link { color: #c77b34; }
+  #s5 .slot-label { color: #c77b34; }
+
+  /* ── 6. BIG STATS FINISH ── */
+  #s6 {
+    background: #1a1a2e;
+    color: #fff;
+  }
+  #s6 .inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 6vw;
+    align-items: center;
+  }
+  @media (max-width: 768px) { #s6 .inner { grid-template-columns: 1fr; } }
+  #s6 .headline { color: #fff; }
+  #s6 .deck { color: rgba(255,255,255,0.7); margin-top: 20px; }
+  #s6 .stats-col { display: flex; flex-direction: column; gap: 40px; }
+  #s6 .stat-item {}
+  #s6 .stat-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(60px, 8vw, 120px);
+    color: #e94560;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  #s6 .stat-desc { color: rgba(255,255,255,0.55); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; margin-top: 4px; }
+  #s6 .source-link { color: #e94560; }
+  #s6 .slot-label { color: rgba(233,69,96,0.7); }
+
+  /* ── 7. DARK ACCENT LINE ── */
+  #s7 {
+    background: #0f0e17;
+    color: #fff;
+    border-left: 8px solid transparent;
+    border-image: linear-gradient(180deg, #ff9a3c, #ff4dc4) 1;
+  }
+  #s7 .ghost-num {
+    position: absolute;
+    right: 4vw;
+    bottom: 4vh;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(180px, 28vw, 420px);
+    color: #fff;
+    opacity: 0.04;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+  }
+  #s7 .inner { max-width: 780px; }
+  #s7 .headline { color: #fff; }
+  #s7 .deck { color: rgba(255,255,255,0.72); margin-top: 24px; }
+  #s7 .source-link { color: #ff9a3c; }
+  #s7 .slot-label { color: #ff9a3c; }
+
+  /* ── 8. BRIGHT LIME ── */
+  #s8 {
+    background: #e9ff70;
+    color: #0a0a0a;
+  }
+  #s8 .ghost-num {
+    position: absolute;
+    top: 4vh;
+    right: 4vw;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(180px, 28vw, 400px);
+    color: #0a0a0a;
+    opacity: 0.08;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+  }
+  #s8 .inner { max-width: 780px; }
+  #s8 .headline { color: #0a0a0a; }
+  #s8 .deck { color: rgba(0,0,0,0.72); margin-top: 24px; }
+  #s8 .source-link { color: #1a1a2e; }
+  #s8 .slot-label { color: rgba(0,0,0,0.5); }
+
+  /* ── 9. BROADSHEET ── */
+  #s9 {
+    background: #f5f0e8;
+    color: #1a1209;
+  }
+  #s9::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 10px;
+    background: #1a1209;
+  }
+  #s9::after {
+    content: '';
+    position: absolute;
+    top: 14px; left: 0; right: 0;
+    height: 2px;
+    background: #1a1209;
+  }
+  #s9 .ghost-num {
+    position: absolute;
+    right: 4vw;
+    bottom: 4vh;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(180px, 28vw, 420px);
+    color: #1a1209;
+    opacity: 0.06;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+  }
+  #s9 .inner { max-width: 820px; }
+  #s9 .headline {
+    font-style: italic;
+    color: #1a1209;
+  }
+  #s9 .deck { color: #4a3a20; margin-top: 24px; }
+  #s9 .source-link { color: #8B4513; }
+  #s9 .slot-label { color: rgba(26,18,9,0.45); }
+
+  /* ── 10. WARM FOREST ── */
+  #s10 {
+    background: linear-gradient(160deg, #2d6a4f 0%, #081c15 100%);
+    color: #f0ead6;
+    position: relative;
+  }
+  #s10 .circle1 {
+    position: absolute;
+    width: clamp(200px, 30vw, 450px);
+    height: clamp(200px, 30vw, 450px);
+    border: 1px solid rgba(240,234,214,0.12);
+    border-radius: 50%;
+    top: -80px;
+    right: -80px;
+  }
+  #s10 .circle2 {
+    position: absolute;
+    width: clamp(140px, 20vw, 300px);
+    height: clamp(140px, 20vw, 300px);
+    border: 1px solid rgba(240,234,214,0.08);
+    border-radius: 50%;
+    bottom: 60px;
+    left: -60px;
+  }
+  #s10 .circle3 {
+    position: absolute;
+    width: clamp(80px, 12vw, 180px);
+    height: clamp(80px, 12vw, 180px);
+    border: 1px solid rgba(240,234,214,0.06);
+    border-radius: 50%;
+    top: 40%;
+    right: 15vw;
+  }
+  #s10 .inner { max-width: 820px; position: relative; z-index: 1; }
+  #s10 .headline { color: #f0ead6; }
+  #s10 .deck { color: rgba(240,234,214,0.78); margin-top: 24px; }
+  #s10 .source-link { color: #95d5b2; }
+  #s10 .slot-label { color: rgba(240,234,214,0.45); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #070810;
+    color: rgba(255,255,255,0.35);
+    padding: 48px 8vw;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  footer strong { color: rgba(255,255,255,0.6); }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header id="masthead">
+  <div class="masthead-eyebrow">Timo Offs tägliches Briefing</div>
+  <div class="masthead-title">Good<br>Morning.</div>
+  <div class="masthead-date">Freitag, 24. April 2026 &nbsp;·&nbsp; 10 Geschichten für Schulleitungen, die KI ernst nehmen</div>
+</header>
+
+<!-- TOC NAV -->
+<nav id="toc">
+  <a class="toc-item" href="#s1"><span class="toc-num">01</span> telli jetzt in Thüringen <span class="toc-tag">RELEVANT</span></a>
+  <a class="toc-item" href="#s2"><span class="toc-num">02</span> 88% unsicher bei KI-Regeln <span class="toc-tag">RELEVANT</span></a>
+  <a class="toc-item" href="#s3"><span class="toc-num">03</span> KI-Konzept ausgezeichnet <span class="toc-tag">RELEVANT</span></a>
+  <a class="toc-item" href="#s4"><span class="toc-num">04</span> AI Act: Countdown <span class="toc-tag">RELEVANT</span></a>
+  <a class="toc-item" href="#s5"><span class="toc-num">05</span> KMK &amp; Prüfungskultur <span class="toc-tag">RELEVANT</span></a>
+  <a class="toc-item" href="#s6"><span class="toc-num">06</span> KI &amp; Demokratie <span class="toc-tag">RELEVANT</span></a>
+  <a class="toc-item" href="#s7"><span class="toc-num">07</span> DLR: 100 Tage Isolation</a>
+  <a class="toc-item" href="#s8"><span class="toc-num">08</span> 53% Ökostrom in Q1</a>
+  <a class="toc-item" href="#s9"><span class="toc-num">09</span> E-Autos &gt; Benziner</a>
+  <a class="toc-item" href="#s10"><span class="toc-num">10</span> Wissenschaftsjahr 2026</a>
+</nav>
+
+<!-- ─────────────────────────────────────────── -->
+<!-- 01 · HERO DARK · KI-Tool für Schulen -->
+<!-- ─────────────────────────────────────────── -->
+<section id="s1">
+  <div class="ghost-num">01</div>
+  <div class="slot-label">01 · KI-Tool für Schulen</div>
+  <div class="relevant-badge">▲ Direkt relevant für dich</div>
+  <h1 class="headline">Thüringen schaltet <span class="accent">telli</span> für alle Schulen frei — Bildungsminister spricht von <span class="accent">„historischem Schritt"</span></h1>
+  <p class="deck">Ein deutsches Bundesland setzt ein Zeichen: Thüringen hat den DSGVO-konformen KI-Chatbot telli im Schulportal aktiviert — kostenlos für alle Lehrkräfte und Schülerinnen. Der Bildungsminister bezeichnete die Freischaltung als historischen Schritt hin zu einem rechtssicheren, produktiven KI-Einsatz im Unterricht. telli wurde von der KMK als gemeinsames Schulportal-Werkzeug entwickelt und steht seit dem Rollout auch für andere Bundesländer bereit.</p>
+  <a class="source-link" href="https://www.news4teachers.de/2026/04/bildungsminister-sieht-historischen-schritt-ki-chatbot-fuer-den-unterricht-freigeschaltet/" target="_blank" style="color:#6c63ff;">→ news4teachers.de</a>
+</section>
+
+<!-- ─────────────────────────────────────────── -->
+<!-- 02 · MIDNIGHT STAT · KI im Unterricht -->
+<!-- ─────────────────────────────────────────── -->
+<section id="s2">
+  <div class="slot-label">02 · KI im Unterricht — Lehrerpraxis</div>
+  <div class="relevant-badge">▲ Direkt relevant für dich</div>
+  <div class="inner">
+    <div>
+      <h2 class="headline">Jede zweite Lehrkraft nutzt KI — aber 88&nbsp;% kennen die Regeln dazu kaum</h2>
+      <p class="deck">Eine aktuelle Erhebung unter deutschen Lehrkräften zeigt ein gespaltenes Bild: 51 Prozent haben KI-Tools wie ChatGPT oder SchulKI bereits schulisch genutzt, doch 88 Prozent fühlen sich bei Datenschutz und rechtlichen Vorgaben nicht sicher. Besonders kritisch: Bei Prüfungssituationen wissen nur 16 Prozent, was erlaubt ist. Das System lässt Lehrkräfte im Stich — während die Nutzung längst läuft.</p>
+      <a class="source-link" href="https://unterrichten.digital/2026/01/05/ki-schule-statistik-lehrer/" target="_blank" style="color:#90e0ef;">→ unterrichten.digital</a>
+    </div>
+    <div class="stat-block">
+      <div>
+        <div class="big-stat">88%</div>
+        <div class="stat-label">kennen KI-Regelungen kaum</div>
+      </div>
+      <div>
+        <div class="big-stat" style="font-size: clamp(80px,13vw,180px); color: rgba(144,224,239,0.5);">51%</div>
+        <div class="stat-label">haben KI schon genutzt</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────── -->
+<!-- 03 · ROSE ALARM STAMP · Schulleitung -->
+<!-- ─────────────────────────────────────────── -->
+<section id="s3">
+  <div class="stamp">
+    <div class="stamp-text">Ausge&shy;zeichnet<br>April<br>2026</div>
+  </div>
+  <div class="slot-label">03 · Schulleitung &amp; Schulentwicklung</div>
+  <div class="relevant-badge">▲ Direkt relevant für dich</div>
+  <h2 class="headline">Käthe-Kollwitz-Gymnasium Berlin überzeugt die Jury mit einem vollständigen KI-Gesamtkonzept</h2>
+  <p class="deck" style="max-width:660px;">„Own your power" — unter diesem Motto hat das Berliner Gymnasium ein schulweites KI-Konzept entwickelt, das Lehrende, Lernende und Schulleitung einbezieht. Es umfasst Unterrichtsintegration, Fortbildungsformate und klare Nutzungsregeln für alle Klassenstufen. Die Auszeichnung im April-Newsletter des Berliner Senats macht die Schule zum Referenzmodell für andere Schulleitungen in Deutschland.</p>
+  <a class="source-link" href="https://www.berlin.de/sen/bjf/service/newsletter/newsletter.1639137.php" target="_blank" style="color:#e63946;">→ berlin.de Senatsverwaltung</a>
+</section>
+
+<!-- ─────────────────────────────────────────── -->
+<!-- 04 · TERMINAL · Datenschutz -->
+<!-- ─────────────────────────────────────────── -->
+<section id="s4">
+  <div class="slot-label">04 · Datenschutz &amp; DSGVO</div>
+  <div class="relevant-badge" style="background:#58a6ff;">▲ Direkt relevant für dich</div>
+  <div class="terminal-box">
+    <div class="prompt-line">$ schulleitung@deutschland:~# status --ki-datenschutz --deadline</div>
+    <h2 class="terminal-headline">Ab 2. August 2026:<br>EU AI Act schärft<br>KI-Pflichten an Schulen</h2>
+    <p class="terminal-body">
+      Der Countdown läuft. Ab dem 2. August 2026 treten die Hochrisiko-Bestimmungen des EU AI Acts in Kraft — und Schulen sind betroffen. KI-Systeme zur Leistungsbewertung fallen dann unter strenge Anforderungen. Bis dahin gilt DSGVO-only — aber die Vorbereitung muss jetzt starten. Besonders wichtig: die EU-weite Pflicht zur „KI-Literacy" für Lehrkräfte und Schüler ist bereits seit Februar 2025 in Kraft.<span class="cursor"></span>
+    </p>
+    <a class="source-link" href="https://unterrichten.digital/2025/05/09/ki-schule-datenschutz-dsgvo-ki-verordnung-eu-ai-act/" target="_blank">→ unterrichten.digital: KI-Verordnung &amp; Datenschutz</a>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────── -->
+<!-- 05 · ACADEMIC DROP CAP · Bildungspolitik -->
+<!-- ─────────────────────────────────────────── -->
+<section id="s5">
+  <div class="slot-label">05 · Bildungspolitik &amp; Prüfungskultur</div>
+  <div class="relevant-badge" style="background:#c77b34;">▲ Direkt relevant für dich</div>
+  <div class="dropcap-wrap">
+    <span class="drop-letter">P</span>
+    <h2 class="headline">rozess schlägt Produkt: KMK fordert grundlegenden Wandel in der Prüfungskultur</h2>
+    <p class="deck">Die Kultusministerkonferenz hat ihre Handlungsempfehlungen zu KI in schulischen Bildungsprozessen verabschiedet. Kernbotschaft: Im KI-Zeitalter muss die Leistungsbewertung den Entstehungsprozess stärker in den Fokus rücken — nicht das fertige Produkt. Gleichzeitig sollen neue Prüfungsformate KI-Kompetenzen explizit berücksichtigen. Für Schulen bedeutet das: Prüfungsdesign neu denken — und zwar bald.</p>
+    <a class="source-link" href="https://deutsches-schulportal.de/expertenstimmen/ki-und-schule-wie-sich-pruefungsaufgaben-jetzt-veraendern-muessen/" target="_blank" style="color:#c77b34;">→ Deutsches Schulportal: Prüfungsaufgaben im Wandel</a>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────── -->
+<!-- 06 · BIG STATS FINISH · Ethik / Gesellschaft -->
+<!-- ─────────────────────────────────────────── -->
+<section id="s6">
+  <div class="slot-label">06 · Ethik &amp; Gesellschaft im KI-Zeitalter</div>
+  <div class="relevant-badge">▲ Direkt relevant für dich</div>
+  <div class="inner">
+    <div>
+      <h2 class="headline">KI &amp; Demokratie: Bundesministerium fördert Forschung zu Rechtsstaat, Partizipation und Nachhaltigkeit</h2>
+      <p class="deck">Das BMFTR fördert 2026 das Forschungsprojekt „AI and Democracy: Rule of Law, Participation, Sustainability" — ein Zeichen, dass KI-Ethik nicht länger nur akademisch ist, sondern politische Priorität wird. Die UNESCO-Empfehlungen zur KI-Ethik fließen ein: Privatsphäre, Transparenz, Nicht-Diskriminierung. Für Schulen heißt das: demokratische Mündigkeit als KI-Bildungsziel.</p>
+      <a class="source-link" href="https://www.fu-berlin.de/forschung/service/foerderung/newsletter/2026-02-23/bmftr/index.html" target="_blank" style="color:#e94560;">→ Freie Universität Berlin / BMFTR</a>
+    </div>
+    <div class="stats-col">
+      <div class="stat-item">
+        <div class="stat-num">2026</div>
+        <div class="stat-desc">Startjahr des Forschungsprojekts</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-desc">Säulen: Rechtsstaat · Partizipation · Nachhaltigkeit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────── -->
+<!-- 07 · DARK ACCENT LINE · Wissenschaft -->
+<!-- ─────────────────────────────────────────── -->
+<section id="s7">
+  <div class="ghost-num">07</div>
+  <div class="inner">
+    <div class="slot-label">07 · Wissenschaft &amp; Forschung</div>
+    <h2 class="headline">DLR startet SOLIS100: 100 Tage Isolation — für die Medizin der Zukunft im All</h2>
+    <p class="deck">Das Deutsche Zentrum für Luft- und Raumfahrt (DLR) startet im Frühjahr 2026 die Isolationsstudie SOLIS100 und die Bettliegestudie SMC3 am :envihab in Köln. Freiwillige verbringen 100 Tage in abgeschlossener Umgebung oder 60 Tage in Bettkipplage, um die Auswirkungen auf Gesundheit, Leistung und psychisches Wohlbefinden zu messen. Die Erkenntnisse sollen nicht nur Astronauten nützen — sondern auch der Medizin auf der Erde.</p>
+    <a class="source-link" href="https://www.dlr.de/de/aktuelles/nachrichten/2025/jetzt-bewerben-fuer-isolationsstudie-oder-bettruhestudie" target="_blank" style="color:#ff9a3c;">→ dlr.de</a>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────── -->
+<!-- 08 · BRIGHT LIME · Good News Umwelt -->
+<!-- ─────────────────────────────────────────── -->
+<section id="s8">
+  <div class="ghost-num">08</div>
+  <div class="inner">
+    <div class="slot-label">08 · Good News — Umwelt &amp; Energie</div>
+    <h2 class="headline">Meilenstein: Erneuerbare decken erstmals mehr als die Hälfte des deutschen Stroms</h2>
+    <p class="deck" style="color:rgba(0,0,0,0.72)">Im ersten Quartal 2026 stammten 53 Prozent des deutschen Stroms aus erneuerbaren Quellen — der erste Quartals-Durchschnitt über der 50-Prozent-Marke. Dazu kam am 8. April ein neuer Solar-Tagesrekord mit 426 Gigawatt. Wind legte 27 Prozent gegenüber dem Vorjahr zu. Das Klimaschutzprogramm 2026 sieht zusätzlich 2.000 neue Windkraftausschreibungen und 8 Milliarden Euro für Klimamaßnahmen vor.</p>
+    <a class="source-link" href="https://www.bundesumweltministerium.de/pressemitteilung/klimaschutzprogramm-2026-macht-deutschland-moderner-und-unabhaengiger-von-oel-und-gas" target="_blank" style="color:#1a1a2e;">→ Bundesumweltministerium</a>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────── -->
+<!-- 09 · BROADSHEET · Good News Wirtschaft -->
+<!-- ─────────────────────────────────────────── -->
+<section id="s9">
+  <div class="ghost-num">09</div>
+  <div class="inner">
+    <div class="slot-label">09 · Good News — Wirtschaft &amp; Gesellschaft</div>
+    <h2 class="headline"><em>E-Autos überholen erstmals die Benziner: +66&nbsp;% Neuzulassungen im März 2026</em></h2>
+    <p class="deck">Im März 2026 wurden 70.663 reine Elektroautos neu zugelassen — ein Plus von 66 Prozent gegenüber dem Vorjahr. Erstmals überstieg der Elektro-Anteil (24 Prozent) den der Benziner. Der Treiber: eine neue sozial gestaffelte Kaufprämie, die E-Mobilität auch für mittlere Einkommensgruppen attraktiv macht. Für Kommunen und Schulträger ein Signal: Elektrifizierung der Schulbusflotte rückt näher.</p>
+    <a class="source-link" href="https://www.sonntagsblatt.de/artikel/gesellschaft/das-aendert-sich-2026-energie-miete-auto-verbraucherschutz-im-ueberblick" target="_blank" style="color:#8B4513;">→ sonntagsblatt.de</a>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────── -->
+<!-- 10 · WARM FOREST · Wildcard -->
+<!-- ─────────────────────────────────────────── -->
+<section id="s10">
+  <div class="circle1"></div>
+  <div class="circle2"></div>
+  <div class="circle3"></div>
+  <div class="inner">
+    <div class="slot-label">10 · Wildcard</div>
+    <h2 class="headline">Wissenschaftsjahr 2026: Deutschland macht „Medizin der Zukunft" erlebbar</h2>
+    <p class="deck">Das Bundesministerium für Forschung, Technologie und Raumfahrt (BMFTR) hat 2026 unter das Thema „Medizin der Zukunft" gestellt. Schulen, Bildungseinrichtungen und die breite Öffentlichkeit sollen über gezielte Kommunikationsprojekte an aktuelle Forschung herangeführt werden. Für den Unterricht bietet das ideale Ankerpunkte: KI in der Diagnose, personalisierte Medizin, Raumfahrtmedizin — alles verknüpfbar mit Ethik-Debatten und MINT-Bildung.</p>
+    <a class="source-link" href="https://www.wissenschaftsjahr.de/2026" target="_blank" style="color:#95d5b2;">→ wissenschaftsjahr.de/2026</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Good Morning Magazine</strong> · Timo Off · 24. April 2026<br>
+  Generiert von Claude · Quellen: news4teachers.de, unterrichten.digital, berlin.de, kmk.org, dlr.de, bundesumweltministerium.de, wissenschaftsjahr.de<br>
+  <br>
+  <span style="opacity:0.5; font-size:11px;">Die Inhalte basieren auf Webnachrichten und sind redaktionell komprimiert. Alle Verlinkungen führen zu den Originalquellen.</span>
+</footer>
+
+</body>
+</html>
