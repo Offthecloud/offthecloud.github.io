@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Morning — 29. April 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:#111;line-height:1.55;-webkit-font-smoothing:antialiased}
+.relevant-badge{display:inline-flex;align-items:center;gap:6px;background:#e63946;color:#fff;font-family:'Inter',sans-serif;font-weight:800;font-size:11px;letter-spacing:.18em;padding:7px 14px;border-radius:2px;text-transform:uppercase;margin-bottom:18px}
+.story{min-height:100vh;padding:clamp(32px,6vw,90px) clamp(24px,6vw,90px);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.story-num{font-family:'Fraunces',serif;font-weight:900;line-height:.85}
+.headline{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(42px,6vw,96px);line-height:1.02;letter-spacing:-.02em;margin-bottom:24px}
+.deck{font-family:'Inter',sans-serif;font-weight:400;font-size:clamp(18px,2vw,24px);line-height:1.55;max-width:780px;margin-bottom:22px}
+.body p{font-size:clamp(16px,1.4vw,18px);line-height:1.65;max-width:720px;margin-bottom:16px}
+.kicker{font-family:'Inter',sans-serif;font-weight:800;font-size:13px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:18px;display:block}
+.story-meta{font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.05em;margin-top:28px;opacity:.7}
+.story-meta a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.ghost-num{position:absolute;font-family:'Fraunces',serif;font-weight:900;line-height:.7;pointer-events:none;user-select:none}
+
+/* MASTHEAD */
+.masthead{background:#0b0b0c;color:#fff;padding:clamp(48px,8vw,110px) clamp(24px,6vw,90px) clamp(36px,5vw,70px);position:relative;overflow:hidden}
+.masthead::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(108,99,255,.18),transparent 60%)}
+.masthead-inner{position:relative;z-index:2}
+.masthead-rule{height:1px;background:#fff;opacity:.25;margin-bottom:32px}
+.masthead-eyebrow{font-family:'Inter',sans-serif;font-weight:600;letter-spacing:.32em;font-size:13px;text-transform:uppercase;opacity:.7;margin-bottom:18px}
+.masthead-title{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(64px,10vw,160px);line-height:.92;letter-spacing:-.03em;margin-bottom:20px}
+.masthead-title em{font-style:italic;color:#a5a4ff;font-weight:900}
+.masthead-meta{display:flex;gap:32px;flex-wrap:wrap;align-items:baseline;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;margin-top:24px}
+.masthead-meta strong{color:#fff;letter-spacing:.18em}
+
+/* TOC */
+.toc{background:#fff;border-bottom:1px solid #e5e5e5;padding:18px clamp(24px,5vw,60px);position:sticky;top:0;z-index:50}
+.toc-inner{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.toc-label{font-family:'Inter',sans-serif;font-weight:800;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#666;margin-right:8px}
+.toc a{font-family:'Inter',sans-serif;font-size:13px;color:#222;text-decoration:none;font-weight:500;padding:6px 10px;border-radius:3px;transition:background .15s}
+.toc a:hover{background:#f1f1f1}
+.toc a.relevant{color:#e63946;font-weight:700}
+.toc a .num{font-family:'Fraunces',serif;font-weight:900;margin-right:4px;opacity:.55}
+
+/* THEME 1 — HERO DARK */
+.t1{background:#070810;color:#fff}
+.t1 .ghost-num{top:-30px;right:-30px;font-size:clamp(360px,55vw,820px);color:#fff;opacity:.04}
+.t1 .kicker{color:#a5a4ff}
+.t1 .accent-line{display:block;width:80px;height:5px;background:#6c63ff;margin-bottom:30px}
+.t1 .headline em{color:#a5a4ff;font-style:italic}
+.t1 .body p{color:rgba(255,255,255,.78)}
+.t1 .story-meta{color:#a5a4ff;opacity:.85}
+
+/* THEME 2 — MIDNIGHT STAT */
+.t2{background:#03045e;color:#caf0f8}
+.t2 .grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.t2 .grid-r{text-align:right}
+.t2 .big-stat{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(120px,20vw,260px);color:#90e0ef;line-height:.85;letter-spacing:-.04em}
+.t2 .big-stat-sub{font-family:'Inter',sans-serif;font-weight:600;color:#caf0f8;font-size:clamp(15px,1.4vw,18px);margin-top:14px;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+.t2 .kicker{color:#90e0ef}
+.t2 .body p{color:#caf0f8;opacity:.86}
+@media(max-width:760px){.t2 .grid{grid-template-columns:1fr;gap:30px}.t2 .grid-r{text-align:left}}
+
+/* THEME 3 — ROSE ALARM STAMP */
+.t3{background:#fff0f3;color:#1d1d1d}
+.t3 .stamp{position:absolute;top:54px;right:54px;width:230px;height:230px;border:8px solid #e63946;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;transform:rotate(-12deg);font-family:'Inter',sans-serif;font-weight:900;color:#e63946;letter-spacing:.18em;font-size:18px;line-height:1.15;text-transform:uppercase;padding:24px}
+.t3 .kicker{color:#e63946}
+.t3 .headline em{color:#e63946;font-style:italic}
+.t3 .body p{color:#3a2a2c}
+@media(max-width:720px){.t3 .stamp{width:160px;height:160px;font-size:13px;top:30px;right:30px;border-width:5px}}
+
+/* THEME 4 — TERMINAL */
+.t4{background:#0d1117;color:#39d353;font-family:'JetBrains Mono',monospace}
+.t4 .term-prompt{color:#58a6ff;font-family:'JetBrains Mono',monospace;font-size:14px;margin-bottom:18px;letter-spacing:.05em}
+.t4 .headline{font-family:'JetBrains Mono',monospace;font-weight:700;color:#39d353;font-size:clamp(38px,5vw,72px);letter-spacing:-.01em}
+.t4 .deck{font-family:'JetBrains Mono',monospace;color:#39d353}
+.t4 .body p{font-family:'JetBrains Mono',monospace;color:#39d353;opacity:.86;font-size:14px;line-height:1.75}
+.t4 .kicker{color:#58a6ff;font-family:'JetBrains Mono',monospace;font-weight:700}
+.t4 .relevant-badge{font-family:'JetBrains Mono',monospace}
+.t4 .blink{display:inline-block;width:.55em;height:1.05em;background:#39d353;margin-left:6px;vertical-align:-3px;animation:blink 1.05s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.t4 .story-meta{color:#58a6ff;opacity:.85}
+
+/* THEME 5 — ACADEMIC DROP CAP */
+.t5{background:#fdf6e3;color:#3a2e1f;position:relative}
+.t5 .dropcap{float:left;font-family:'Fraunces',serif;font-weight:900;font-size:clamp(160px,25vw,340px);color:#c77b34;line-height:.78;margin:6px 24px -10px 0;font-feature-settings:'smcp'}
+.t5 .kicker{color:#c77b34;letter-spacing:.28em}
+.t5 .headline{font-family:'Fraunces',serif;font-style:italic;font-weight:900}
+.t5 .body p{color:#5a4329;font-size:clamp(17px,1.5vw,19px)}
+.t5 .rule{height:2px;background:#c77b34;width:120px;margin:10px 0 26px}
+
+/* THEME 6 — BIG STATS FINISH */
+.t6{background:#1a1a2e;color:#f0f0f0}
+.t6 .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+.t6 .stat{font-family:'Fraunces',serif;font-weight:900;color:#e94560;line-height:.85;letter-spacing:-.03em}
+.t6 .stat-1{font-size:clamp(110px,16vw,210px);margin-bottom:8px}
+.t6 .stat-2{font-size:clamp(80px,12vw,160px);margin-top:36px}
+.t6 .stat-sub{font-family:'Inter',sans-serif;font-weight:600;color:#f0f0f0;font-size:14px;letter-spacing:.16em;text-transform:uppercase;opacity:.78}
+.t6 .kicker{color:#e94560}
+.t6 .body p{color:rgba(240,240,240,.78)}
+@media(max-width:760px){.t6 .grid{grid-template-columns:1fr;gap:36px}}
+
+/* THEME 7 — DARK ACCENT LINE */
+.t7{background:#0f0e17;color:#fffffe;border-left:8px solid;border-image:linear-gradient(180deg,#ff8906 0%,#f25f4c 50%,#e53170 100%) 1}
+.t7 .ghost-num{bottom:-90px;right:-30px;font-size:clamp(320px,48vw,720px);color:#fff;opacity:.045}
+.t7 .kicker{color:#ff8906}
+.t7 .headline em{background:linear-gradient(90deg,#ff8906,#e53170);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic}
+.t7 .body p{color:rgba(255,255,254,.78)}
+
+/* THEME 8 — BRIGHT LIME */
+.t8{background:#e9ff70;color:#0c1208;position:relative}
+.t8 .ghost-num{top:-20px;right:30px;font-size:clamp(300px,46vw,640px);color:#0c1208;opacity:.08}
+.t8 .kicker{color:#1a3604}
+.t8 .body p{color:#0c1208}
+.t8 .rule{height:3px;background:#0c1208;width:80px;margin-bottom:24px}
+
+/* THEME 9 — BROADSHEET */
+.t9{background:#f5f0e8;color:#1d1a16;position:relative}
+.t9 .top-rules{margin-bottom:36px}
+.t9 .top-rules .thick{height:5px;background:#1d1a16}
+.t9 .top-rules .thin{height:1px;background:#1d1a16;margin-top:5px}
+.t9 .ghost-num{bottom:-60px;right:-10px;font-size:clamp(300px,46vw,640px);color:#1d1a16;opacity:.05}
+.t9 .kicker{color:#7a3e26;letter-spacing:.28em}
+.t9 .headline{font-family:'Fraunces',serif;font-style:italic;font-weight:900;color:#1d1a16}
+.t9 .body p{color:#3a342d;font-size:clamp(17px,1.5vw,19px);columns:2;column-gap:36px;max-width:920px}
+@media(max-width:760px){.t9 .body p{columns:1}}
+
+/* THEME 10 — WARM FOREST */
+.t10{background:linear-gradient(160deg,#2d6a4f 0%,#1b4332 60%,#081c15 100%);color:#fefae0;position:relative;overflow:hidden}
+.t10 .circle{position:absolute;border-radius:50%;border:1.5px solid rgba(254,250,224,.18)}
+.t10 .c1{width:680px;height:680px;top:-260px;right:-180px}
+.t10 .c2{width:300px;height:300px;bottom:-90px;left:-90px;border-color:rgba(254,250,224,.12)}
+.t10 .c3{width:140px;height:140px;top:48%;right:14%;background:rgba(254,250,224,.04);border:none}
+.t10 .kicker{color:#95d5b2}
+.t10 .headline em{color:#95d5b2;font-style:italic}
+.t10 .body p{color:rgba(254,250,224,.85)}
+.t10 .body{position:relative;z-index:2}
+
+/* FOOTER */
+.footer{background:#0b0b0c;color:#fff;padding:clamp(36px,5vw,72px) clamp(24px,6vw,90px);text-align:center}
+.footer-rule{height:1px;background:#fff;opacity:.2;margin-bottom:30px}
+.footer-title{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(28px,4vw,52px);margin-bottom:14px;line-height:1}
+.footer-meta{font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.18em;text-transform:uppercase;opacity:.65}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-rule"></div>
+    <div class="masthead-eyebrow">Good Morning · Editorial Magazine · Tagesausgabe</div>
+    <h1 class="masthead-title">Good <em>Morning</em></h1>
+    <div class="masthead-meta">
+      <span><strong>Mittwoch</strong></span>
+      <span><strong>29. April 2026</strong></span>
+      <span><strong>10 Geschichten</strong></span>
+      <span><strong>für Timo</strong></span>
+    </div>
+  </div>
+</header>
+
+<!-- TOC -->
+<nav class="toc">
+  <div class="toc-inner">
+    <span class="toc-label">In dieser Ausgabe</span>
+    <a href="#s1" class="relevant"><span class="num">01</span>Modulsystem ohne Sitzenbleiben</a>
+    <a href="#s2" class="relevant"><span class="num">02</span>fobizz bleibt — Verlängerung in RLP</a>
+    <a href="#s3" class="relevant"><span class="num">03</span>Mensch im Zentrum</a>
+    <a href="#s4" class="relevant"><span class="num">04</span>Hochrisiko-KI ab August</a>
+    <a href="#s5" class="relevant"><span class="num">05</span>56 Dokumente, kaum Klarheit</a>
+    <a href="#s6" class="relevant"><span class="num">06</span>UNESCO-Empfehlung KI-Ethik</a>
+    <a href="#s7"><span class="num">07</span>Hightech-Agenda startet</a>
+    <a href="#s8"><span class="num">08</span>Die Mischwald-Wende</a>
+    <a href="#s9"><span class="num">09</span>Schule der Zukunft: Team statt Solo</a>
+    <a href="#s10" class="relevant"><span class="num">10</span>„Own your power" — der KI-Schulpreis</a>
+  </div>
+</nav>
+
+<!-- 1. SCHULLEITUNG / LEADERSHIP — HERO DARK -->
+<section class="story t1" id="s1">
+  <div class="ghost-num">01</div>
+  <div style="position:relative;z-index:2;max-width:1100px">
+    <div class="relevant-badge">▲ Direkt relevant für dich</div>
+    <span class="kicker">Schulleitung · Schulentwicklung</span>
+    <span class="accent-line"></span>
+    <h2 class="headline">Gymnasium als <em>Modulsystem</em> — und Lehrkräfte als Lerncoaches</h2>
+    <p class="deck">Der Deutsche Lehrerverband hat in dieser Woche ein umfassendes Reformkonzept vorgelegt: Schluss mit dem klassischen Klassenverband, Schluss mit dem Sitzenbleiben — stattdessen Module, Lerncoaches und neue Rollen für Schulleitung.</p>
+    <div class="body">
+      <p>Der Vorstoß zielt auf das Gymnasium der nächsten Generation: Lernen in Modulen statt in starren Jahrgangsstufen, individuelle Lernwege statt Versetzungsdrohung, Lehrkräfte als Begleiter:innen statt als reine Wissensvermittler. Für Schulleitungen heißt das: ganz neue Steuerungs-, Personal- und Organisationslogiken denken.</p>
+      <p>Die Reformidee fällt in eine Phase, in der auch der Schulleitungsverband für mehr „pädagogische Professionalität" wirbt — und in der KI ohnehin zwingt, Lernarrangements neu zu durchdenken. Ein Konzept, das Führungskräfte unbedingt lesen sollten, bevor andere die Debatte besetzen.</p>
+    </div>
+    <div class="story-meta">Quelle: <a href="https://www.news4teachers.de/2026/04/gymnasium-als-modulsystem-ohne-sitzenbleiben-lehrer-als-lerncoaches-lehrerverband-legt-umfassendes-reformkonzept-vor/comment-page-1/" target="_blank" rel="noopener">News4teachers · April 2026</a></div>
+  </div>
+</section>
+
+<!-- 2. KI-TOOL FÜR SCHULEN — MIDNIGHT STAT -->
+<section class="story t2" id="s2">
+  <div class="grid">
+    <div>
+      <div class="relevant-badge">▲ Direkt relevant für dich</div>
+      <span class="kicker">KI-Tool · Bundesländer</span>
+      <h2 class="headline">fobizz bleibt — Rheinland-Pfalz verlängert die Landeslizenz</h2>
+      <p class="deck">Während telli und SchulKI weiter ausgerollt werden, hat ein Bundesland Fakten geschaffen: Die im Sommer auslaufende fobizz-Lizenz wird verlängert. Lehrkräfte können also weiter mit dem Tool planen, das viele schon im Workflow haben.</p>
+      <div class="body">
+        <p>Hintergrund: Das Bildungsministerium Rheinland-Pfalz hat im Februar 2026 entschieden, die Landeslizenz für fobizz nicht auslaufen zu lassen. Damit bleibt für tausende Lehrkräfte das gewohnte Werkzeug erhalten — und parallel wächst die Tool-Vielfalt: telli (Bremen, Thüringen, Nordrhein-Westfalen), SchulKI (registrierungsfrei) und FieteAI buhlen um Praxis.</p>
+        <p>Für Schulleitungen relevant: Tool-Strategie heißt nicht mehr „eins für alle", sondern bewusst entscheiden, wo welches System pädagogisch und datenschutzrechtlich am besten passt — und das im Schulprogramm verankern.</p>
+      </div>
+    </div>
+    <div class="grid-r">
+      <div class="big-stat">+1 Jahr</div>
+      <div class="big-stat-sub">Landeslizenz fobizz Rheinland-Pfalz</div>
+    </div>
+  </div>
+  <div class="story-meta" style="margin-top:32px">Quellen: <a href="https://deutsches-schulportal.de/unterricht/fobizz-schulki-und-co-welche-ki-tools-koennen-schulen-nutzen/" target="_blank" rel="noopener">Deutsches Schulportal</a> · <a href="https://www.kommune21.de/k21-meldungen/ki-verstehen-mit-telli/" target="_blank" rel="noopener">Kommune21 · telli</a></div>
+</section>
+
+<!-- 3. KI IM UNTERRICHT — ROSE ALARM STAMP -->
+<section class="story t3" id="s3">
+  <div class="stamp">Mensch<br>im<br>Zentrum</div>
+  <div style="max-width:1000px">
+    <div class="relevant-badge">▲ Direkt relevant für dich</div>
+    <span class="kicker">Unterricht · Lehrerpraxis</span>
+    <h2 class="headline">Wenn KI <em>vieles übernimmt</em> — was bleibt dann pädagogisch?</h2>
+    <p class="deck">News4teachers stellt diese Woche eine Frage, die in jedem Lehrerzimmer mitgedacht werden sollte: Wie verändert KI das Lernen — und warum bleibt der Mensch trotzdem der entscheidende Faktor?</p>
+    <div class="body">
+      <p>Die Befundlage ist klar: 81 Prozent der Lehrkräfte mit KI-Erfahrung nutzen KI inzwischen zur Wissensvermittlung, 59 Prozent erklären KI selbst im Unterricht, 43 Prozent geben mit KI individuelles Feedback. KI entlastet — und wenn sie Routinearbeit übernimmt, entsteht Raum für Beziehung, pädagogisches Urteil und individuelle Lernwege.</p>
+      <p>Die Pointe: KI wird nicht zur Konkurrenz der Lehrkraft — sie wird zur Verstärkerin guter Pädagogik, sofern die Lehrkraft genau weiß, wo sie das Werkzeug einsetzt und wo sie es bewusst nicht nutzt. Eine Frage, die jedes Kollegium dieses Schuljahr noch beantworten sollte.</p>
+    </div>
+    <div class="story-meta">Quelle: <a href="https://www.news4teachers.de/2026/04/menschliches-lernen-im-zeitalter-von-ki-wie-ki-in-der-schule-lernen-veraendert-und-warum-der-mensch-im-zentrum-bleibt/" target="_blank" rel="noopener">News4teachers · April 2026</a></div>
+  </div>
+</section>
+
+<!-- 4. DATENSCHUTZ — TERMINAL -->
+<section class="story t4" id="s4">
+  <div style="max-width:1100px">
+    <div class="term-prompt">$ ./check_ki_compliance.sh --deadline=2026-08</div>
+    <div class="relevant-badge">▲ Direkt relevant für dich</div>
+    <span class="kicker">// Datenschutz · KI-VO · DSGVO</span>
+    <h2 class="headline">> Bewertung von Lernergebnissen = Hochrisiko-KI<span class="blink"></span></h2>
+    <p class="deck">In etwa 100 Tagen wird ernst: Ab August 2026 gelten Plattformen, die zur Bewertung von Lernergebnissen eingesetzt werden, nach EU-KI-Verordnung als „hochriskant". Schulen, die solche Tools betreiben, müssen Anforderungen erfüllen — sonst drohen Sanktionen.</p>
+    <div class="body">
+      <p>// Status quo: Hochrisiko-KI sind laut KI-VO Systeme, die in der allgemeinen oder beruflichen Bildung „zur Bewertung von Lernergebnissen" eingesetzt werden. Das betrifft Korrektur-Bots, automatisierte Diagnostik, Test-Auswertung — alles, was bewertet, einsortiert oder selektiert.</p>
+      <p>// To-do für Schulleitungen: Inventur aller eingesetzten KI-Tools, Risikoeinstufung dokumentieren, Datenschutzfolgenabschätzung mit dem Schulträger abstimmen — und das vor August. Parallel gilt seit Februar 2025 ohnehin die Pflicht, dass Lernende und Lehrkräfte über ausreichende KI-Kompetenz verfügen müssen.</p>
+      <p>// Pragma: Wer keine personenbezogenen Daten in KI-Systeme eingibt, ist nicht automatisch fein raus — die Hochrisiko-Logik richtet sich nach dem Zweck, nicht nach dem Input.</p>
+    </div>
+    <div class="story-meta">Quellen: <a href="https://www.bildungsblogs.de/ki-datenschutzkonform-schule-dsgvo-checkliste/" target="_blank" rel="noopener">DSGVO-Checkliste 2026</a> · <a href="https://unterrichten.digital/2025/05/09/ki-schule-datenschutz-dsgvo-ki-verordnung-eu-ai-act/" target="_blank" rel="noopener">Unterrichten Digital</a></div>
+  </div>
+</section>
+
+<!-- 5. BILDUNGSPOLITIK — ACADEMIC DROP CAP -->
+<section class="story t5" id="s5">
+  <div style="max-width:1180px">
+    <div class="relevant-badge">▲ Direkt relevant für dich</div>
+    <span class="kicker">Bildungspolitik · Regulierung</span>
+    <h2 class="headline">56 Dokumente, ein Regulierungsdschungel — und nur jede dritte Lehrkraft fühlt sich gut informiert.</h2>
+    <div class="rule"></div>
+    <div class="body">
+      <p><span class="dropcap">5</span>6 Dokumente. So viele rechtliche Vorgaben, Erlasse, Handreichungen und Empfehlungen zum Thema KI an Schulen haben Forschende inzwischen gezählt. Trotzdem fühlen sich nur 32 Prozent der Lehrkräfte gut oder sehr gut informiert, 42 Prozent „weniger gut", und 24 Prozent ausdrücklich schlecht.</p>
+      <p>News4teachers spricht von einem „Regulierungsdschungel" — und der Befund passt zu den 88 Prozent Lehrkräften, die angeben, sich bislang kaum mit KI-Regelungen befasst zu haben. Die Kultusministerkonferenz hat zwar Handlungsempfehlungen verabschiedet, doch zwischen KMK-Beschluss und Praxis im Klassenraum klafft eine Lücke, die Schulleitungen aktiv schließen müssen.</p>
+      <p>Konsequenz für die Schulpraxis: Statt auf den nächsten Erlass zu warten, lohnt es sich, das eigene Schul-Ja/Nein-Raster für KI-Anwendungen jetzt zu schärfen — kompakt, schriftlich, im Kollegium beschlossen.</p>
+    </div>
+    <div class="story-meta">Quelle: <a href="https://www.news4teachers.de/2026/03/orientierungslos-im-regulierungsdschungel-wie-lehrkraefte-mit-ki-in-der-schulischen-praxis-alleingelassen-werdeen/" target="_blank" rel="noopener">News4teachers · März 2026</a></div>
+  </div>
+</section>
+
+<!-- 6. ETHIK / MENSCHLICHKEIT — BIG STATS FINISH -->
+<section class="story t6" id="s6">
+  <div class="grid">
+    <div>
+      <div class="relevant-badge">▲ Direkt relevant für dich</div>
+      <span class="kicker">Ethik · Menschlichkeit</span>
+      <h2 class="headline">11 Gestaltungsfelder, 193 Staaten — und ein klarer Auftrag an Schulen.</h2>
+      <p class="deck">Die UNESCO-Empfehlung zur Ethik der Künstlichen Intelligenz wird 2026 im Bildungsbereich zum Referenzpunkt: Privatsphäre, Transparenz, Erklärbarkeit, Nicht-Diskriminierung — alles Werte, die im Klassenzimmer plötzlich sehr konkret werden.</p>
+      <div class="body">
+        <p>193 UNESCO-Mitgliedstaaten haben das Werteset gemeinsam beschlossen. Es führt elf Gestaltungsfelder von Forschung über Medien bis zur ethischen Folgenabschätzung an. Für Schulen heißt das: KI-Einsatz ist nicht nur ein technisches, sondern ein ethisches Schulentwicklungsthema.</p>
+        <p>In Augsburg fragte ein Symposium kürzlich: „Form KI unser menschliches Selbstverständnis?" — und legte den Finger in genau die Wunde, die jede Schulleitung kennt: Wenn Maschinen schreiben, bewerten und beraten — was bleibt der Mensch?</p>
+      </div>
+    </div>
+    <div>
+      <div class="stat stat-1">11</div>
+      <div class="stat-sub">UNESCO-Gestaltungsfelder<br>für ethische KI</div>
+      <div class="stat stat-2">193</div>
+      <div class="stat-sub">Mitgliedstaaten<br>haben mitgezeichnet</div>
+    </div>
+  </div>
+  <div class="story-meta" style="margin-top:32px">Quelle: <a href="https://www.unesco.de/themen/ethik-neuer-technologien/kuenstliche-intelligenz/unesco-empfehlung-zur-ethik-der-ki/" target="_blank" rel="noopener">Deutsche UNESCO-Kommission</a></div>
+</section>
+
+<!-- 7. WISSENSCHAFT / FORSCHUNG — DARK ACCENT LINE -->
+<section class="story t7" id="s7">
+  <div class="ghost-num">07</div>
+  <div style="position:relative;z-index:2;max-width:1100px">
+    <span class="kicker">Forschung · Hightech-Agenda</span>
+    <h2 class="headline">Quantum-Satellit, Fusion, „Go-Bio next" — Deutschland zündet die <em>Flaggschiffe</em>.</h2>
+    <p class="deck">Forschungsministerin Dorothee Bär hat in der Regierungsbefragung am 22. April im Bundestag die Hightech-Agenda mit „Raketengeschwindigkeit" gestartet. Drei „Flaggschiffe" wurden gleichzeitig auf Spur gebracht.</p>
+    <div class="body">
+      <p>Im Zentrum stehen sechs Schlüsseltechnologien: Künstliche Intelligenz, Quantentechnologien, Mikroelektronik, Biotechnologie, Fusion sowie klimaneutrale Energie- und Mobilitätstechnologie. Die drei jetzt gestarteten Flaggschiffe sind der Quanten-Forschungssatellit, der Fusion Action Plan und die Biotech-Gründungsinitiative „Go-Bio next".</p>
+      <p>Im Mai folgen die ersten „Hightech Days". Die Botschaft: Deutschland soll spürbar erleben, was Hightech im Alltag verändert — von Medizin über Industrie bis ins Klassenzimmer.</p>
+    </div>
+    <div class="story-meta">Quellen: <a href="https://www.bundestag.de/dokumente/textarchiv/2026/kw17-de-regierungsbefragung-1145268" target="_blank" rel="noopener">Deutscher Bundestag · 22.04.2026</a> · <a href="https://www.bmftr.bund.de/SharedDocs/Kurzmeldungen/DE/2026/04/hannovermesse.html" target="_blank" rel="noopener">BMFTR · Hannover Messe</a></div>
+  </div>
+</section>
+
+<!-- 8. UMWELT / ENERGIE — BRIGHT LIME -->
+<section class="story t8" id="s8">
+  <div class="ghost-num">08</div>
+  <div style="position:relative;z-index:2;max-width:1100px">
+    <span class="kicker">Umwelt · Wald · Good News</span>
+    <div class="rule"></div>
+    <h2 class="headline">Die Mischwald-Wende: 315.000 Hektar Laubbäume mehr als 2002.</h2>
+    <p class="deck">Zum Tag des Baumes am 23. April meldet das Bundesumweltministerium einen guten Trend: Der Anteil der Laubbäume in Deutschlands Wäldern ist seit 2002 von 36 auf 43 Prozent gestiegen. Mehr Mischwald heißt: stabilere Ökosysteme.</p>
+    <div class="body">
+      <p>Die Zahlen kommen nicht zufällig: 900.000 Hektar Wald sind seit 2017 durch Trockenheit und Schädlinge geschwächt. Mischwälder verteilen das Risiko — sie sind robuster gegen Hitze, Trockenheit und Borkenkäfer. Auch Totholz, Biotopbäume und strukturelle Vielfalt nehmen zu.</p>
+      <p>Hoffnungsvolles Detail: Im Görlitzer Oppach pflanzten in dieser Woche zwei Schulklassen gemeinsam mit der Klimaschutzorganisation ForTomorrow neuen Mischwald — Bildung, die im Boden Wurzeln schlägt.</p>
+    </div>
+    <div class="story-meta">Quellen: <a href="https://news.netpro.de/2026/04/tag-des-baumes-2026-zukunft-waechst-nicht-von-allein/" target="_blank" rel="noopener">Tag des Baumes 2026</a> · <a href="https://www.bundesumweltministerium.de/themen/naturschutz/waelder/nationale-waldschutzpolitik" target="_blank" rel="noopener">BMUKN · Waldschutzpolitik</a></div>
+  </div>
+</section>
+
+<!-- 9. SOZIALES / BILDUNGSWESEN — BROADSHEET -->
+<section class="story t9" id="s9">
+  <div class="ghost-num">09</div>
+  <div class="top-rules">
+    <div class="thick"></div>
+    <div class="thin"></div>
+  </div>
+  <div style="position:relative;z-index:2;max-width:1100px">
+    <span class="kicker">Schule der Zukunft · Soziales</span>
+    <h2 class="headline">„Unterricht ist anspruchsvoll — daher braucht man ein Team, um ihn richtig gut zu machen."</h2>
+    <div class="body">
+      <p>Die Bildungsdebatte verschiebt in dieser Woche den Fokus weg vom heroischen Einzelkämpfer hin zur Lehrer-Co-Praxis. News4teachers zitiert die Schule der Zukunft: Hochwertiger Unterricht entsteht nicht im Solo, sondern im Team — mit verteilten Rollen, geteilter Verantwortung und multiprofessionellen Strukturen. Diese Erkenntnis ist nicht neu, aber sie wird gerade laut. Lehrkräftegesundheit, Belastung durch Korrekturen, KI-Einführung — all das wirft die Frage auf, ob das alte Modell der Einzelverantwortung noch trägt.</p>
+      <p>Verteilte Führung, Co-Teaching, multiprofessionelle Teams: Das sind keine Modeworte mehr, sondern konkrete Stellschrauben für Schulen, die langfristig leistungsfähig bleiben wollen. Inklusion gilt im selben Atemzug nicht mehr als „Sozialprojekt für wenige", sondern als Qualitätsmerkmal eines leistungsfähigen Bildungssystems. Wer das im Schulprogramm formuliert, schafft die Grundlage für eine Schule, die Kinder und Personal gleichermaßen trägt.</p>
+    </div>
+    <div class="story-meta">Quellen: <a href="https://www.news4teachers.de/2026/04/schule-der-zukunft-unterricht-ist-anspruchsvoll-daher-braucht-man-ein-team-um-ihn-richtig-gut-zu-machen/" target="_blank" rel="noopener">News4teachers · April 2026</a> · <a href="https://www.news4teachers.de/2026/02/schule-der-zukunft-inklusion-ist-kein-sozialprojekt-fuer-wenige-sondern-ein-qualitaetsmerkmal-eines-leistungsfaehigen-bildungssystems/" target="_blank" rel="noopener">News4teachers · Inklusion</a></div>
+  </div>
+</section>
+
+<!-- 10. WILDCARD — KI-SCHULPREIS — WARM FOREST -->
+<section class="story t10" id="s10">
+  <div class="circle c1"></div>
+  <div class="circle c2"></div>
+  <div class="circle c3"></div>
+  <div class="body" style="max-width:1100px;margin:0">
+    <div class="relevant-badge">▲ Direkt relevant für dich</div>
+    <span class="kicker">Wildcard · KI-Schulpreis</span>
+    <h2 class="headline">„Own your power" — wie ein Berliner Gymnasium <em>KI ganzheitlich</em> denkt.</h2>
+    <p class="deck">Das Käthe-Kollwitz-Gymnasium in Berlin hat den 3. Platz beim KI-Schulpreis im Bereich „Gesamtkonzept" gewonnen. Was sie zeigen: KI in der Schule ist kein Tool-Projekt, sondern Schulentwicklung von Klasse 7 bis Abitur.</p>
+    <div style="max-width:760px">
+      <p>Das Konzept heißt „Own your power" und ist bewusst doppeldeutig: Schüler:innen sollen KI verstehen, hinterfragen, selbstbestimmt einsetzen — und dabei ihre eigene Wirksamkeit stärken. Vertikal: Zweitägige KI-Kompetenztage in Klasse 7 als Fundament, das in höheren Stufen vertieft wird. Horizontal: Verankerung in Fachunterricht und Projektlernen, plus eigenes KI-Lab.</p>
+      <p>Für Schulleitungen ist das Konzept Gold wert — weniger als Blaupause zum Kopieren, mehr als Beleg, dass ein systematischer, schulkulturell verankerter KI-Aufbau funktioniert. Die Berliner Senatsverwaltung hat das Konzept im April-Newsletter ausführlich vorgestellt — Lesetipp für die nächste Steuergruppensitzung.</p>
+    </div>
+    <div class="story-meta">Quellen: <a href="https://www.berlin.de/sen/bjf/service/newsletter/newsletter.1639137.php" target="_blank" rel="noopener">Berliner Senatsverwaltung · 4/2026</a> · <a href="https://www.telekom-stiftung.de/presse/gewinner-des-ki-schulpreises-2025-stehen-fest" target="_blank" rel="noopener">Telekom-Stiftung · KI-Schulpreis</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-rule"></div>
+  <div class="footer-title">Good Morning</div>
+  <div class="footer-meta">29. April 2026 · Editorial Magazine für Timo</div>
+</footer>
+
+</body>
+</html>
